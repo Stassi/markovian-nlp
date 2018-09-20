@@ -1,8 +1,9 @@
 import { expect } from 'chai';
+import main from '../src/main';
 
 // TODO: Replace debug test
-describe('strings', () => {
-  it('should be themselves', () => {
-    expect('test').to.be.a('string');
+describe('main', () => {
+  it('should return true', () => {
+    expect(main()).to.include({ test: true });
   });
 });
