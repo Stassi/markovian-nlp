@@ -32,8 +32,8 @@ describe('unigrams', () => {
   describe('#end', () => {
     it('to return end unigrams with count', () => {
       expect(end(sentence)).to.deep.include({
-        normal: 'last',
         count: 1,
+        normal: 'last',
       });
     });
   });
@@ -41,8 +41,8 @@ describe('unigrams', () => {
   describe('#start', () => {
     it('to return start unigrams with count', () => {
       expect(start(sentence)).to.deep.include({
-        normal: 'first',
         count: 1,
+        normal: 'first',
       });
     });
   });
