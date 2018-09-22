@@ -14,21 +14,40 @@ const distributions = pipe(
     unigrams,
   }),
   ({
-     bigrams: bigramsData,
-     unigrams: {
-       all: allUnigrams,
-       end: endUnigrams,
-       start: startUnigrams,
-     },
-   }) => reduce(
+    bigrams: bigramsData,
+    unigrams: {
+      end: endUnigrams,
+      start: startUnigrams,
+      ...props,
+    },
+  }) => ({
+    ...props,
+    endCount: unigramsDistribution(endUnigrams),
+    followingCounts: bigramsDistribution(bigramsData),
+    startCount: unigramsDistribution(startUnigrams),
+  }),
+  ({
+    followingCounts,
+    endCount,
+    startCount,
+    ...props,
+  }) => ({
+    ...props,
+    unigramCounts: unigram => ({
+      [unigram]: {
+        ...followingCounts(unigram),
+        _end: endCount(unigram),
+        _start: startCount(unigram),
+      },
+    }),
+  }),
+  ({
+    unigramCounts,
+    all: allUnigrams,
+  }) => reduce(
     (acc, unigram) => ({
       ...acc,
-      [unigram]: {
-        // TODO: Reduce duplication
-        ...bigramsDistribution(unigram)(bigramsData),
-        _end: unigramsDistribution(unigram)(endUnigrams),
-        _start: unigramsDistribution(unigram)(startUnigrams),
-      },
+      ...unigramCounts(unigram),
     }),
     {},
     allUnigrams,

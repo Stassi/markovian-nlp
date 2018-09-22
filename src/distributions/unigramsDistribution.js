@@ -4,13 +4,13 @@ import {
   propOr,
 } from 'ramda';
 
-const unigramsDistribution = unigram => endUnigrams => propOr(
+const unigramsDistribution = unigrams => unigram => propOr(
   0,
   'count',
   {
     ...find(
       propEq('normal', unigram),
-      endUnigrams,
+      unigrams,
     ),
   },
 );

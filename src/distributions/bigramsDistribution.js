@@ -27,7 +27,7 @@ const followingUnigramCounts = reduce(
   {},
 );
 
-const bigramsDistribution = precedingUnigram => pipe(
+const bigramsDistribution = bigrams => precedingUnigram => pipe(
   filter(
     propSatisfies(
       startsWith(`${precedingUnigram} `),
@@ -35,6 +35,6 @@ const bigramsDistribution = precedingUnigram => pipe(
     ),
   ),
   followingUnigramCounts,
-);
+)(bigrams);
 
 export default bigramsDistribution;
