@@ -27,10 +27,10 @@ const followingUnigramCounts = reduce(
   {},
 );
 
-const bigramsDistribution = startUnigram => pipe(
+const bigramsDistribution = precedingUnigram => pipe(
   filter(
     propSatisfies(
-      startsWith(`${startUnigram} `),
+      startsWith(`${precedingUnigram} `),
       'normal',
     ),
   ),
