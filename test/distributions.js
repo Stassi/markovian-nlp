@@ -4,7 +4,7 @@ import distributions from '../src/distributions';
 describe('#distributions', () => {
   const sentence = 'First the word, then the last. First, last. Sometimes the word.';
 
-  it('should return bigrams distribution with count', () => {
+  it('should return bigrams distribution', () => {
     expect(distributions(sentence)).to.deep.include({
       the: {
         last: 1,
