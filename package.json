@@ -5,6 +5,10 @@
   "license": "MIT",
   "repository": "github:Stassi/markovian-nlp",
   "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
+  "files": [
+    "/lib"
+  ],
+  "main": "./lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib -s",
     "test": "mocha --require @babel/register --require @babel/polyfill"
@@ -32,6 +36,5 @@
   "browserslist": [
     "defaults",
     "maintained node versions"
-  ],
-  "private": true
+  ]
 }
