@@ -6,6 +6,7 @@
   "repository": "github:Stassi/markovian-nlp",
   "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
   "scripts": {
+    "build": "babel src --out-dir lib -s",
     "test": "mocha --require @babel/register --require @babel/polyfill"
   },
   "dependencies": {
@@ -13,11 +14,13 @@
     "ramda": "^0.25.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
     "babel-eslint": "^9.0.0",
+    "babel-plugin-add-module-exports": "^1.0.0",
     "chai": "^4.1.2",
     "eslint": "^5.6.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -26,5 +29,9 @@
     "eslint-plugin-react": "^7.11.1",
     "mocha": "^5.2.0"
   },
+  "browserslist": [
+    "defaults",
+    "maintained node versions"
+  ],
   "private": true
 }
