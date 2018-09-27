@@ -8,8 +8,6 @@ import {
   toPairs,
 } from 'ramda';
 
-const chance = (seed = NaN) => new Chance(seed);
-
 const greaterThanZero = lt(0);
 const propGreaterThanZero = propSatisfies(greaterThanZero);
 const startgrams = propGreaterThanZero('_start');
@@ -28,8 +26,7 @@ const unseededStartgram = pipe(
       weights: [],
     },
   ),
-  ({ unigrams, weights }) => seed =>
-    chance(seed).weighted(unigrams, weights),
+  ({ unigrams, weights }) => seed => Chance(seed).weighted(unigrams, weights),
 );
 
 export default unseededStartgram;
