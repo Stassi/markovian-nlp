@@ -13,7 +13,7 @@ describe('markovSentences', () => {
       expect(startgram(3)).to.equal('three');
     });
 
-    it('should should return a nondeterministic string from distribution when NOT seeded', () => {
+    it('should return a nondeterministic string from distribution when NOT seeded', () => {
       expect(startgram()).to.be.a('string');
     });
   });
