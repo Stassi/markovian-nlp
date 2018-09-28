@@ -1,4 +1,3 @@
-import Chance from 'chance';
 import {
   filter,
   lt,
@@ -7,6 +6,7 @@ import {
   reduce,
   toPairs,
 } from 'ramda';
+import weightedRandom from './weightedRandom';
 
 const greaterThanZero = lt(0);
 const propGreaterThanZero = propSatisfies(greaterThanZero);
@@ -15,18 +15,19 @@ const filterStartgrams = filter(startgrams);
 
 const unseededStartgram = pipe(
   filterStartgrams,
+  // TODO: Reduce duplication
   toPairs,
   reduce(
-    ({ unigrams, weights }, [unigram, { _start: weight }]) => ({
-      unigrams: [...unigrams, unigram],
+    ({ values, weights }, [value, { _start: weight }]) => ({
+      values: [...values, value],
       weights: [...weights, weight],
     }),
     {
-      unigrams: [],
+      values: [],
       weights: [],
     },
   ),
-  ({ unigrams, weights }) => seed => Chance(seed).weighted(unigrams, weights),
+  weightedRandom,
 );
 
 export default unseededStartgram;

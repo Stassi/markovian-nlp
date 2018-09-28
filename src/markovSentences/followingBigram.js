@@ -6,6 +6,7 @@ import {
 import weightedRandom from './weightedRandom';
 
 const followingBigram = pipe(
+  // TODO: Reduce duplication
   toPairs,
   reduce(
     ({ values, weights }, [value, weight]) => ({
