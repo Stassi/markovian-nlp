@@ -1,5 +1,5 @@
 import Chance from 'chance';
 
-const evolveSeed = ({ seed }) => ({ seed: Chance(seed).integer() });
+const evolveSeed = seed => Chance(seed).integer();
 
 export default evolveSeed;
