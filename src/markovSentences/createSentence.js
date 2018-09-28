@@ -6,8 +6,8 @@ import {
   pipe,
   prop,
 } from 'ramda';
+import { evolveSeed } from '../random';
 import endOfSentence from './endOfSentence';
-import evolveSeed from '../evolveSeed';
 import followingBigram from './followingBigram';
 import unseededStartgram from './unseededStartgram';
 

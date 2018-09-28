@@ -3,7 +3,7 @@ import {
   reduce,
   toPairs,
 } from 'ramda';
-import weightedRandom from './weightedRandom';
+import { weightedRandom } from '../random';
 
 const followingBigram = pipe(
   // TODO: Reduce duplication
