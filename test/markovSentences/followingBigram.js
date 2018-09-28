@@ -7,6 +7,7 @@ describe('#followingBigram', () => {
     delta: 1,
   });
 
+  // TODO: Describe seeded/unseeded, prefer singular description
   it('should return deterministic values when provided known seeds', () => {
     expect(balanced(1)).to.equal('beta');
     expect(balanced(3)).to.equal('delta');

@@ -6,7 +6,7 @@ import {
   reduce,
   toPairs,
 } from 'ramda';
-import weightedRandom from './weightedRandom';
+import { weightedRandom } from '../random';
 
 const greaterThanZero = lt(0);
 const propGreaterThanZero = propSatisfies(greaterThanZero);

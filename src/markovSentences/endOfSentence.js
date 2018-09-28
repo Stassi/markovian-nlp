@@ -6,7 +6,7 @@ import {
   sum,
   values,
 } from 'ramda';
-import weightedRandom from './weightedRandom';
+import { weightedRandom } from '../random';
 
 const propOrZero = propOr(0);
 
