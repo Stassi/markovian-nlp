@@ -8,8 +8,7 @@ import {
   reduce,
   toPairs,
 } from 'ramda';
-import { weightedRandom } from '../random';
-import evolveSeedProp from './evolveSeedProp';
+import { evolveSeedProp, weightedRandom } from '../random';
 
 const omitStart = omit(['_start']);
 const mapOmitStart = map(omitStart);
