@@ -1,8 +1,6 @@
 import {
   filter,
   lt,
-  map,
-  omit,
   pipe,
   prop,
   propSatisfies,
@@ -20,13 +18,10 @@ const unseededStartgram = pipe(
   followingUnigram(startProp),
 );
 
-const omitStart = omit(['_start']);
-const mapOmitStart = map(omitStart);
-
 // TODO: Partial application
 const startgram = ({ distribution, seed }) => ({
+  distribution,
   seed,
-  distribution: mapOmitStart(distribution),
   startgram: unseededStartgram(distribution)(seed),
 });
 

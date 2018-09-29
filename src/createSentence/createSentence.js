@@ -1,8 +1,18 @@
-import { pipe } from 'ramda';
+import {
+  map,
+  omit,
+  pipe,
+} from 'ramda';
 import { evolveSeedProp } from '../random';
 import endOrExtendSentence from './endOrExtendSentence';
 import startgram from './startgram';
 import unigramDistribution from './unigramDistribution';
+
+const omitStart = omit(['_start']);
+const mapOmitStart = map(omitStart);
+
+const stripStartgramsDistribution = ({ distribution, ...props }) =>
+  ({ ...props, distribution: mapOmitStart(distribution) });
 
 const findUnigramDistribution = ({ distribution, ...props }) => ({
   ...props,
@@ -26,6 +36,7 @@ const startSentence = ({ startgram, ...props }) =>
 const createSentence = pipe(
   startgram,
   evolveSeedProp,
+  stripStartgramsDistribution,
   findUnigramDistribution,
   nextUnigramDistribution,
   startSentence,
