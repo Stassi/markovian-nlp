@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import endOfSentence from '../../src/markovSentences/endOfSentence';
+import endOfSentence from '../../src/createSentence/endOfSentence';
 
 describe('#endOfSentence', () => {
   const threeOutcomes = endOfSentence({

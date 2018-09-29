@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import followingBigram from '../../src/markovSentences/followingBigram';
+import followingBigram from '../../src/createSentence/followingBigram';
 
 describe('#followingBigram', () => {
   const balanced = followingBigram({

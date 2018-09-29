@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import createSentence from '../../src/markovSentences/createSentence';
+import createSentence from '../../src/createSentence/createSentence';
 
 describe('#createSentence', () => {
   describe('deterministic startgram-heavy distributions', () => {
