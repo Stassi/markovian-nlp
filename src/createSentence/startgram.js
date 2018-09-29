@@ -8,7 +8,8 @@ import {
   reduce,
   toPairs,
 } from 'ramda';
-import { evolveSeed, weightedRandom } from '../random';
+import { weightedRandom } from '../random';
+import evolveSeedProp from './evolveSeedProp';
 
 const omitStart = omit(['_start']);
 const mapOmitStart = map(omitStart);
@@ -34,10 +35,13 @@ const unseededStartgram = pipe(
   weightedRandom,
 );
 
-const startgram = ({ distribution, seed }) => ({
-  distribution: mapOmitStart(distribution),
-  seed: evolveSeed(seed),
-  startgram: unseededStartgram(distribution)(seed),
-});
+const startgram = pipe(
+  ({ distribution, seed }) => ({
+    seed,
+    distribution: mapOmitStart(distribution),
+    startgram: unseededStartgram(distribution)(seed),
+  }),
+  evolveSeedProp,
+);
 
 export default startgram;

@@ -5,8 +5,8 @@ import {
   pipe,
   prop,
 } from 'ramda';
-import { evolveSeed } from '../random';
 import endOfSentence from './endOfSentence';
+import evolveSeedProp from './evolveSeedProp';
 import followingBigram from './followingBigram';
 
 const sentenceEnded = ({ nextUnigramDistribution, seed }) =>
@@ -27,16 +27,17 @@ const nextUnigramDistribution = ({ distribution, precedingUnigram }) =>
   prop(precedingUnigram, distribution);
 
 const extendSentence = pipe(
-  ({ seed, ...props }) => ({ ...props, seed: evolveSeed(seed) }),
+  evolveSeedProp,
   ({
     nextUnigramDistribution,
     seed,
     ...props
    }) => ({
     ...props,
+    seed,
     nextUnigram: nextUnigram(nextUnigramDistribution)(seed),
-    seed: evolveSeed(seed),
   }),
+  evolveSeedProp,
   ({
     distribution,
     nextUnigram,
