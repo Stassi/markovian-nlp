@@ -9,10 +9,6 @@ import { evolveSeed } from '../random';
 import endOfSentence from './endOfSentence';
 import followingBigram from './followingBigram';
 
-// TODO: Rename or inline
-const nextUnigramDistribution = ({ distribution, precedingUnigram }) =>
-  prop(precedingUnigram, distribution);
-
 const sentenceEnded = ({ nextUnigramDistribution, seed }) =>
   endOfSentence(nextUnigramDistribution)(seed);
 
@@ -25,6 +21,10 @@ const nextUnigram = pipe(
   omit(['_end']),
   followingBigram,
 );
+
+// TODO: Rename or inline, reduce duplication
+const nextUnigramDistribution = ({ distribution, precedingUnigram }) =>
+  prop(precedingUnigram, distribution);
 
 const extendSentence = pipe(
   ({ seed, ...props }) => ({ ...props, seed: evolveSeed(seed) }),

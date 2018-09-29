@@ -5,7 +5,7 @@ import {
 import endOrExtendSentence from './endOrExtendSentence';
 import startgram from './startgram';
 
-// TODO: Rename or inline
+// TODO: Rename or inline, reduce duplication
 const nextUnigramDistribution = ({ distribution, precedingUnigram }) =>
   prop(precedingUnigram, distribution);
 
