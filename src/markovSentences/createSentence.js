@@ -1,7 +1,6 @@
 import {
   ifElse,
   join,
-  map,
   omit,
   pipe,
   prop,
@@ -9,16 +8,7 @@ import {
 import { evolveSeed } from '../random';
 import endOfSentence from './endOfSentence';
 import followingBigram from './followingBigram';
-import unseededStartgram from './unseededStartgram';
-
-const omitStart = omit(['_start']);
-const mapOmitStart = map(omitStart);
-
-const startgram = ({ distribution, seed }) => ({
-  distribution: mapOmitStart(distribution),
-  seed: evolveSeed(seed),
-  startgram: unseededStartgram(distribution)(seed),
-});
+import startgram from './startgram';
 
 // TODO: Rename or inline
 const nextUnigramDistribution = ({ distribution, precedingUnigram }) =>
