@@ -36,15 +36,14 @@ const findUnigramDistribution = ({ distribution, ...props }) => ({
   findUnigramDistribution: unigramDistribution(distribution),
 });
 
-// TODO: Rename to followingUnigramDistribution
-const nextUnigramDistribution = ({
+const followingUnigramDistribution = ({
   findUnigramDistribution,
   startgram,
   ...props
 }) => ({
   ...props,
   startgram,
-  nextUnigramDistribution: findUnigramDistribution(startgram),
+  followingUnigramDistribution: findUnigramDistribution(startgram),
 });
 
 const startSentence = ({ startgram, ...props }) =>
@@ -56,7 +55,7 @@ const createSentence = pipe(
   evolveSeedProp,
   stripStartgramsDistribution,
   findUnigramDistribution,
-  nextUnigramDistribution,
+  followingUnigramDistribution,
   startSentence,
   endOrExtendSentence,
 );

@@ -16,14 +16,14 @@ const nextUnigram = pipe(
 const extendSentence = pipe(
   evolveSeedProp,
   ({
-    nextUnigramDistribution,
+    followingUnigramDistribution,
     seed,
     ...props
    }) => ({
     ...props,
     seed,
     // TODO: Partial application
-    nextUnigram: nextUnigram(nextUnigramDistribution)(seed),
+    nextUnigram: nextUnigram(followingUnigramDistribution)(seed),
   }),
   evolveSeedProp,
   ({
@@ -35,7 +35,7 @@ const extendSentence = pipe(
     ...props,
     distribution,
     // TODO: Partial application
-    nextUnigramDistribution: unigramDistribution(distribution)(nextUnigram),
+    followingUnigramDistribution: unigramDistribution(distribution)(nextUnigram),
     sentence: [...sentence, nextUnigram],
   }),
 );
