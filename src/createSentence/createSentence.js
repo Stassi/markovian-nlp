@@ -1,4 +1,5 @@
 import { pipe } from 'ramda';
+import { evolveSeedProp } from '../random';
 import endOrExtendSentence from './endOrExtendSentence';
 import startgram from './startgram';
 import unigramDistribution from './unigramDistribution';
@@ -24,6 +25,7 @@ const startSentence = ({ startgram, ...props }) =>
 
 const createSentence = pipe(
   startgram,
+  evolveSeedProp,
   findUnigramDistribution,
   nextUnigramDistribution,
   startSentence,
