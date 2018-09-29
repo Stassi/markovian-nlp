@@ -1,27 +1,12 @@
 import {
-  filter,
-  lt,
   map,
   omit,
   pipe,
-  prop,
-  propSatisfies,
 } from 'ramda';
 import { evolveSeedProp } from '../random';
 import endOrExtendSentence from './endOrExtendSentence';
-import followingUnigram from './followingUnigram';
+import findStartgram from './findStartgram';
 import unigramDistribution from './unigramDistribution';
-
-const greaterThanZero = lt(0);
-const propGreaterThanZero = propSatisfies(greaterThanZero);
-
-const isStartgram = propGreaterThanZero('_start');
-const startProp = prop('_start');
-
-const findStartgram = pipe(
-  filter(isStartgram),
-  followingUnigram(startProp),
-);
 
 const unseededStartgram = ({ distribution, ...props }) => ({
   ...props,
