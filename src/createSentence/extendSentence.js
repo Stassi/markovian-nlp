@@ -1,19 +1,16 @@
 import {
   omit,
   pipe,
-  prop,
 } from 'ramda';
 import { evolveSeedProp } from '../random';
+import findUnigram from './findUnigram';
 import followingBigram from './followingBigram';
 
+// TODO: Rename, inline
 const nextUnigram = pipe(
   omit(['_end']),
   followingBigram,
 );
-
-// TODO: Rename or inline, reduce duplication
-const nextUnigramDistribution = ({ distribution, precedingUnigram }) =>
-  prop(precedingUnigram, distribution);
 
 const extendSentence = pipe(
   evolveSeedProp,
@@ -24,6 +21,7 @@ const extendSentence = pipe(
    }) => ({
     ...props,
     seed,
+    // TODO: Reduce duplication
     nextUnigram: nextUnigram(nextUnigramDistribution)(seed),
   }),
   evolveSeedProp,
@@ -35,10 +33,8 @@ const extendSentence = pipe(
   }) => ({
     ...props,
     distribution,
-    nextUnigramDistribution: nextUnigramDistribution({
-      distribution,
-      precedingUnigram: nextUnigram,
-    }),
+    // TODO: Partial application
+    nextUnigramDistribution: findUnigram(distribution)(nextUnigram),
     sentence: [...sentence, nextUnigram],
   }),
 );

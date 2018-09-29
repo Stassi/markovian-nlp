@@ -3,11 +3,8 @@ import {
   prop,
 } from 'ramda';
 import endOrExtendSentence from './endOrExtendSentence';
+import findUnigram from './findUnigram';
 import startgram from './startgram';
-
-// TODO: Rename or inline, reduce duplication
-const nextUnigramDistribution = ({ distribution, precedingUnigram }) =>
-  prop(precedingUnigram, distribution);
 
 const startSentence = ({
   distribution,
@@ -16,10 +13,8 @@ const startSentence = ({
 }) => ({
   ...props,
   distribution,
-  nextUnigramDistribution: nextUnigramDistribution({
-    distribution,
-    precedingUnigram: startgram,
-  }),
+  // TODO: Partial application
+  nextUnigramDistribution: findUnigram(distribution)(startgram),
   sentence: [startgram],
 });
 
