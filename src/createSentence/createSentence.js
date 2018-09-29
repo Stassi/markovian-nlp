@@ -1,7 +1,4 @@
-import {
-  pipe,
-  prop,
-} from 'ramda';
+import { pipe } from 'ramda';
 import endOrExtendSentence from './endOrExtendSentence';
 import findUnigram from './findUnigram';
 import startgram from './startgram';

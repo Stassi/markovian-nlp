@@ -4,36 +4,27 @@ import {
   map,
   omit,
   pipe,
+  prop,
   propSatisfies,
-  reduce,
-  toPairs,
 } from 'ramda';
-import { evolveSeedProp, weightedRandom } from '../random';
+import { evolveSeedProp } from '../random';
+import followingBigram from './followingBigram';
+
+const greaterThanZero = lt(0);
+const propGreaterThanZero = propSatisfies(greaterThanZero);
+
+const isStartgram = propGreaterThanZero('_start');
+const startProp = prop('_start');
+
+const unseededStartgram = pipe(
+  filter(isStartgram),
+  followingBigram(startProp),
+);
 
 const omitStart = omit(['_start']);
 const mapOmitStart = map(omitStart);
 
-const greaterThanZero = lt(0);
-const propGreaterThanZero = propSatisfies(greaterThanZero);
-const filterStartgrams = filter(propGreaterThanZero('_start'));
-
-const unseededStartgram = pipe(
-  filterStartgrams,
-  // TODO: Reduce duplication
-  toPairs,
-  reduce(
-    ({ values, weights }, [value, { _start: weight }]) => ({
-      values: [...values, value],
-      weights: [...weights, weight],
-    }),
-    {
-      values: [],
-      weights: [],
-    },
-  ),
-  weightedRandom,
-);
-
+// TODO: Partial application
 const startgram = pipe(
   ({ distribution, seed }) => ({
     seed,
