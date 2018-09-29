@@ -20,6 +20,7 @@ const findUnigramDistribution = ({ distribution, ...props }) => ({
   findUnigramDistribution: unigramDistribution(distribution),
 });
 
+// TODO: Rename to followingUnigramDistribution
 const nextUnigramDistribution = ({
   findUnigramDistribution,
   startgram,
