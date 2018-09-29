@@ -8,7 +8,7 @@ import {
   propSatisfies,
 } from 'ramda';
 import { evolveSeedProp } from '../random';
-import followingBigram from './followingBigram';
+import followingUnigram from './followingUnigram';
 
 const greaterThanZero = lt(0);
 const propGreaterThanZero = propSatisfies(greaterThanZero);
@@ -18,7 +18,7 @@ const startProp = prop('_start');
 
 const unseededStartgram = pipe(
   filter(isStartgram),
-  followingBigram(startProp),
+  followingUnigram(startProp),
 );
 
 const omitStart = omit(['_start']);

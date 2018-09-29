@@ -6,7 +6,7 @@ import {
 import { weightedRandom } from '../random';
 
 // TODO: Rename
-const followingBigram = transformWeight => pipe(
+const followingUnigram = transformWeight => pipe(
   toPairs,
   reduce(
     ({ values, weights }, [value, weight]) => ({
@@ -21,4 +21,4 @@ const followingBigram = transformWeight => pipe(
   weightedRandom,
 );
 
-export default followingBigram;
+export default followingUnigram;

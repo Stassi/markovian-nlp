@@ -4,13 +4,13 @@ import {
   pipe,
 } from 'ramda';
 import { evolveSeedProp } from '../random';
-import findUnigram from './findUnigram';
-import followingBigram from './followingBigram';
+import followingUnigram from './followingUnigram';
+import unigramDistribution from './unigramDistribution';
 
 // TODO: Rename/inline
 const nextUnigram = pipe(
   omit(['_end']),
-  followingBigram(identity),
+  followingUnigram(identity),
 );
 
 const extendSentence = pipe(
@@ -35,7 +35,7 @@ const extendSentence = pipe(
     ...props,
     distribution,
     // TODO: Partial application
-    nextUnigramDistribution: findUnigram(distribution)(nextUnigram),
+    nextUnigramDistribution: unigramDistribution(distribution)(nextUnigram),
     sentence: [...sentence, nextUnigram],
   }),
 );
