@@ -13,16 +13,30 @@ const propGreaterThanZero = propSatisfies(greaterThanZero);
 const isStartgram = propGreaterThanZero('_start');
 const startProp = prop('_start');
 
-const unseededStartgram = pipe(
+const findStartgram = pipe(
   filter(isStartgram),
   followingUnigram(startProp),
 );
 
-// TODO: Partial application
-const startgram = ({ distribution, seed }) => ({
+const unseededStartgram = ({ distribution, ...props }) => ({
+  ...props,
   distribution,
-  seed,
-  startgram: unseededStartgram(distribution)(seed),
+  unseededStartgram: findStartgram(distribution),
 });
+
+const seedStartgram = ({
+  unseededStartgram,
+  seed,
+  ...props
+}) => ({
+  ...props,
+  seed,
+  startgram: unseededStartgram(seed),
+});
+
+const startgram = pipe(
+  unseededStartgram,
+  seedStartgram,
+);
 
 export default startgram;
