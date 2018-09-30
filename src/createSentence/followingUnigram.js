@@ -5,13 +5,13 @@ import {
 } from 'ramda';
 import { weightedRandom } from '../random';
 
-const followingBigram = pipe(
-  // TODO: Reduce duplication
+// TODO: Rename
+const followingUnigram = transformWeight => pipe(
   toPairs,
   reduce(
     ({ values, weights }, [value, weight]) => ({
       values: [...values, value],
-      weights: [...weights, weight],
+      weights: [...weights, transformWeight(weight)],
     }),
     {
       values: [],
@@ -21,4 +21,4 @@ const followingBigram = pipe(
   weightedRandom,
 );
 
-export default followingBigram;
+export default followingUnigram;

@@ -9,6 +9,7 @@ describe('random', () => {
     it('should have keys: [#evolveSeed, #weightedRandom]', () => {
       expect(random).to.have.all.keys(
         'evolveSeed',
+        'evolveSeedProp',
         'weightedRandom',
       );
     });
@@ -26,6 +27,11 @@ describe('random', () => {
         expect(evolveSeed()).to.be.a('number');
       });
     });
+  });
+
+  describe('#evolveSeedProp', () => {
+    // TODO: Implement
+    it('should have tests');
   });
 
   describe('#weightedRandom', () => {

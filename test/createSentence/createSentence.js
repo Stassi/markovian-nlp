@@ -1,8 +1,9 @@
 import { expect } from 'chai';
-import createSentence from '../../src/markovSentences/createSentence';
+import createSentence from '../../src/createSentence/createSentence';
 
 describe('#createSentence', () => {
   describe('deterministic startgram-heavy distributions', () => {
+    // TODO: Review
     const startgramHeavy = {
       alpha: { _end: 1000, _start: 1, beta: 1 },
       beta: { _end: 1 },
@@ -20,6 +21,7 @@ describe('#createSentence', () => {
       delta: { _end: 1 },
     };
 
+    // TODO: Prefer singular description
     it('should return known two word sentences', () => {
       expect(createSentence({ distribution: secondNgramHeavy, seed: 1 })).to.equal('alpha delta');
       expect(createSentence({ distribution: secondNgramHeavy, seed: 2 })).to.equal('alpha beta');
