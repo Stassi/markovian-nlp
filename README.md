@@ -7,3 +7,4 @@ With [`npm`](https://www.npmjs.com/get-npm) installed, run terminal command:
 ```shell
 npm i markovian-nlp
 ```
+* [npm package](https://www.npmjs.com/package/markovian-nlp)
