@@ -1,7 +1,7 @@
 {
   "name": "markovian-nlp",
   "version": "2.0.1",
-  "description": "Markov chains & NLP",
+  "description": "JavaScript natural language processing (NLP) tools for creating Markov models",
   "license": "MIT",
   "repository": "github:Stassi/markovian-nlp",
   "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
