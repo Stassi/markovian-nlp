@@ -79,7 +79,7 @@ startgram | endgram | bigrams
 #### Input
 user-defined parameter | type | implements | intermediate transformations
 ---------------------- | ---- | ---------- | ----------------------------
-`document` | [String][mdn string] | [compromise][npm compromise] (`document`) | [normalization][compromise normalization], [rule-based text parsing][wikipedia rule-based system]
+`document` | [String][mdn string] | [compromise(`document`)][npm compromise] | [normalization][compromise normalization], [rule-based text parsing][wikipedia rule-based system]
 
 #### Return value
 type | description
