@@ -8,6 +8,7 @@ describe('#endOfSentence', () => {
     beta: 1,
   });
 
+  // TODO: Prefer singulars, descriptions of [non]determinism
   it('should return deterministic values when provided known seeds', () => {
     expect(threeOutcomes(1)).to.be.false;
     expect(threeOutcomes(5)).to.be.true;
