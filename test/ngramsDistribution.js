@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import ngramsDistribution from '../src/ngramsDistribution';
+import { ngramsDistribution } from '../src';
 
 describe('#ngramsDistribution', () => {
   const sentence = 'First the word, then the last. First, last. Sometimes the word.';
