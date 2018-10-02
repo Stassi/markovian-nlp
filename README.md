@@ -16,12 +16,18 @@ Declare method import at the top of each JavaScript file it will be used.
 
 #### ES2015
 ```es6
-import ngramsDistribution from 'markovian-nlp';
+import {
+  ngramsDistribution,
+  sentences,
+} from 'markovian-nlp';
 ```
 
 #### CommonJS
 ```javascript
-const ngramsDistribution = require('markovian-nlp');
+const {
+  ngramsDistribution,
+  sentences,
+} = require('markovian-nlp');
 ```
 
 ## Glossary
