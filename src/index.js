@@ -1,3 +1,3 @@
-import main from './distributions';
+import main from './ngramsDistribution';
 
 export default main;

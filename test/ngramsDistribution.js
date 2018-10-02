@@ -1,11 +1,11 @@
 import { expect } from 'chai';
-import distributions from '../src/distributions';
+import ngramsDistribution from '../src/ngramsDistribution';
 
-describe('#distributions', () => {
+describe('#ngramsDistribution', () => {
   const sentence = 'First the word, then the last. First, last. Sometimes the word.';
 
   it('should return distributions of bigrams, startgrams, & endgrams', () => {
-    expect(distributions(sentence)).to.deep.include({
+    expect(ngramsDistribution(sentence)).to.deep.include({
       sometimes: {
         the: 1,
         _end: 0,
