@@ -8,7 +8,7 @@ import bigramsDistribution from './bigramsDistribution';
 import unigrams from '../unigrams';
 import unigramsDistribution from './unigramsDistribution';
 
-const distributions = pipe(
+const ngramsDistribution = pipe(
   applySpec({
     bigrams,
     unigrams,
@@ -54,4 +54,4 @@ const distributions = pipe(
   ),
 );
 
-export default distributions;
+export default ngramsDistribution;
