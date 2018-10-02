@@ -1,6 +1,6 @@
 {
   "name": "markovian-nlp",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Natural language processing (NLP) tools for creating Markov models",
   "keywords": [
     "computational linguistics",
