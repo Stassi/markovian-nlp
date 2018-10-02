@@ -98,6 +98,44 @@ ngramsDistribution(document) => ({
 });
 ```
 
+### sentences(document)
+#### sentences({ document[, count][, seed] })
+_[Generate text sentences][wikipedia markov text generators] from a Markov process._
+
+Potential applications: [Natural language generation][wikipedia natural language generation]
+
+#### Examples
+##### Least options
+```es6
+sentences('birds have featured in culture and art since prehistoric times');
+```
+
+##### Most options
+```es6
+sentences({
+  count: 5,
+  document: 'birds have featured in culture and art since prehistoric times',
+  seed: 1,
+});
+```
+
+* [test with RunKit][runkit markovian-nlp]
+
+#### Input
+user-defined parameter | type | implements | intermediate transformations
+---------------------- | ---- | ---------- | ----------------------------
+`document` | [String][mdn string] | [compromise(`document`)][npm compromise] | [normalization][compromise normalization], [rule-based text parsing][wikipedia rule-based system]
+
+##### Options
+user-defined parameter | type | optional | default value | implements | description
+---------------------- | ---- | -------- | ------------- | ---------- | -----------
+`options` | [Object][mdn object] | false | | |
+`options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
+`options.document` | [String][mdn string] | false | | [compromise(`document`)][npm compromise] | Text corpus.
+`options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave empty (default) for nondeterministic results.
+
+[chance seed]: https://chancejs.com/usage/seed.html
+    (chance: seed usage)
 [compromise normalization]: https://github.com/spencermountain/compromise/wiki/How-it-Works#3-normalization
     (compromise wiki: How normalization works)
 [markovian-nlp license]: LICENSE
@@ -108,6 +146,8 @@ ngramsDistribution(document) => ({
     (npm: install npm with Node.js)
 [npm markovian-nlp]: https://www.npmjs.com/package/markovian-nlp
     (npm: markovian-nlp)
+[mdn number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+    (MDN JavaScript reference: Number)
 [mdn object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
     (MDN JavaScript reference: Object)
 [mdn string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -122,8 +162,12 @@ ngramsDistribution(document) => ({
     (Wikipedia: Computational linguistics)
 [wikipedia markov model]: https://en.wikipedia.org/wiki/Markov_model
     (Wikipedia: Markov model)
+[wikipedia markov text generators]: https://en.wikipedia.org/wiki/Markov_chain#Markov_text_generators
+    (Wikipedia: Markov text generators)
 [wikipedia n-gram]: https://en.wikipedia.org/wiki/N-gram
     (Wikipedia: n-gram)
+[wikipedia natural language generation]: https://en.wikipedia.org/wiki/Natural_language_generation
+    (Wikipedia: Natural language generation)
 [wikipedia natural language processing]: https://en.wikipedia.org/wiki/Natural_language_processing
     (Wikipedia: Natural language processing)
 [wikipedia rule-based system]: https://en.wikipedia.org/wiki/Rule-based_system
