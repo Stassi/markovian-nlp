@@ -12,7 +12,7 @@ npm i markovian-nlp
 
 ## Usage
 ### Module import
-Declare method import at the top of each JavaScript file it will be used.
+Declare method imports at the top of each JavaScript file they will be used.
 
 #### ES2015
 ```es6
