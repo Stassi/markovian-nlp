@@ -52,16 +52,16 @@ ngramsDistribution('birds have featured in culture and art since prehistoric tim
 ##### Output
 ```es6
 {
-  and: Object { _end: 0, _start: 0, art: 1 },
-  art: Object { _end: 0, _start: 0, since: 1 },
-  birds: Object { _end: 0, _start: 1, have: 1 },
-  culture: Object { _end: 0, _start: 0, and: 1 },
-  featured: Object { _end: 0, _start: 0, in: 1 },
-  have: Object { _end: 0, _start: 0, featured: 1 },
-  in: Object { _end: 0, _start: 0, culture: 1 },
-  prehistoric: Object { _end: 0, _start: 0, times: 1 },
-  since: Object { _end: 0, _start: 0, prehistoric: 1 },
-  times: Object { _end: 1, _start: 0 },
+  and: { _end: 0, _start: 0, art: 1 },
+  art: { _end: 0, _start: 0, since: 1 },
+  birds: { _end: 0, _start: 1, have: 1 },
+  culture: { _end: 0, _start: 0, and: 1 },
+  featured: { _end: 0, _start: 0, in: 1 },
+  have: { _end: 0, _start: 0, featured: 1 },
+  in: { _end: 0, _start: 0, culture: 1 },
+  prehistoric: { _end: 0, _start: 0, times: 1 },
+  since: { _end: 0, _start: 0, prehistoric: 1 },
+  times: { _end: 1, _start: 0 },
 }
 ```
 Each number represents the sum of occurrences.
