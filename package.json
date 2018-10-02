@@ -1,7 +1,13 @@
 {
   "name": "markovian-nlp",
-  "version": "2.0.1",
-  "description": "Markov chains & NLP",
+  "version": "2.0.2",
+  "description": "Natural language processing (NLP) tools for creating Markov models",
+  "keywords": [
+    "computational linguistics",
+    "markov model",
+    "natural language processing",
+    "nlp"
+  ],
   "license": "MIT",
   "repository": "github:Stassi/markovian-nlp",
   "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
