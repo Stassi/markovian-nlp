@@ -145,7 +145,7 @@ sentences({
 user-defined parameter | type | optional | default value | implements | description
 ---------------------- | ---- | -------- | ------------- | ---------- | -----------
 `document`, `options.document` | [String][mdn string] | false | | [compromise(`document`)][npm compromise] | Text.
-`seed`, `options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify a numeric seed for deterministic results.
+`seed`, `options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify `seed` for deterministic results.
 `options` | [Object][mdn object] | true | | |
 `options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
 
