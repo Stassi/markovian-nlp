@@ -3,23 +3,22 @@ import { sentences } from '../src';
 
 describe('#sentences', () => {
   describe('curried binary interface', () => {
-    const document = 'word';
-    const oneWordDocument = sentences(document);
+    const document = 'First the word, then the last. First, last. Sometimes the word.';
+    const oneSentence = sentences(document);
 
-    describe('nondeterministic', () => {
-      it('should return a one-word document', () => {
-        // TODO: Should be a string due to random result
-        expect(oneWordDocument()).to.equal(document);
+    describe('unseeded', () => {
+      it('should return a nondeterministic string', () => {
+        expect(oneSentence()).to.be.a('string');
       });
     });
 
-    describe('deterministic', () => {
-      it('should return a one-word document', () => {
-        expect(oneWordDocument(1)).to.equal(document);
+    describe('seeded', () => {
+      it('should return deterministic sentences', () => {
+        expect(oneSentence(1)).to.equal('first the word');
+        expect(oneSentence(2)).to.equal('first last');
+        expect(oneSentence(4)).to.equal('sometimes the last');
       });
     });
-
-    it('should test sentences with more than a single word');
   });
 
   describe('unary interface', () => {
