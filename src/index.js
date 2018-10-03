@@ -3,6 +3,6 @@ import sentences from './sentences';
 
 export { ngramsDistribution, sentences };
 
-const main = { ngramsDistribution };
+const main = { ngramsDistribution, sentences };
 
 export default main;
