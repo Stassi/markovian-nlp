@@ -38,6 +38,7 @@ The following terms are used in the API documentation:
 term | description
 ---- | ---
 [bigram][wikipedia bigram] | 2-gram sequence
+[deterministic][wikipedia deterministic system] | repeatable, non-random
 endgram | final gram in a sequence
 [_n_-gram][wikipedia n-gram] | contiguous gram (word) sequence
 startgram | first gram in a sequence
@@ -180,6 +181,8 @@ type | condition | description
     (Wikipedia: Bigram)
 [wikipedia computational linguistics]: https://en.wikipedia.org/wiki/Computational_linguistics
     (Wikipedia: Computational linguistics)
+[wikipedia deterministic system]: https://en.wikipedia.org/wiki/Deterministic_system
+    (Wikipedia: Deterministic system)
 [wikipedia markov model]: https://en.wikipedia.org/wiki/Markov_model
     (Wikipedia: Markov model)
 [wikipedia markov text generators]: https://en.wikipedia.org/wiki/Markov_chain#Markov_text_generators
