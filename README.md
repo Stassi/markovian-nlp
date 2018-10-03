@@ -135,6 +135,8 @@ sentences({
   document: 'birds have featured in culture and art since prehistoric times',
   seed: 1,
 });
+
+// output: TODO
 ```
 
 * [test with RunKit][runkit markovian-nlp]
