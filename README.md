@@ -98,19 +98,36 @@ ngramsDistribution(document) => ({
 });
 ```
 
-### sentences(document)
+### sentences(document)(seed)
 #### sentences({ document[, count][, seed] })
-_[Generate text sentences][wikipedia markov text generators] from a Markov process._
+_[**Generate text sentences**][wikipedia markov text generators] from a Markov process._
 
 Potential applications: [Natural language generation][wikipedia natural language generation]
 
 #### Examples
-##### Least options
+##### One sentence, nondeterministic
 ```es6
-sentences('birds have featured in culture and art since prehistoric times');
+const oneSentence = sentences('birds have featured in culture and art since prehistoric times');
+
+oneSentence();
+// output: TODO
+
+oneSentence();
+// output: TODO
 ```
 
-##### Most options
+##### One sentence, deterministic
+```es6
+const oneSentence = sentences('birds have featured in culture and art since prehistoric times');
+
+oneSentence(1);
+// output: TODO
+
+oneSentence(2);
+// output: TODO
+```
+
+##### Multiple sentences
 ```es6
 sentences({
   count: 5,
@@ -122,17 +139,18 @@ sentences({
 * [test with RunKit][runkit markovian-nlp]
 
 #### Input
-user-defined parameter | type | implements | intermediate transformations
----------------------- | ---- | ---------- | ----------------------------
-`document` | [String][mdn string] | [compromise(`document`)][npm compromise] | [normalization][compromise normalization], [rule-based text parsing][wikipedia rule-based system]
-
-##### Options
 user-defined parameter | type | optional | default value | implements | description
 ---------------------- | ---- | -------- | ------------- | ---------- | -----------
-`options` | [Object][mdn object] | false | | |
+`document`, `options.document` | [String][mdn string] | false | | [compromise(`document`)][npm compromise] | Text.
+`seed`, `options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify a numeric seed for deterministic results.
+`options` | [Object][mdn object] | true | | |
 `options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
-`options.document` | [String][mdn string] | false | | [compromise(`document`)][npm compromise] | Text.
-`options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify a numeric seed for deterministic results.
+
+#### Return values
+type | condition | description
+---- | --------- | -----------
+[String][mdn string] | (default) | generated sentence
+[Array][mdn array][[Strings][mdn string]...] | `options.count > 1` | generated sentences
 
 [chance seed]: https://chancejs.com/usage/seed.html
     (chance: seed usage)
@@ -146,6 +164,8 @@ user-defined parameter | type | optional | default value | implements | descript
     (npm: install npm with Node.js)
 [npm markovian-nlp]: https://www.npmjs.com/package/markovian-nlp
     (npm: markovian-nlp)
+[mdn array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+    (MDN JavaScript reference: Array)
 [mdn number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
     (MDN JavaScript reference: Number)
 [mdn object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
