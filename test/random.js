@@ -33,19 +33,19 @@ describe('random', () => {
 
   describe('#evolveSeeds', () => {
     describe('unseeded', () => {
-      it('should return nondeterministic seeds [n + 1]', () => {
+      it('should return multiple nondeterministic seeds', () => {
         const threeNondeterministicSeeds = { count: 3  };
         const [seedOne, seedTwo, seedThree] = evolveSeeds(threeNondeterministicSeeds);
         expect(seedOne).to.be.undefined;
-        expect(seedTwo).to.be.a('number');
-        expect(seedThree).to.be.a('number');
+        expect(seedTwo).to.be.undefined;
+        expect(seedThree).to.be.undefined;
       });
     });
 
     describe('seeded', () => {
       it('should return deterministic seeds', () => {
         const twoDeterministicSeeds = { count: 2, seed: 1 };
-        expect(evolveSeeds(twoDeterministicSeeds)).to.include.members([1, 2]);
+        expect(evolveSeeds(twoDeterministicSeeds)).to.include.members([1, -1494798787674112]);
       });
     });
   });
