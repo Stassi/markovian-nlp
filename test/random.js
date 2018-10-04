@@ -1,14 +1,16 @@
 import { expect } from 'chai';
 import random, {
   evolveSeed,
+  evolveSeeds,
   weightedRandom,
 } from '../src/random';
 
 describe('random', () => {
   describe('default object', () => {
-    it('should have keys: [#evolveSeed, #weightedRandom]', () => {
+    it('should have methods as keys', () => {
       expect(random).to.have.all.keys(
         'evolveSeed',
+        'evolveSeeds',
         'evolveSeedProp',
         'weightedRandom',
       );
@@ -25,6 +27,25 @@ describe('random', () => {
     describe('unseeded', () => {
       it('should return a nondeterministic number', () => {
         expect(evolveSeed()).to.be.a('number');
+      });
+    });
+  });
+
+  describe('#evolveSeeds', () => {
+    describe('unseeded', () => {
+      it('should return nondeterministic seeds [n + 1]', () => {
+        const threeNondeterministicSeeds = { count: 3  };
+        const [seedOne, seedTwo, seedThree] = evolveSeeds(threeNondeterministicSeeds);
+        expect(seedOne).to.be.undefined;
+        expect(seedTwo).to.be.a('number');
+        expect(seedThree).to.be.a('number');
+      });
+    });
+
+    describe('seeded', () => {
+      it('should return deterministic seeds', () => {
+        const twoDeterministicSeeds = { count: 2, seed: 1 };
+        expect(evolveSeeds(twoDeterministicSeeds)).to.include.members([1, 2]);
       });
     });
   });
