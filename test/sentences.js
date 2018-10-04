@@ -2,8 +2,9 @@ import { expect } from 'chai';
 import { sentences } from '../src';
 
 describe('#sentences', () => {
+  const document = 'First the word, then the last. First, last. Sometimes the word.';
+
   describe('curried binary interface', () => {
-    const document = 'First the word, then the last. First, last. Sometimes the word.';
     const oneSentence = sentences(document);
 
     describe('unseeded', () => {
@@ -22,7 +23,6 @@ describe('#sentences', () => {
   });
 
   describe('unary interface', () => {
-    const document = 'birds have featured in culture and art since prehistoric times';
     const seed = 1;
     const oneNondeterministic = { document };
     const oneDeterministic = { ...oneNondeterministic, seed };
