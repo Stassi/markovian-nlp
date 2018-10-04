@@ -29,11 +29,11 @@ describe('#sentences', () => {
     const threeDeterministic = { ...oneDeterministic, count: 3 };
 
     it('returns a nondeterministic sentence', () => {
-      expect(sentences(oneNondeterministic)).to.equal('alpha');
+      expect(sentences(oneNondeterministic)).to.include.members(['alpha']);
     });
 
     it('returns a deterministic sentence', () => {
-      expect(sentences(oneDeterministic)).to.equal('alpha');
+      expect(sentences(oneDeterministic)).to.include.members(['alpha']);
     });
 
     it('returns multiple deterministic sentences', () => {

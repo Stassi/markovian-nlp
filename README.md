@@ -149,11 +149,10 @@ user-defined parameter | type | optional | default value | implements | descript
 `options` | [Object][mdn object] | true | | |
 `options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
 
-#### Return values
-type | condition | description
----- | --------- | -----------
-[String][mdn string] | (default) | generated sentence
-[Array][mdn array][[Strings][mdn string]...] | `options.count > 1` | generated sentences
+#### Return value
+type | description
+---- | -----------
+[Array][mdn array][[Strings][mdn string]...] | generated sentences
 
 [chance seed]: https://chancejs.com/usage/seed.html
     (chance: seed usage)
