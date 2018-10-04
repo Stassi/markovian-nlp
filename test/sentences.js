@@ -29,18 +29,19 @@ describe('#sentences', () => {
     const threeDeterministic = { ...oneDeterministic, count: 3 };
 
     it('returns a nondeterministic sentence', () => {
-      expect(sentences(oneNondeterministic)).to.include.members(['alpha']);
+      const [sentence] = sentences(oneNondeterministic);
+      expect(sentence).to.be.a('string');
     });
 
     it('returns a deterministic sentence', () => {
-      expect(sentences(oneDeterministic)).to.include.members(['alpha']);
+      expect(sentences(oneDeterministic)).to.include.members(['first the word']);
     });
 
     it('returns multiple deterministic sentences', () => {
       expect(sentences(threeDeterministic)).to.include.members([
-        'alpha',
-        'beta',
-        'gamma',
+        'first the word',
+        'sometimes the word then the word then the word then the word',
+        'first last',
       ]);
     });
   });
