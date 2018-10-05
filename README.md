@@ -106,39 +106,50 @@ _[**Generate text sentences**][wikipedia markov text generators] from a Markov p
 Potential applications: [Natural language generation][wikipedia natural language generation]
 
 #### Examples
-##### One sentence, nondeterministic
+##### One sentence
+[(example `document` source)][wikisource locke wandering]
 ```es6
-const oneSentence = sentences('birds have featured in culture and art since prehistoric times');
-
-oneSentence();
-// output: TODO
-
-oneSentence();
-// output: TODO
+const document = "That there is constant succession and flux of ideas in our minds..."
+const oneSentence = sentences(document);
 ```
 
-##### One sentence, deterministic
+##### Nondeterministic
 ```es6
-const oneSentence = sentences('birds have featured in culture and art since prehistoric times');
+oneSentence();
+// output: "i have observed in the chief yet we might be able by a one
+//   would promote introduce a contrary habit"
 
+oneSentence();
+// output: "this is not angry chiding or so easy to them from running away
+//   with our thoughts by a proper and inure them"
+```
+* [test with RunKit][runkit markovian-nlp]
+
+##### Deterministic
+Providing a `seed` produces a repeatable result:
+```es6
 oneSentence(1);
-// output: TODO
-
-oneSentence(2);
-// output: TODO
+// deterministic output: "i would promote introduce a constant succession and hindering the path
+//   and application getting the train they cannot keep their roving i would sooner reconcile
+//   and contemplative part of the way to direct them"
 ```
+* [test with RunKit][runkit markovian-nlp]
 
 ##### Multiple sentences
+[(example `document` source)][wikisource locke wandering]
 ```es6
 sentences({
-  count: 5,
-  document: 'birds have featured in culture and art since prehistoric times',
+  document,
+  count: 3,
   seed: 1,
 });
 
-// output: TODO
+// output: [
+//   'i would promote introduce a constant succession and hindering the path and application getting the train they cannot keep their roving i would sooner reconcile and contemplative part of the way to direct them',
+//   'he that train they seem to be glad to be done as may be avoided of our thoughts close to our thoughts by a proper and inure them',
+//   'this wandering of attention and yet for ought i know this wandering thoughts i would promote introduce a contrary habit',
+// ]
 ```
-
 * [test with RunKit][runkit markovian-nlp]
 
 #### Input
@@ -196,3 +207,5 @@ type | description
     (Wikipedia: Natural language processing)
 [wikipedia rule-based system]: https://en.wikipedia.org/wiki/Rule-based_system
     (Wikipedia: Rule-based system)
+[wikisource locke wandering]: https://en.wikisource.org/wiki/Of_the_Conduct_of_the_Understanding#Section_30._Wandering.
+    (Wikisource: Of the Conduct of the Understanding, Section 30. Wandering.)
