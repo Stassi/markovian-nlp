@@ -1,24 +1,63 @@
 import {
+  applySpec,
+  identity,
   ifElse,
   join,
+  omit,
   pipe,
   prop,
+  propOr,
+  sum,
+  values,
 } from 'ramda';
-import endOfSentence from './endOfSentence';
+import { weightedRandom } from '../random';
 import extendSentence from './extendSentence';
 
-// TODO: Inline, pipe, partial application
-const sentenceEnded = ({ followingUnigramDistribution, seed }) =>
-  endOfSentence(followingUnigramDistribution)(seed);
+const propOrZero = propOr(0);
 
-const endSentence = pipe(
-  prop('sentence'),
-  join(' '),
+const end = '_end';
+const omitEnd = omit([end]);
+const endWeight = propOrZero(end);
+
+const continueWeight = pipe(
+  omitEnd,
+  values,
+  sum,
+);
+
+const isEndgram = endWeight => endWeight > 0;
+
+// TODO: Parameterize
+const sentenceLengthLimit = 20;
+
+// TODO: Reorganize
+const endOfSentence = sentence => pipe(
+  applySpec({
+    continueWeight,
+    endWeight,
+  }),
+  ifElse(
+    ({ endWeight }) => isEndgram(endWeight)
+      && sentence.length >= sentenceLengthLimit,
+    ({ continueWeight, ...props }) => ({ ...props, continueWeight: 0 }),
+    identity,
+  ),
+  ({ continueWeight, endWeight }) => ([endWeight, continueWeight]),
+  weights => ({
+    weights,
+    values: [true, false],
+  }),
+  weightedRandom,
 );
 
 const endOrExtendSentence = x => ifElse(
-  sentenceEnded,
-  endSentence,
+  // TODO: Inline, partial application
+  ({ followingUnigramDistribution, seed, sentence }) =>
+    endOfSentence(sentence)(followingUnigramDistribution)(seed),
+  pipe(
+    prop('sentence'),
+    join(' '),
+  ),
   pipe(
     extendSentence,
     endOrExtendSentence,

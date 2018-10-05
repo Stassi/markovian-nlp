@@ -1,7 +1,8 @@
 import ngramsDistribution from './ngramsDistribution';
+import sentences from './sentences';
 
-export { ngramsDistribution };
+export { ngramsDistribution, sentences };
 
-const main = { ngramsDistribution };
+const main = { ngramsDistribution, sentences };
 
 export default main;

@@ -12,16 +12,22 @@ npm i markovian-nlp
 
 ## Usage
 ### Module import
-Declare method import at the top of each JavaScript file it will be used.
+Declare method imports at the top of each JavaScript file they will be used.
 
 #### ES2015
 ```es6
-import { ngramsDistribution } from 'markovian-nlp';
+import {
+  ngramsDistribution,
+  sentences,
+} from 'markovian-nlp';
 ```
 
 #### CommonJS
 ```javascript
-const { ngramsDistribution } = require('markovian-nlp');
+const {
+  ngramsDistribution,
+  sentences,
+} = require('markovian-nlp');
 ```
 
 ## Glossary
@@ -32,6 +38,7 @@ The following terms are used in the API documentation:
 term | description
 ---- | ---
 [bigram][wikipedia bigram] | 2-gram sequence
+[deterministic][wikipedia deterministic system] | repeatable, non-random
 endgram | final gram in a sequence
 [_n_-gram][wikipedia n-gram] | contiguous gram (word) sequence
 startgram | first gram in a sequence
@@ -92,6 +99,74 @@ ngramsDistribution(document) => ({
 });
 ```
 
+### sentences(document)(seed)
+#### sentences({ document[, count][, seed] })
+_[**Generate text sentences**][wikipedia markov text generators] from a Markov process._
+
+Potential applications: [Natural language generation][wikipedia natural language generation]
+
+#### Examples
+##### One sentence
+[(example `document` source)][wikisource locke wandering]
+```es6
+const document = "That there is constant succession and flux of ideas in our minds..."
+const oneSentence = sentences(document);
+```
+
+##### Nondeterministic
+```es6
+oneSentence();
+// output: "i have observed in the chief yet we might be able by a one
+//   would promote introduce a contrary habit"
+
+oneSentence();
+// output: "this is not angry chiding or so easy to them from running away
+//   with our thoughts by a proper and inure them"
+```
+* [test with RunKit][runkit markovian-nlp]
+
+##### Deterministic
+Providing a `seed` produces a repeatable result:
+```es6
+oneSentence(1);
+// deterministic output: "i would promote introduce a constant succession and hindering the path
+//   and application getting the train they cannot keep their roving i would sooner reconcile
+//   and contemplative part of the way to direct them"
+```
+* [test with RunKit][runkit markovian-nlp]
+
+##### Multiple sentences
+[(example `document` source)][wikisource locke wandering]
+```es6
+sentences({
+  document,
+  count: 3,
+  seed: 1,
+});
+
+// output: [
+//   'i would promote introduce a constant succession and hindering the path and application getting the train they cannot keep their roving i would sooner reconcile and contemplative part of the way to direct them',
+//   'he that train they seem to be glad to be done as may be avoided of our thoughts close to our thoughts by a proper and inure them',
+//   'this wandering of attention and yet for ought i know this wandering thoughts i would promote introduce a contrary habit',
+// ]
+```
+* [test with RunKit][runkit markovian-nlp]
+
+#### Input
+user-defined parameter | type | optional | default value | implements | description
+---------------------- | ---- | -------- | ------------- | ---------- | -----------
+`document`, `options.document` | [String][mdn string] | false | | [compromise(`document`)][npm compromise] | Text.
+`seed`, `options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify `seed` for deterministic results.
+`options` | [Object][mdn object] | true | | |
+`options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
+
+#### Return value
+type | description
+---- | -----------
+[Array][mdn array][[Strings][mdn string]...] | generated sentences
+
+[chance seed]: https://chancejs.com/usage/seed.html
+    (chance: seed usage)
 [compromise normalization]: https://github.com/spencermountain/compromise/wiki/How-it-Works#3-normalization
     (compromise wiki: How normalization works)
 [markovian-nlp license]: LICENSE
@@ -102,6 +177,10 @@ ngramsDistribution(document) => ({
     (npm: install npm with Node.js)
 [npm markovian-nlp]: https://www.npmjs.com/package/markovian-nlp
     (npm: markovian-nlp)
+[mdn array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+    (MDN JavaScript reference: Array)
+[mdn number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+    (MDN JavaScript reference: Number)
 [mdn object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
     (MDN JavaScript reference: Object)
 [mdn string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -114,11 +193,19 @@ ngramsDistribution(document) => ({
     (Wikipedia: Bigram)
 [wikipedia computational linguistics]: https://en.wikipedia.org/wiki/Computational_linguistics
     (Wikipedia: Computational linguistics)
+[wikipedia deterministic system]: https://en.wikipedia.org/wiki/Deterministic_system
+    (Wikipedia: Deterministic system)
 [wikipedia markov model]: https://en.wikipedia.org/wiki/Markov_model
     (Wikipedia: Markov model)
+[wikipedia markov text generators]: https://en.wikipedia.org/wiki/Markov_chain#Markov_text_generators
+    (Wikipedia: Markov text generators)
 [wikipedia n-gram]: https://en.wikipedia.org/wiki/N-gram
     (Wikipedia: n-gram)
+[wikipedia natural language generation]: https://en.wikipedia.org/wiki/Natural_language_generation
+    (Wikipedia: Natural language generation)
 [wikipedia natural language processing]: https://en.wikipedia.org/wiki/Natural_language_processing
     (Wikipedia: Natural language processing)
 [wikipedia rule-based system]: https://en.wikipedia.org/wiki/Rule-based_system
     (Wikipedia: Rule-based system)
+[wikisource locke wandering]: https://en.wikisource.org/wiki/Of_the_Conduct_of_the_Understanding#Section_30._Wandering.
+    (Wikisource: Of the Conduct of the Understanding, Section 30. Wandering.)
