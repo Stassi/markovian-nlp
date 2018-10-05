@@ -1,11 +1,13 @@
 {
   "name": "markovian-nlp",
   "version": "2.1.0",
-  "description": "Natural language processing (NLP) tools for creating Markov models",
+  "description": "NLP tools generate Markov sentences & models",
   "keywords": [
     "computational linguistics",
     "markov model",
+    "natural language generation",
     "natural language processing",
+    "nlg",
     "nlp"
   ],
   "license": "MIT",
