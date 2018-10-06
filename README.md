@@ -37,7 +37,7 @@ Potential applications: [Natural language generation][wikipedia natural language
 
 In these examples, `document` is text from [this source][wikisource locke wandering]:
 ```es6
-const document = 'That there is constant succession and flux of ideas in our minds...'
+const document = 'That there is constant succession and flux of ideas in our minds...';
 const oneSentence = sentences(document);
 ```
 
