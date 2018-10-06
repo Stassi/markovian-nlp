@@ -64,6 +64,11 @@ oneSentence(1);
 // output: 'i would promote introduce a constant succession and hindering the path...'
 ```
 
+```es6
+oneSentence(1);
+// output: 'i would promote introduce a constant succession and hindering the path...'
+```
+
 * [test with RunKit][runkit markovian-nlp]
 
 ##### Generate multiple sentences
