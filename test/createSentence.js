@@ -1,7 +1,6 @@
 import { expect } from 'chai';
-import createSentence from '../../src/createSentence/createSentence';
+import createSentence from '../src/createSentence';
 
-// TODO: Flatten file in directory
 describe('#createSentence', () => {
   describe('deterministic startgram-heavy distributions', () => {
     // TODO: Review
