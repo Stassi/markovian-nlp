@@ -4,15 +4,14 @@
 
 ## Setup
 ### Installation
-With [`npm`][npm install] installed, run terminal command:
+With [`npm` installed][npm install], run terminal command:
 ```shell
 npm i markovian-nlp
 ```
 * [npm package][npm markovian-nlp]
 
-## Usage
 ### Module import
-Declare method imports at the top of each JavaScript file they will be used.
+Once installed, declare method imports at the top of each JavaScript file they will be used.
 
 #### ES2015
 ```es6
@@ -30,6 +29,133 @@ const {
 } = require('markovian-nlp');
 ```
 
+## Usage
+### Markov text generation
+_[**Generate text sentences**][wikipedia markov text generators] from a Markov process._
+
+Potential applications: [Natural language generation][wikipedia natural language generation]
+
+In these examples, `document` is text from [this source][wikisource locke wandering]:
+```es6
+const document = 'That there is constant succession and flux of ideas in our minds...'
+const oneSentence = sentences(document);
+```
+
+##### Generate a random sentence
+By default, a nondeterministic sentence is generated without providing a `seed`: 
+
+```es6
+oneSentence();
+// output: 'i have observed in the chief yet we might be able by a one...'
+```
+
+```es6
+oneSentence();
+// output: 'this is not angry chiding or so easy to them from running away...'
+```
+
+* [test with RunKit][runkit markovian-nlp]
+
+##### Generate a repeatable sentence
+Optionally providing a `seed` generates a deterministic sentence:
+
+```es6
+oneSentence(1);
+// output: 'i would promote introduce a constant succession and hindering the path...'
+```
+
+```es6
+oneSentence(1);
+// output: 'i would promote introduce a constant succession and hindering the path...'
+```
+
+* [test with RunKit][runkit markovian-nlp]
+
+##### Generate multiple sentences
+Optionally providing a `seed` generates a deterministic sentence:
+```es6
+sentences({
+  document,
+  count: 3,
+  seed: 1,
+});
+
+// output: [
+//   'i would promote introduce a constant succession and hindering the path...',
+//   'he that train they seem to be glad to be done as may be avoided of our thoughts...',
+//   'this wandering of attention and yet for ought i know this wandering thoughts i would promote...',
+// ]
+```
+* [test with RunKit][runkit markovian-nlp]
+
+### View _n_-grams distribution
+_View the [__n-grams distribution__][wikipedia n-gram] of text._
+
+Potential applications: [Markov models][wikipedia markov model]
+
+```es6
+ngramsDistribution('birds have featured in culture and art since prehistoric times');
+
+// output: {
+//   and: { _end: 0, _start: 0, art: 1 },
+//   art: { _end: 0, _start: 0, since: 1 },
+//   birds: { _end: 0, _start: 1, have: 1 },
+//   culture: { _end: 0, _start: 0, and: 1 },
+//   featured: { _end: 0, _start: 0, in: 1 },
+//   have: { _end: 0, _start: 0, featured: 1 },
+//   in: { _end: 0, _start: 0, culture: 1 },
+//   prehistoric: { _end: 0, _start: 0, times: 1 },
+//   since: { _end: 0, _start: 0, prehistoric: 1 },
+//   times: { _end: 1, _start: 0 },
+// }
+```
+
+Each number represents the sum of occurrences.
+
+startgram | endgram | bigrams
+--------- | ------- | -------
+"birds" | "times" | _all remaining keys_ ("have **featured**", "featured **in**", etc.)
+
+* [test with RunKit][runkit markovian-nlp]
+
+## API
+### ngramsDistribution(document)
+##### Input
+user-defined parameter | type | implements | intermediate transformations
+---------------------- | ---- | ---------- | ----------------------------
+`document` | [String][mdn string] | [compromise(`document`)][npm compromise] | [normalization][compromise normalization], [rule-based text parsing][wikipedia rule-based system]
+
+##### Return value
+type | description
+---- | -----------
+[Object][mdn object] | distributions of unigrams to startgrams, endgrams, and following bigrams
+
+```es6
+// pseudocode signature representation (does not run)
+ngramsDistribution(document) => ({
+  ...unigrams: {
+    ...{ ...bigram: bigramsDistribution },
+    _end: endgramsDistribution,
+    _start: startgramsDistribution,
+  },
+});
+```
+
+### sentences(document)(seed)
+#### sentences({ document[, count][, seed] })
+##### Input
+user-defined parameter | type | optional | default value | implements | description
+---------------------- | ---- | -------- | ------------- | ---------- | -----------
+`document`, `options.document` | [String][mdn string] | false | | [compromise(`document`)][npm compromise] | Text.
+`seed`, `options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify `seed` for deterministic results.
+`options` | [Object][mdn object] | true | | |
+`options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
+
+##### Return value
+type | description
+---- | -----------
+[Array][mdn array][[Strings][mdn string]...] | generated sentences
+
 ## Glossary
 Learn more about [computational linguistics][wikipedia computational linguistics] and [natural language processing (NLP)][wikipedia natural language processing] on Wikipedia.
 
@@ -43,127 +169,6 @@ endgram | final gram in a sequence
 [_n_-gram][wikipedia n-gram] | contiguous gram (word) sequence
 startgram | first gram in a sequence
 unigram | 1-gram sequence
-
-## API
-### ngramsDistribution(document)
-_View the [__n-grams distribution__][wikipedia n-gram] of text._
-
-Potential applications: [Markov models][wikipedia markov model]
-
-#### Example
-```es6
-ngramsDistribution('birds have featured in culture and art since prehistoric times');
-```
-* [test with RunKit][runkit markovian-nlp]
-
-##### Output
-```es6
-{
-  and: { _end: 0, _start: 0, art: 1 },
-  art: { _end: 0, _start: 0, since: 1 },
-  birds: { _end: 0, _start: 1, have: 1 },
-  culture: { _end: 0, _start: 0, and: 1 },
-  featured: { _end: 0, _start: 0, in: 1 },
-  have: { _end: 0, _start: 0, featured: 1 },
-  in: { _end: 0, _start: 0, culture: 1 },
-  prehistoric: { _end: 0, _start: 0, times: 1 },
-  since: { _end: 0, _start: 0, prehistoric: 1 },
-  times: { _end: 1, _start: 0 },
-}
-```
-Each number represents the sum of occurrences.
-
-startgram | endgram | bigrams
---------- | ------- | -------
-"birds" | "times" | _all remaining keys_ ("have **featured**", "featured **in**", etc.)
-
-#### Input
-user-defined parameter | type | implements | intermediate transformations
----------------------- | ---- | ---------- | ----------------------------
-`document` | [String][mdn string] | [compromise(`document`)][npm compromise] | [normalization][compromise normalization], [rule-based text parsing][wikipedia rule-based system]
-
-#### Return value
-type | description
----- | -----------
-[Object][mdn object] | distributions of unigrams to startgrams, endgrams, and following bigrams
-
-##### Signature
-```es6
-// pseudocode (does not run)
-ngramsDistribution(document) => ({
-  ...unigrams: {
-    ...{ ...bigram: bigramsDistribution },
-    _end: endgramsDistribution,
-    _start: startgramsDistribution,
-  },
-});
-```
-
-### sentences(document)(seed)
-#### sentences({ document[, count][, seed] })
-_[**Generate text sentences**][wikipedia markov text generators] from a Markov process._
-
-Potential applications: [Natural language generation][wikipedia natural language generation]
-
-#### Examples
-##### One sentence
-[(example `document` source)][wikisource locke wandering]
-```es6
-const document = "That there is constant succession and flux of ideas in our minds..."
-const oneSentence = sentences(document);
-```
-
-##### Nondeterministic
-```es6
-oneSentence();
-// output: "i have observed in the chief yet we might be able by a one
-//   would promote introduce a contrary habit"
-
-oneSentence();
-// output: "this is not angry chiding or so easy to them from running away
-//   with our thoughts by a proper and inure them"
-```
-* [test with RunKit][runkit markovian-nlp]
-
-##### Deterministic
-Providing a `seed` produces a repeatable result:
-```es6
-oneSentence(1);
-// deterministic output: "i would promote introduce a constant succession and hindering the path
-//   and application getting the train they cannot keep their roving i would sooner reconcile
-//   and contemplative part of the way to direct them"
-```
-* [test with RunKit][runkit markovian-nlp]
-
-##### Multiple sentences
-[(example `document` source)][wikisource locke wandering]
-```es6
-sentences({
-  document,
-  count: 3,
-  seed: 1,
-});
-
-// output: [
-//   'i would promote introduce a constant succession and hindering the path and application getting the train they cannot keep their roving i would sooner reconcile and contemplative part of the way to direct them',
-//   'he that train they seem to be glad to be done as may be avoided of our thoughts close to our thoughts by a proper and inure them',
-//   'this wandering of attention and yet for ought i know this wandering thoughts i would promote introduce a contrary habit',
-// ]
-```
-* [test with RunKit][runkit markovian-nlp]
-
-#### Input
-user-defined parameter | type | optional | default value | implements | description
----------------------- | ---- | -------- | ------------- | ---------- | -----------
-`document`, `options.document` | [String][mdn string] | false | | [compromise(`document`)][npm compromise] | Text.
-`seed`, `options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify `seed` for deterministic results.
-`options` | [Object][mdn object] | true | | |
-`options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
-
-#### Return value
-type | description
----- | -----------
-[Array][mdn array][[Strings][mdn string]...] | generated sentences
 
 [chance seed]: https://chancejs.com/usage/seed.html
     (chance: seed usage)
