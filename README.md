@@ -72,7 +72,7 @@ oneSentence(1);
 * [test with RunKit][runkit markovian-nlp]
 
 ##### Generate multiple sentences
-Optionally providing a `seed` generates a deterministic sentence:
+Optionally providing a `seed` generates deterministic sentences:
 ```es6
 sentences({
   document,
