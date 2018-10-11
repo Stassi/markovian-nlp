@@ -37,7 +37,7 @@ Potential applications: [Natural language generation][wikipedia natural language
 
 In these examples, `document` is text from [this source][wikisource locke wandering]:
 ```es6
-const document = 'That there is constant succession and flux of ideas in our minds...'
+const document = 'That there is constant succession and flux of ideas in our minds...';
 const oneSentence = sentences(document);
 ```
 
@@ -72,7 +72,7 @@ oneSentence(1);
 * [test with RunKit][runkit markovian-nlp]
 
 ##### Generate multiple sentences
-Optionally providing a `seed` generates a deterministic sentence:
+Optionally providing a `seed` generates deterministic sentences:
 ```es6
 sentences({
   document,
