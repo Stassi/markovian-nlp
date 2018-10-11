@@ -18,7 +18,7 @@ const ngramsDistribution = pipe(
     unigrams: {
       end: endUnigrams,
       start: startUnigrams,
-      ...props,
+      ...props
     },
   }) => ({
     ...props,
@@ -30,7 +30,7 @@ const ngramsDistribution = pipe(
     followingCounts,
     endCount,
     startCount,
-    ...props,
+    ...props
   }) => ({
     ...props,
     unigramCounts: unigram => ({
