@@ -19,6 +19,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib -s",
+    "lint": "eslint src",
     "prepublishOnly": "npm run build",
     "test": "mocha"
   },
