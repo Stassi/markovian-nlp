@@ -1,7 +1,7 @@
 # markovian-nlp
 [![license][shields license]][markovian-nlp license]
-![npm bundle size (minified)][shields min]
-![npm bundle size (minified + gzip)][shields minzip]
+[![npm bundle size (minified)][shields min]][bundlephobia markovian-nlp]
+[![npm bundle size (minified + gzip)][shields minzip]][bundlephobia markovian-nlp]
 [![npm current version][shields npm]][npm markovian-nlp]
 
 ## Quick start
@@ -207,6 +207,8 @@ endgram | final gram in a sequence
 startgram | first gram in a sequence
 unigram | 1-gram sequence
 
+[bundlephobia markovian-nlp]: https://bundlephobia.com/result?p=markovian-nlp
+    (bundlephobia: markovian-nlp)
 [chance seed]: https://chancejs.com/usage/seed.html
     (chance: seed usage)
 [codepen new]: https://codepen.io/pen
