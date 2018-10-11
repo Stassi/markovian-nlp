@@ -1,5 +1,7 @@
 # markovian-nlp
 [![license][shields license]][markovian-nlp license]
+![npm bundle size (minified)][shields min]
+![npm bundle size (minified + gzip)][shields minzip]
 [![npm current version][shields npm]][npm markovian-nlp]
 
 ## Quick start
@@ -231,6 +233,8 @@ unigram | 1-gram sequence
     (Node.js Documentation: ECMAScript Modules)
 [runkit markovian-nlp]: https://npm.runkit.com/markovian-nlp
     (RunKit+npm: test markovian-nlp)
+[shields min]: https://img.shields.io/bundlephobia/min/markovian-nlp.svg
+[shields minzip]: https://img.shields.io/bundlephobia/minzip/markovian-nlp.svg
 [shields license]: https://img.shields.io/npm/l/markovian-nlp.svg
 [shields npm]: https://img.shields.io/npm/v/markovian-nlp.svg
 [wikipedia bigram]: https://en.wikipedia.org/wiki/Bigram
