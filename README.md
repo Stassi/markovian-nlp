@@ -2,18 +2,53 @@
 [![license][shields license]][markovian-nlp license]
 [![npm current version][shields npm]][npm markovian-nlp]
 
-## Setup
-### Installation
+## Quick start
+As an isomorphic JavaScript package, there are multiple ways for clients, servers, and bundlers to start using this library. Several methods do not require installation.
+
+### RunKit
+RunKit provides one of the least difficult ways to get started:
+* [test with RunKit][runkit markovian-nlp]
+
+### CodePen
+Declare imports in the `JS` section to get started:
+```es6
+import {
+  ngramsDistribution,
+  sentences,
+} from 'https://unpkg.com/markovian-nlp@latest?module';
+```
+
+```es6
+const sentence = sentences('oh me, oh my');
+console.log(sentence());
+// example output: 'oh me oh me oh my'
+```
+* [test with CodePen][codepen new]
+
+### Browsers
+Insert the following element within the `<head>` tag of an HTML document:
+```html
+<script src="https://unpkg.com/markovian-nlp@latest"></script>
+```
+
+After the script is loaded, the `markovian` browser global is exposed:
+```es6
+const sentence = markovian.sentences('oh me, oh my');
+console.log(sentence());
+// example output: 'oh me oh me oh my'
+```
+
+## Node.js
 With [`npm` installed][npm install], run terminal command:
 ```shell
 npm i markovian-nlp
 ```
 * [npm package][npm markovian-nlp]
 
-### Module import
 Once installed, declare method imports at the top of each JavaScript file they will be used.
 
-#### ES2015
+### ES2015
+__Recommended__
 ```es6
 import {
   ngramsDistribution,
@@ -21,7 +56,7 @@ import {
 } from 'markovian-nlp';
 ```
 
-#### CommonJS
+### CommonJS
 ```javascript
 const {
   ngramsDistribution,
@@ -172,6 +207,8 @@ unigram | 1-gram sequence
 
 [chance seed]: https://chancejs.com/usage/seed.html
     (chance: seed usage)
+[codepen new]: https://codepen.io/pen
+    (CodePen: Create a New Pen)
 [compromise normalization]: https://github.com/spencermountain/compromise/wiki/How-it-Works#3-normalization
     (compromise wiki: How normalization works)
 [markovian-nlp license]: LICENSE
@@ -190,6 +227,8 @@ unigram | 1-gram sequence
     (MDN JavaScript reference: Object)
 [mdn string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
     (MDN JavaScript reference: String)
+[node esm]: https://nodejs.org/api/esm.html
+    (Node.js Documentation: ECMAScript Modules)
 [runkit markovian-nlp]: https://npm.runkit.com/markovian-nlp
     (RunKit+npm: test markovian-nlp)
 [shields license]: https://img.shields.io/npm/l/markovian-nlp.svg
