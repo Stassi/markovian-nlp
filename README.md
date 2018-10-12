@@ -1,4 +1,6 @@
 # markovian-nlp
+[![npm dependencies][shields dependencies]][markovian-nlp package]
+[![npm dev dependencies][shields dev dependencies]][markovian-nlp package]
 [![license][shields license]][markovian-nlp license]
 [![npm bundle size (minified)][shields min]][bundlephobia markovian-nlp]
 [![npm bundle size (minified + gzip)][shields minzip]][bundlephobia markovian-nlp]
@@ -217,6 +219,8 @@ unigram | 1-gram sequence
     (compromise wiki: How normalization works)
 [markovian-nlp license]: LICENSE
     (markovian-nlp license)
+[markovian-nlp package]: package.json
+    (markovian-nlp package.json)
 [npm compromise]: https://www.npmjs.com/package/compromise
     (npm: compromise)
 [npm install]: https://www.npmjs.com/get-npm
@@ -235,9 +239,11 @@ unigram | 1-gram sequence
     (Node.js Documentation: ECMAScript Modules)
 [runkit markovian-nlp]: https://npm.runkit.com/markovian-nlp
     (RunKit+npm: test markovian-nlp)
+[shields dependencies]: https://img.shields.io/david/Stassi/markovian-nlp.svg
+[shields dev dependencies]: https://img.shields.io/david/dev/Stassi/markovian-nlp.svg
+[shields license]: https://img.shields.io/npm/l/markovian-nlp.svg
 [shields min]: https://img.shields.io/bundlephobia/min/markovian-nlp.svg
 [shields minzip]: https://img.shields.io/bundlephobia/minzip/markovian-nlp.svg
-[shields license]: https://img.shields.io/npm/l/markovian-nlp.svg
 [shields npm]: https://img.shields.io/npm/v/markovian-nlp.svg
 [wikipedia bigram]: https://en.wikipedia.org/wiki/Bigram
     (Wikipedia: Bigram)
