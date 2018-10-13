@@ -25,9 +25,8 @@ describe('#sentences', () => {
   });
 
   describe('unary interface', () => {
-    const seed = 1;
     const oneNondeterministic = { document };
-    const oneDeterministic = { ...oneNondeterministic, seed };
+    const oneDeterministic = { ...oneNondeterministic, seed: 1 };
     const threeDeterministic = { ...oneDeterministic, count: 3 };
 
     it('returns a nondeterministic sentence', () => {
