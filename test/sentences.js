@@ -17,6 +17,7 @@ describe('#sentences', () => {
   })[seed];
 
   describe('curried binary interface', () => {
+    // TODO: Implement document: ngrams || text
     const wanderingSentence = sentences(wanderingText);
 
     describe('unseeded', () => {
