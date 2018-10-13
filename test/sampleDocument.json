@@ -1,6 +1,1248 @@
 {
   "wandering": {
-    "ngramsDistribution": null,
+    "ngramsDistribution": {
+      "and": {
+        "application": 2,
+        "contemplative": 1,
+        "hindering": 1,
+        "effectual": 1,
+        "unsought": 1,
+        "everyone": 1,
+        "perhaps": 1,
+        "hinder": 1,
+        "inure": 1,
+        "going": 1,
+        "keep": 1,
+        "flux": 1,
+        "yet": 1,
+        "by": 1,
+        "in": 1,
+        "i": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "to": {
+        "be": 3,
+        "direct": 2,
+        "the": 2,
+        "attention": 1,
+        "reject": 1,
+        "become": 1,
+        "bring": 1,
+        "their": 1,
+        "keep": 1,
+        "them": 1,
+        "find": 1,
+        "cure": 1,
+        "our": 1,
+        "_end": 0,
+        "_start": 1
+      },
+      "the": {
+        "application": 1,
+        "endeavoring": 1,
+        "discovery": 1,
+        "studious": 1,
+        "conduct": 1,
+        "subject": 1,
+        "former": 1,
+        "train": 1,
+        "ideas": 1,
+        "great": 1,
+        "habit": 1,
+        "chief": 1,
+        "path": 1,
+        "way": 1,
+        "_end": 0,
+        "_start": 1
+      },
+      "that": {
+        "presently": 1,
+        "hitherto": 1,
+        "shall": 1,
+        "train": 1,
+        "power": 1,
+        "there": 1,
+        "carry": 1,
+        "even": 1,
+        "none": 1,
+        "fear": 1,
+        "will": 1,
+        "yet": 1,
+        "so": 1,
+        "_end": 0,
+        "_start": 1
+      },
+      "of": {
+        "ideas": 2,
+        "our": 2,
+        "attention": 1,
+        "thoughts": 1,
+        "mankind": 1,
+        "their": 1,
+        "equal": 1,
+        "great": 1,
+        "this": 1,
+        "the": 1,
+        "it": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "be": {
+        "able": 3,
+        "naturally": 1,
+        "imagined": 1,
+        "avoided": 1,
+        "glad": 1,
+        "done": 1,
+        "most": 1,
+        "if": 1,
+        "of": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "i": {
+        "suppose": 2,
+        "have": 2,
+        "suspect": 1,
+        "would": 1,
+        "think": 1,
+        "must": 1,
+        "know": 1,
+        "am": 1,
+        "_end": 0,
+        "_start": 1
+      },
+      "our": {
+        "thoughts": 3,
+        "minds": 3,
+        "understandings": 1,
+        "present": 1,
+        "care": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "their": {
+        "uttermost": 1,
+        "reasoning": 1,
+        "wandering": 1,
+        "business": 1,
+        "thought": 1,
+        "roving": 1,
+        "heads": 1,
+        "minds": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "them": {
+        "from": 2,
+        "that": 1,
+        "into": 1,
+        "and": 1,
+        "in": 1,
+        "to": 1,
+        "_end": 1,
+        "_start": 0
+      },
+      "may": {
+        "be": 5,
+        "deserve": 1,
+        "take": 1,
+        "come": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "in": {
+        "the": 3,
+        "himself": 1,
+        "their": 1,
+        "hand": 1,
+        "such": 1,
+        "our": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "as": {
+        "perhaps": 1,
+        "taking": 1,
+        "much": 1,
+        "may": 1,
+        "are": 1,
+        "to": 1,
+        "we": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "thoughts": {
+        "by": 2,
+        "quite": 1,
+        "close": 1,
+        "i": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "this": {
+        "wandering": 1,
+        "essay": 1,
+        "may": 1,
+        "is": 1,
+        "i": 1,
+        "_end": 0,
+        "_start": 2
+      },
+      "from": {
+        "straggling": 1,
+        "running": 1,
+        "taking": 1,
+        "the": 1,
+        "its": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "they": {
+        "endeavor": 1,
+        "should": 1,
+        "cannot": 1,
+        "would": 1,
+        "seem": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "by": {
+        "frequent": 1,
+        "leading": 1,
+        "choice": 1,
+        "use": 1,
+        "a": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "so": {
+        "since": 1,
+        "easy": 1,
+        "much": 1,
+        "far": 1,
+        "to": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "would": {
+        "promote": 1,
+        "sooner": 1,
+        "be": 1,
+        "do": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "ideas": {
+        "that": 2,
+        "will": 1,
+        "in": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "minds": {
+        "from": 2,
+        "as": 1,
+        "i": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "can": {
+        "offer": 1,
+        "and": 1,
+        "by": 1,
+        "be": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "we": {
+        "might": 1,
+        "can": 1,
+        "may": 1,
+        "are": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "or": {
+        "confusion": 1,
+        "beating": 1,
+        "at": 1,
+        "so": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "it": {
+        "can": 1,
+        "may": 1,
+        "in": 1,
+        "i": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "a": {
+        "contrary": 1,
+        "constant": 1,
+        "proper": 1,
+        "one": 1,
+        "_end": 0,
+        "_start": 1
+      },
+      "application": {
+        "getting": 1,
+        "they": 1,
+        "_end": 1,
+        "_start": 0
+      },
+      "attention": {
+        "and": 2,
+        "than": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "great": {
+        "differences": 1,
+        "advantage": 1,
+        "service": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "able": {
+        "to": 2,
+        "by": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "such": {
+        "order": 1,
+        "as": 1,
+        "a": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "part": {
+        "of": 3,
+        "_end": 0,
+        "_start": 0
+      },
+      "keep": {
+        "their": 1,
+        "them": 1,
+        "our": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "will": {
+        "observe": 1,
+        "offer": 1,
+        "find": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "some": {
+        "foreign": 1,
+        "part": 1,
+        "men": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "into": {
+        "view": 1,
+        "the": 1,
+        "our": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "for": {
+        "ought": 1,
+        "this": 1,
+        "that": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "yet": {
+        "for": 1,
+        "one": 1,
+        "we": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "not": {
+        "angry": 1,
+        "the": 1,
+        "i": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "is": {
+        "not": 2,
+        "constant": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "if": {
+        "some": 1,
+        "not": 1,
+        "ate": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      ";": {
+        "and": 2,
+        "or": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "succession": {
+        "and": 1,
+        "we": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "wandering": {
+        "thoughts": 1,
+        "of": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "constant": {
+        "succession": 2,
+        "_end": 0,
+        "_start": 0
+      },
+      "suppose": {
+        "would": 1,
+        "may": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "present": {
+        "pursuit": 1,
+        "enquiry": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "perhaps": {
+        "help": 1,
+        "may": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "notice": {
+        "where": 1,
+        "of": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "direct": {
+        "that": 1,
+        "them": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "taking": {
+        "notice": 1,
+        "off": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "there": {
+        "mill": 1,
+        "is": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "train": {
+        "they": 1,
+        "of": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "offer": {
+        "themselves": 1,
+        "to": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "where": {
+        "they": 1,
+        "it": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "habit": {
+        "of": 1,
+        "_end": 1,
+        "_start": 0
+      },
+      "with": {
+        "all": 1,
+        "our": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "much": {
+        "as": 2,
+        "_end": 0,
+        "_start": 0
+      },
+      "find": {
+        "that": 1,
+        "_end": 1,
+        "_start": 0
+      },
+      "come": {
+        "into": 2,
+        "_end": 0,
+        "_start": 0
+      },
+      "have": {
+        "discovered": 1,
+        "observed": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "are": {
+        "pertinent": 1,
+        "upon": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "way": {
+        "to": 2,
+        "_end": 0,
+        "_start": 0
+      },
+      "one": {
+        "would": 1,
+        "of": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "but": {
+        "such": 1,
+        "the": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "all": {
+        "those": 1,
+        "the": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "men": {
+        "in": 1,
+        "to": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "he": {
+        "that": 2,
+        "_end": 0,
+        "_start": 2
+      },
+      "understandings": {
+        ";": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "contemplative": {
+        "part": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "acknowledge": {
+        "that": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "differences": {
+        "that": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "perpetually": {
+        "come": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "endeavoring": {
+        "as": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "straggling": {
+        "_end": 1,
+        "_start": 0
+      },
+      "unthinking": {
+        "men": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "themselves": {
+        "that": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "discovered": {
+        "no": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "introduce": {
+        "a": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "reconcile": {
+        "and": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "effectual": {
+        "remedy": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "confusion": {
+        "can": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "presently": {
+        "fills": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "uttermost": {
+        "they": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "advantage": {
+        "if": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "hindering": {
+        "the": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "pertinent": {
+        "to": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "reasoning": {
+        "so": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "naturally": {
+        "of": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "discovery": {
+        "we": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "satisfied": {
+        "is": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "imagined": {
+        ";": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "business": {
+        "but": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "everyone": {
+        "may": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "contrary": {
+        "habit": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "unsought": {
+        "ideas": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "endeavor": {
+        "their": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "children": {
+        "will": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "frequent": {
+        "attention": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "studious": {
+        "and": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "distract": {
+        "their": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "hitherto": {
+        "i": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "thinking": {
+        "_end": 1,
+        "_start": 0
+      },
+      "observed": {
+        "in": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "foreign": {
+        "and": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "getting": {
+        "the": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "propose": {
+        "such": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "methods": {
+        "which": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "leading": {
+        "them": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "suspect": {
+        "so": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "chiding": {
+        "or": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "running": {
+        "away": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "promote": {
+        "introduce": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "thought": {
+        "and": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "deserve": {
+        "some": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "subject": {
+        "in": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "rougher": {
+        "methods": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "conduct": {
+        "of": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "service": {
+        "to": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "enquiry": {
+        "and": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "pursuit": {
+        "and": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "mankind": {
+        "and": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "beating": {
+        "for": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "observe": {
+        "children": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "avoided": {
+        "of": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "himself": {
+        "_end": 1,
+        "_start": 0
+      },
+      "without": {
+        "any": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "hinder": {
+        "them": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "before": {
+        "them": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "rebuke": {
+        "or": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "former": {
+        "part": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "pursue": {
+        "without": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "sooner": {
+        "reconcile": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "gently": {
+        "their": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "become": {
+        "thinking": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "others": {
+        "where": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "proper": {
+        "and": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "reject": {
+        "them": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "choice": {
+        "so": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "roving": {
+        "i": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "should": {
+        "pursue": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "useful": {
+        "to": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "remedy": {
+        "for": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "beyond": {
+        "others": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "cannot": {
+        "keep": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "angry": {
+        "chiding": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "shall": {
+        "propose": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "close": {
+        "to": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "bring": {
+        "back": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "order": {
+        "as": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "essay": {
+        "and": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "power": {
+        "over": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "dread": {
+        "or": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "equal": {
+        "parts": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "ought": {
+        "i": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "going": {
+        "before": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "heads": {
+        "with": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "might": {
+        "be": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "quite": {
+        "from": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "those": {
+        "rougher": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "other": {
+        "way": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "carry": {
+        "some": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "chief": {
+        "yet": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "fills": {
+        "their": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "least": {
+        "if": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "since": {
+        "there": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "which": {
+        "more": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "think": {
+        "it": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "inure": {
+        "them": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "parts": {
+        "_end": 1,
+        "_start": 0
+      },
+      "none": {
+        "may": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "hand": {
+        "_end": 1,
+        "_start": 0
+      },
+      "than": {
+        "all": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "more": {
+        "distract": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "glad": {
+        "to": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "most": {
+        "useful": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "cure": {
+        "it": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "seem": {
+        "to": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "flux": {
+        "of": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "view": {
+        "but": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "when": {
+        "they": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "know": {
+        "this": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "upon": {
+        ";": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "over": {
+        "our": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "away": {
+        "with": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "easy": {
+        "to": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "path": {
+        "and": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "care": {
+        "in": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "done": {
+        "as": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "help": {
+        "unthinking": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "mill": {
+        "new": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "must": {
+        "acknowledge": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "fear": {
+        "dread": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "take": {
+        "notice": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "ones": {
+        "perpetually": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "back": {
+        "gently": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "even": {
+        "when": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "any": {
+        "rebuke": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "ate": {
+        "can": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "use": {
+        "get": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "new": {
+        "ones": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "get": {
+        "that": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "far": {
+        "beyond": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "off": {
+        "our": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "its": {
+        "present": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "am": {
+        "satisfied": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "do": {
+        "great": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "at": {
+        "least": 1,
+        "_end": 0,
+        "_start": 0
+      },
+      "no": {
+        "other": 1,
+        "_end": 0,
+        "_start": 0
+      }
+    },
     "text": "That there is constant succession and flux of ideas in our minds I have observed in the former part of this essay and everyone may take notice of it in himself. This I suppose may deserve some part of our care in the conduct of our understandings ; and I think it may be of great advantage if ate can by use get that power over our minds as to be able to direct that train of ideas, that so, since there Mill new ones perpetually come into our thoughts by a constant succession, we may be able by choice so to direct them, that none may come into view but such as are pertinent to our present enquiry, and in such order as may be most useful to the discovery we are upon ; or at least, if some foreign and unsought ideas will offer themselves, that yet we might be able to reject them and keep them from taking off our minds from its present pursuit and hinder them from running away with our thoughts quite from the subject in hand. This is not, I suspect, so easy to be done as perhaps may be imagined ; and yet, for ought I know, this may be, if not the chief, yet one of the great differences that carry some men in their reasoning so far beyond others, where they seem to be naturally of equal parts. A proper and effectual remedy for this wandering of thoughts I would be glad to find. He that shall propose such a one would do great service to the studious and contemplative part of mankind and perhaps help unthinking men to become thinking. I must acknowledge that hitherto I have discovered no other way to keep our thoughts close to their business but the endeavoring as much as we can and by frequent attention and application getting the habit of attention and application. He that will observe children will find that, even when they endeavor their uttermost, they cannot keep their minds from straggling. The way to cure it, I am satisfied, is not angry chiding or beating for that presently fills their heads with all the ideas that fear, dread, or confusion can offer to them. To bring back gently their wandering thoughts by leading them into the path and going before them in the train they should pursue, without any rebuke or so much as taking notice (where it can be avoided) of their roving, I suppose would sooner reconcile and inure them to attention than all those rougher methods which more distract their thought and, hindering the application they would promote, introduce a contrary habit."
   }
 }
