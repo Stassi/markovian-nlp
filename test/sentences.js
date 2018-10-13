@@ -3,11 +3,12 @@ import { sentences } from '../src';
 import sampleDocument from './sampleDocument';
 
 describe('#sentences', () => {
-  const { wandering } = sampleDocument;
+  const { wandering: { text: wanderingText } } = sampleDocument;
+  // TODO: generatedWanderingSentences
   const generatedWanderingSentence = 'i would promote introduce a constant succession and hindering the path and application getting the train they cannot keep their roving i would sooner reconcile and contemplative part of the way to direct them';
 
   describe('curried binary interface', () => {
-    const wanderingSentence = sentences(wandering);
+    const wanderingSentence = sentences(wanderingText);
 
     describe('unseeded', () => {
       it('should return a nondeterministic string', () => {
@@ -25,7 +26,7 @@ describe('#sentences', () => {
   });
 
   describe('unary interface', () => {
-    const oneNondeterministic = { document: wandering };
+    const oneNondeterministic = { document: wanderingText };
     const oneDeterministic = { ...oneNondeterministic, seed: 1 };
     const threeDeterministic = { ...oneDeterministic, count: 3 };
 
