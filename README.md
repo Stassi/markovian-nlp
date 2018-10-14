@@ -4,6 +4,7 @@
 [![license][shields license]][markovian-nlp license]
 [![npm bundle size (minified)][shields min]][bundlephobia markovian-nlp]
 [![npm bundle size (minified + gzip)][shields minzip]][bundlephobia markovian-nlp]
+[![node version compatibility][shields node]][markovian-nlp package]
 [![npm current version][shields npm]][npm markovian-nlp]
 
 ## Quick start
@@ -244,6 +245,7 @@ unigram | 1-gram sequence
 [shields license]: https://img.shields.io/npm/l/markovian-nlp.svg
 [shields min]: https://img.shields.io/bundlephobia/min/markovian-nlp.svg
 [shields minzip]: https://img.shields.io/bundlephobia/minzip/markovian-nlp.svg
+[shields node]: https://img.shields.io/node/v/markovian-nlp.svg
 [shields npm]: https://img.shields.io/npm/v/markovian-nlp.svg
 [wikipedia bigram]: https://en.wikipedia.org/wiki/Bigram
     (Wikipedia: Bigram)
