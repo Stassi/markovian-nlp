@@ -152,10 +152,10 @@ ngramsDistribution(document) => ({
 #### Input
 user-defined parameter | type | optional | default value | implements | description
 ---------------------- | ---- | -------- | ------------- | ---------- | -----------
+`options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
 `options.distribution` | [Object][mdn object] | required if `options.document` omitted | | | _n_-grams distribution used in place of text.
 `options.document` | [String][mdn string] | required if `options.distribution` omitted | | [compromise(`document`)][npm compromise] | Text used in place of _n_-grams distribution.
 `options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify `seed` for deterministic results.
-`options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
 
 #### Return value
 type | description
