@@ -24,8 +24,8 @@ import {
 ```
 
 ```es6
-const sentence = sentences('oh me, oh my');
-console.log(sentence());
+const sentence = sentences({ document: 'oh me, oh my' });
+console.log(sentence);
 // example output: 'oh me oh me oh my'
 ```
 * [test with CodePen][codepen new]
@@ -38,9 +38,9 @@ Insert the following element within the `<head>` tag of an HTML document:
 
 After the script is loaded, the `markovian` browser global is exposed:
 ```es6
-const sentence = markovian.sentences('oh me, oh my');
-console.log(sentence());
-// example output: 'oh me oh me oh my'
+const sentence = markovian.sentences({ document: 'oh me, oh my' });
+console.log(sentence);
+// example output: ['oh me oh me oh my']
 ```
 
 ## Node.js
