@@ -4,6 +4,7 @@
 [![license][shields license]][markovian-nlp license]
 [![npm bundle size (minified)][shields min]][bundlephobia markovian-nlp]
 [![npm bundle size (minified + gzip)][shields minzip]][bundlephobia markovian-nlp]
+[![node version compatibility][shields node]][markovian-nlp package]
 [![npm current version][shields npm]][npm markovian-nlp]
 
 ## Quick start
@@ -74,48 +75,15 @@ _[**Generate text sentences**][wikipedia markov text generators] from a Markov p
 
 Potential applications: [Natural language generation][wikipedia natural language generation]
 
-In these examples, `document` is text from [this source][wikisource locke wandering]:
-```es6
-const document = 'That there is constant succession and flux of ideas in our minds...';
-const oneSentence = sentences(document);
-```
+#### Generate sentences
+Optionally providing a `seed` generates deterministic sentences.
 
-##### Generate a random sentence
-By default, a nondeterministic sentence is generated without providing a `seed`: 
+In this example, `document` is text from [this source][wikisource locke wandering]:
 
-```es6
-oneSentence();
-// output: 'i have observed in the chief yet we might be able by a one...'
-```
-
-```es6
-oneSentence();
-// output: 'this is not angry chiding or so easy to them from running away...'
-```
-
-* [test with RunKit][runkit markovian-nlp]
-
-##### Generate a repeatable sentence
-Optionally providing a `seed` generates a deterministic sentence:
-
-```es6
-oneSentence(1);
-// output: 'i would promote introduce a constant succession and hindering the path...'
-```
-
-```es6
-oneSentence(1);
-// output: 'i would promote introduce a constant succession and hindering the path...'
-```
-
-* [test with RunKit][runkit markovian-nlp]
-
-##### Generate multiple sentences
-Optionally providing a `seed` generates deterministic sentences:
 ```es6
 sentences({
-  document,
   count: 3,
+  document: 'That there is constant succession and flux of ideas in our minds...',
   seed: 1,
 });
 
@@ -180,17 +148,16 @@ ngramsDistribution(document) => ({
 });
 ```
 
-### sentences(document)(seed)
-#### sentences({ document[, count][, seed] })
-##### Input
+### sentences({ document[, count][, seed] })
+#### Input
 user-defined parameter | type | optional | default value | implements | description
 ---------------------- | ---- | -------- | ------------- | ---------- | -----------
-`document`, `options.document` | [String][mdn string] | false | | [compromise(`document`)][npm compromise] | Text.
-`seed`, `options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify `seed` for deterministic results.
-`options` | [Object][mdn object] | true | | |
 `options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
+`options.distribution` | [Object][mdn object] | required if `options.document` omitted | | | _n_-grams distribution used in place of text.
+`options.document` | [String][mdn string] | required if `options.distribution` omitted | | [compromise(`document`)][npm compromise] | Text used in place of _n_-grams distribution.
+`options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify `seed` for deterministic results.
 
-##### Return value
+#### Return value
 type | description
 ---- | -----------
 [Array][mdn array][[Strings][mdn string]...] | generated sentences
@@ -244,6 +211,7 @@ unigram | 1-gram sequence
 [shields license]: https://img.shields.io/npm/l/markovian-nlp.svg
 [shields min]: https://img.shields.io/bundlephobia/min/markovian-nlp.svg
 [shields minzip]: https://img.shields.io/bundlephobia/minzip/markovian-nlp.svg
+[shields node]: https://img.shields.io/node/v/markovian-nlp.svg
 [shields npm]: https://img.shields.io/npm/v/markovian-nlp.svg
 [wikipedia bigram]: https://en.wikipedia.org/wiki/Bigram
     (Wikipedia: Bigram)
