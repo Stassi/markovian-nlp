@@ -7,7 +7,7 @@ const sentences = pipe(
   ({
     distribution,
     document,
-    ...props,
+    ...props
   }) => ({
     ...props,
     distribution: distribution || ngramsDistribution(document),
