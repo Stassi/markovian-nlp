@@ -148,7 +148,7 @@ ngramsDistribution(document) => ({
 });
 ```
 
-### sentences({ document[, count][, seed] })
+### sentences({ distribution || document[, count][, seed] })
 #### Input
 user-defined parameter | type | optional | default value | implements | description
 ---------------------- | ---- | -------- | ------------- | ---------- | -----------
