@@ -1,6 +1,6 @@
 {
   "name": "markovian-nlp",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "NLP tools generate Markov sentences & models.",
   "keywords": [
     "computational linguistics",
