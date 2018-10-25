@@ -127,12 +127,12 @@ startgram | endgram | bigrams
 
 ## API
 ### ngramsDistribution(document)
-##### Input
+#### Input
 user-defined parameter | type | implements | intermediate transformations
 ---------------------- | ---- | ---------- | ----------------------------
 `document` | [String][mdn string] | [compromise(`document`)][npm compromise] | [normalization][compromise normalization], [rule-based text parsing][wikipedia rule-based system]
 
-##### Return value
+#### Return value
 type | description
 ---- | -----------
 [Object][mdn object] | distributions of unigrams to startgrams, endgrams, and following bigrams
@@ -148,7 +148,7 @@ ngramsDistribution(document) => ({
 });
 ```
 
-### sentences({ document[, count][, seed] })
+### sentences({ distribution || document[, count][, seed] })
 #### Input
 user-defined parameter | type | optional | default value | implements | description
 ---------------------- | ---- | -------- | ------------- | ---------- | -----------
