@@ -26,8 +26,6 @@ export default [
   {
     ...options,
     output: {
-      // TODO: Do not mix named and default exports
-      exports: 'named',
       file: 'lib/markovian.umd.js',
       format: 'umd',
       name: 'markovian',
