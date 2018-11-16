@@ -1,8 +1,16 @@
 import { expect } from 'chai';
-import main from '../src';
+import { ngramsDistribution, sentences } from '../src';
 
 describe('main object', () => {
-  it('should have keys: [#ngramsDistribution, #sentences]', () => {
-    expect(main).to.have.all.keys('ngramsDistribution', 'sentences');
+  describe('ngramsDistribution', () => {
+    it('should be a function', () => {
+      expect(ngramsDistribution).to.be.a('function');
+    });
+  });
+
+  describe('sentences', () => {
+    it('should be a function', () => {
+      expect(sentences).to.be.a('function');
+    });
   });
 });
