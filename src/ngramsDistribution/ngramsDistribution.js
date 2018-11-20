@@ -1,5 +1,9 @@
 import {
   applySpec,
+  ifElse,
+  identity,
+  is,
+  of,
   pipe,
   reduce,
 } from 'ramda';
@@ -8,7 +12,15 @@ import bigramsDistribution from './bigramsDistribution';
 import unigrams from '../unigrams';
 import unigramsDistribution from './unigramsDistribution';
 
+const arrayWrapString = ifElse(
+  is(String),
+  of,
+  identity,
+);
+
 const ngramsDistribution = pipe(
+  arrayWrapString,
+  // TODO: Map strings to distributions, then merge (sum) all distributions
   applySpec({
     bigrams,
     unigrams,
