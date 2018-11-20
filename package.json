@@ -1,6 +1,6 @@
 {
   "name": "markovian-nlp",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "NLP tools generate Markov sentences & models.",
   "keywords": [
     "computational linguistics",
@@ -27,7 +27,7 @@
   "dependencies": {
     "chance": "^1.0.16",
     "compromise": "^11.12.3",
-    "ramda": "^0.25.0"
+    "ramda": "^0.26.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
@@ -44,7 +44,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "mocha": "^5.2.0",
-    "rollup": "^0.67.1",
+    "rollup": "^0.67.3",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
