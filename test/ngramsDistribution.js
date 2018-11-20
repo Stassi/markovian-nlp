@@ -1,95 +1,31 @@
 import { expect } from 'chai';
 import { ngramsDistribution } from '../src';
+import lovelyQuote from './lovelyQuote';
 
 describe('#ngramsDistribution', () => {
-  const [firstHalfQuote, secondHalfQuote] = [
-    'Oh, what a day.',
-    'What a lovely day!',
-  ];
-
-  const firstHalfDistribution = {
-    'a': {
-      '_end': 0,
-      '_start': 0,
-      'day': 1,
+  const {
+    distributions: {
+      compound: compoundDistribution,
+      firstHalf: firstHalfDistribution,
+      secondHalf: secondHalfDistribution,
     },
-    'day': {
-      '_end': 1,
-      '_start': 0,
-    },
-    'oh': {
-      '_end': 0,
-      '_start': 1,
-      'what': 1,
-    },
-    'what': {
-      '_end': 0,
-      '_start': 0,
-      'a': 1,
-    },
-  };
-
-  const secondHalfDistribution = {
-    'a': {
-      '_end': 0,
-      '_start': 0,
-      'lovely': 1,
-    },
-    'day': {
-      '_end': 1,
-      '_start': 0,
-    },
-    'lovely': {
-      '_end': 0,
-      '_start': 0,
-      'day': 1,
-    },
-    'what': {
-      '_end': 0,
-      '_start': 1,
-      'a': 1,
-    },
-  };
-
-  const compoundDistribution = {
-    'a': {
-      '_end': 0,
-      '_start': 0,
-      'day': 1,
-      'lovely': 1,
-    },
-    'day': {
-      '_end': 2,
-      '_start': 0,
-    },
-    'lovely': {
-      '_end': 0,
-      '_start': 0,
-      'day': 1,
-    },
-    'oh': {
-      '_end': 0,
-      '_start': 1,
-      'what': 1,
-    },
-    'what': {
-      '_end': 0,
-      '_start': 1,
-      'a': 2,
-    },
-  };
+    text: [
+      firstHalfText,
+      secondHalfText,
+    ],
+  } = lovelyQuote;
 
   describe('String input', () => {
     it('should return distributions of bigrams, startgrams, & endgrams', () => {
-      expect(ngramsDistribution(firstHalfQuote)).to.deep.equal(firstHalfDistribution);
-      expect(ngramsDistribution(secondHalfQuote)).to.deep.equal(secondHalfDistribution);
+      expect(ngramsDistribution(firstHalfText)).to.deep.equal(firstHalfDistribution);
+      expect(ngramsDistribution(secondHalfText)).to.deep.equal(secondHalfDistribution);
     });
   });
 
   describe('Array[String] input', () => {
     it('should return distributions of bigrams, startgrams, & endgrams', () => {
-      expect(ngramsDistribution([firstHalfQuote])).to.deep.equal(firstHalfDistribution);
-      expect(ngramsDistribution([secondHalfQuote])).to.deep.equal(secondHalfDistribution);
+      expect(ngramsDistribution([firstHalfText])).to.deep.equal(firstHalfDistribution);
+      expect(ngramsDistribution([secondHalfText])).to.deep.equal(secondHalfDistribution);
     });
   });
 
@@ -97,7 +33,7 @@ describe('#ngramsDistribution', () => {
     it('should return compound distributions of bigrams, startgrams, & endgrams', () => {
       expect(ngramsDistribution([
         firstHalfDistribution,
-        secondHalfQuote,
+        secondHalfText,
       ])).to.deep.equal(compoundDistribution);
     });
   });
@@ -105,7 +41,7 @@ describe('#ngramsDistribution', () => {
   describe('Array[String, Object] input', () => {
     it('should return compound distributions of bigrams, startgrams, & endgrams', () => {
       expect(ngramsDistribution([
-        firstHalfQuote,
+        firstHalfText,
         secondHalfDistribution,
       ])).to.deep.equal(compoundDistribution);
     });
