@@ -1,77 +1,98 @@
 {
-  "distributions": {
-    "compound": {
-      "a": {
-        "_end": 0,
-        "_start": 0,
-        "day": 1,
-        "lovely": 1
-      },
-      "day": {
-        "_end": 2,
-        "_start": 0
-      },
-      "lovely": {
-        "_end": 0,
-        "_start": 0,
-        "day": 1
-      },
-      "oh": {
-        "_end": 0,
-        "_start": 1,
-        "what": 1
-      },
-      "what": {
-        "_end": 0,
-        "_start": 1,
-        "a": 2
-      }
+  "compoundDistribution": {
+    "a": {
+      "_end": 0,
+      "_start": 0,
+      "day": 1,
+      "lovely": 1
     },
-    "firstHalf": {
-      "a": {
-        "_end": 0,
-        "_start": 0,
-        "day": 1
-      },
-      "day": {
-        "_end": 1,
-        "_start": 0
-      },
-      "oh": {
-        "_end": 0,
-        "_start": 1,
-        "what": 1
-      },
-      "what": {
-        "_end": 0,
-        "_start": 0,
-        "a": 1
-      }
+    "day": {
+      "_end": 2,
+      "_start": 0
     },
-    "secondHalf": {
-      "a": {
-        "_end": 0,
-        "_start": 0,
-        "lovely": 1
-      },
-      "day": {
-        "_end": 1,
-        "_start": 0
-      },
-      "lovely": {
-        "_end": 0,
-        "_start": 0,
-        "day": 1
-      },
-      "what": {
-        "_end": 0,
-        "_start": 1,
-        "a": 1
-      }
+    "lovely": {
+      "_end": 0,
+      "_start": 0,
+      "day": 1
+    },
+    "me": {
+      "_end": 1,
+      "_start": 0
+    },
+    "oh": {
+      "_end": 0,
+      "_start": 1,
+      "what": 1
+    },
+    "what": {
+      "_end": 0,
+      "_start": 1,
+      "a": 2
+    },
+    "witness": {
+      "_end": 0,
+      "_start": 1,
+      "me": 1
     }
   },
+  "distributions": [
+    {
+      "a": {
+        "_end": 0,
+        "_start": 0,
+        "day": 1
+      },
+      "day": {
+        "_end": 1,
+        "_start": 0
+      },
+      "oh": {
+        "_end": 0,
+        "_start": 1,
+        "what": 1
+      },
+      "what": {
+        "_end": 0,
+        "_start": 0,
+        "a": 1
+      }
+    },
+    {
+      "a": {
+        "_end": 0,
+        "_start": 0,
+        "lovely": 1
+      },
+      "day": {
+        "_end": 1,
+        "_start": 0
+      },
+      "lovely": {
+        "_end": 0,
+        "_start": 0,
+        "day": 1
+      },
+      "what": {
+        "_end": 0,
+        "_start": 1,
+        "a": 1
+      }
+    },
+    {
+      "me": {
+        "_end": 1,
+        "_start": 0
+      },
+      "witness": {
+        "_end": 0,
+        "_start": 1,
+        "me": 1
+      }
+    }
+  ],
   "text": [
     "Oh, what a day.",
-    "What a lovely day!"
+    "What a lovely day!",
+    "Witness me!"
   ]
 }
