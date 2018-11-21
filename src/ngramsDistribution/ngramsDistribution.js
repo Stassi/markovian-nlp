@@ -11,16 +11,12 @@ import toDistribution from './toDistribution';
 
 const stringsToDistributions = applyToString(toDistribution);
 
-// TODO: Extract composable mergeWith, rename params, remove redundant params
+// TODO: Attempt R.mergeDeepWith simplification
 const mergeDistributions = reduce(
-  (t, u) => mergeWith(
-    (v, w) => mergeWith(
+  mergeWith(
+    mergeWith(
       (x, y) => sum([x, y]),
-      v,
-      w,
     ),
-    t,
-    u,
   ),
   {},
 );
