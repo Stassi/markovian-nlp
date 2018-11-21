@@ -14,24 +14,24 @@ const toDistribution = pipe(
     unigrams,
   }),
   ({
-     bigrams: bigramsData,
-     unigrams: {
-       end: endUnigrams,
-       start: startUnigrams,
-       ...props
-     },
-   }) => ({
+    bigrams: bigramsData,
+    unigrams: {
+      end: endUnigrams,
+      start: startUnigrams,
+      ...props
+    },
+  }) => ({
     ...props,
     endCount: unigramsDistribution(endUnigrams),
     followingCounts: bigramsDistribution(bigramsData),
     startCount: unigramsDistribution(startUnigrams),
   }),
   ({
-     followingCounts,
-     endCount,
-     startCount,
-     ...props
-   }) => ({
+    followingCounts,
+    endCount,
+    startCount,
+    ...props
+  }) => ({
     ...props,
     unigramCounts: unigram => ({
       [unigram]: {
@@ -42,9 +42,9 @@ const toDistribution = pipe(
     }),
   }),
   ({
-     unigramCounts,
-     all: allUnigrams,
-   }) => reduce(
+    unigramCounts,
+    all: allUnigrams,
+  }) => reduce(
     (acc, unigram) => ({
       ...acc,
       ...unigramCounts(unigram),
