@@ -6,8 +6,10 @@ import {
 } from 'ramda';
 import applyToString from './applyToString';
 import { bigrams, unigrams } from '../ngrams';
-import bigramsDistribution from './bigramsDistribution';
-import unigramsDistribution from './unigramsDistribution';
+import {
+  bigrams as bigramsDistribution,
+  unigrams as unigramsDistribution,
+} from '../distributions';
 
 const applyToStrings = pipe(
   applyToString,
@@ -15,6 +17,7 @@ const applyToStrings = pipe(
 );
 
 const toDistribution = pipe(
+  // TODO: Consider ngrams default export
   applySpec({
     bigrams,
     unigrams,

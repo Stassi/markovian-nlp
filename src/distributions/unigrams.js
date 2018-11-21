@@ -4,7 +4,7 @@ import {
   propOr,
 } from 'ramda';
 
-const unigramsDistribution = unigrams => unigram => propOr(
+const unigrams = unigrams => unigram => propOr(
   0,
   'count',
   {
@@ -15,4 +15,4 @@ const unigramsDistribution = unigrams => unigram => propOr(
   },
 );
 
-export default unigramsDistribution;
+export default unigrams;
