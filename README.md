@@ -127,12 +127,16 @@ startgram | endgram | bigrams
 
 ## API
 ### ngramsDistribution(document)
-#### Input
-user-defined parameter | type | implements | intermediate transformations
----------------------- | ---- | ---------- | ----------------------------
-`document` | [String][mdn string] | [compromise(`document`)][npm compromise] | [normalization][compromise normalization], [rule-based text parsing][wikipedia rule-based system]
+#### ngramsDistribution(Array(document || ngramsDistribution[, ...]))
+##### Input
+Type | Description
+---- | -----------
+[String][mdn string] | `document` (corpus or text)
+[Array][mdn array][[Strings][mdn string]...] | combine multiple `document`
+[Array][mdn array][[Objects][mdn object]...] | combine multiple `ngramsDistribution` (i.e.: this method's output)
+[Array][mdn array][[Strings][mdn string], [Objects][mdn object]...] | combine multiple `document` and `ngramsDistribution`
 
-#### Return value
+##### Return value
 type | description
 ---- | -----------
 [Object][mdn object] | distributions of unigrams to startgrams, endgrams, and following bigrams
@@ -149,7 +153,7 @@ ngramsDistribution(document) => ({
 ```
 
 ### sentences({ distribution || document[, count][, seed] })
-#### Input
+##### Input
 user-defined parameter | type | optional | default value | implements | description
 ---------------------- | ---- | -------- | ------------- | ---------- | -----------
 `options.count` | [Number][mdn number] | true |`1` | | Number of sentences to output.
@@ -157,7 +161,7 @@ user-defined parameter | type | optional | default value | implements | descript
 `options.document` | [String][mdn string] | required if `options.distribution` omitted | | [compromise(`document`)][npm compromise] | Text used in place of _n_-grams distribution.
 `options.seed` | [Number][mdn number] | true | `undefined` | [Chance(`seed`)][chance seed] | Leave `undefined` (default) for nondeterministic results, or specify `seed` for deterministic results.
 
-#### Return value
+##### Return value
 type | description
 ---- | -----------
 [Array][mdn array][[Strings][mdn string]...] | generated sentences
@@ -182,8 +186,6 @@ unigram | 1-gram sequence
     (chance: seed usage)
 [codepen new]: https://codepen.io/pen
     (CodePen: Create a New Pen)
-[compromise normalization]: https://github.com/spencermountain/compromise/wiki/How-it-Works#3-normalization
-    (compromise wiki: How normalization works)
 [markovian-nlp license]: LICENSE
     (markovian-nlp license)
 [markovian-nlp package]: package.json
@@ -229,7 +231,5 @@ unigram | 1-gram sequence
     (Wikipedia: Natural language generation)
 [wikipedia natural language processing]: https://en.wikipedia.org/wiki/Natural_language_processing
     (Wikipedia: Natural language processing)
-[wikipedia rule-based system]: https://en.wikipedia.org/wiki/Rule-based_system
-    (Wikipedia: Rule-based system)
 [wikisource locke wandering]: https://en.wikisource.org/wiki/Of_the_Conduct_of_the_Understanding#Section_30._Wandering.
     (Wikisource: Of the Conduct of the Understanding, Section 30. Wandering.)
