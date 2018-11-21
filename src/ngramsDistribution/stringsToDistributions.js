@@ -5,11 +5,8 @@ import {
   reduce,
 } from 'ramda';
 import applyToString from './applyToString';
-import { bigrams, unigrams } from '../ngrams';
-import {
-  bigrams as bigramsDistribution,
-  unigrams as unigramsDistribution,
-} from '../distributions';
+import { bigrams, unigrams } from '../distributions';
+import ngrams from '../ngrams';
 
 const applyToStrings = pipe(
   applyToString,
@@ -17,11 +14,7 @@ const applyToStrings = pipe(
 );
 
 const toDistribution = pipe(
-  // TODO: Consider ngrams default export
-  applySpec({
-    bigrams,
-    unigrams,
-  }),
+  applySpec(ngrams),
   ({
     bigrams: bigramsData,
     unigrams: {
@@ -31,9 +24,9 @@ const toDistribution = pipe(
     },
   }) => ({
     ...props,
-    endCount: unigramsDistribution(endUnigrams),
-    followingCounts: bigramsDistribution(bigramsData),
-    startCount: unigramsDistribution(startUnigrams),
+    endCount: unigrams(endUnigrams),
+    followingCounts: bigrams(bigramsData),
+    startCount: unigrams(startUnigrams),
   }),
   ({
     followingCounts,
