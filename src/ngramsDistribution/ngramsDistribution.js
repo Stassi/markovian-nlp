@@ -1,30 +1,12 @@
-import {
-  map,
-  of,
-  mergeWith,
-  pipe,
-  reduce,
-  sum,
-} from 'ramda';
+import { of, pipe } from 'ramda';
+import additiveMerge from './additiveMerge';
 import applyToString from './applyToString';
-import toDistribution from './toDistribution';
-
-const stringsToDistributions = applyToString(toDistribution);
-
-// TODO: Attempt R.mergeDeepWith simplification
-const mergeDistributions = reduce(
-  mergeWith(
-    mergeWith(
-      (x, y) => sum([x, y]),
-    ),
-  ),
-  {},
-);
+import stringsToDistributions from './stringsToDistributions';
 
 const ngramsDistribution = pipe(
   applyToString(of),
-  map(stringsToDistributions),
-  mergeDistributions,
+  stringsToDistributions,
+  additiveMerge,
 );
 
 export default ngramsDistribution;
