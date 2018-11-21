@@ -1,22 +1,55 @@
 import { expect } from 'chai';
 import { ngramsDistribution } from '../src';
+import lovelyQuote from './lovelyQuote';
 
 describe('#ngramsDistribution', () => {
-  const sentence = 'First the word, then the last. First, last. Sometimes the word.';
+  const {
+    compoundDistribution,
+    distributions: [
+      firstDistribution,
+      secondDistribution,
+      thirdDistribution,
+    ],
+    text: [
+      firstText,
+      secondText,
+      thirdText,
+    ],
+  } = lovelyQuote;
 
-  it('should return distributions of bigrams, startgrams, & endgrams', () => {
-    expect(ngramsDistribution(sentence)).to.deep.include({
-      sometimes: {
-        the: 1,
-        _end: 0,
-        _start: 1,
-      },
-    }).and.deep.include({
-      word: {
-        then: 1,
-        _end: 1,
-        _start: 0,
-      },
+  describe('String input', () => {
+    it('should return distributions of bigrams, startgrams, & endgrams', () => {
+      expect(ngramsDistribution(firstText)).to.deep.equal(firstDistribution);
+      expect(ngramsDistribution(secondText)).to.deep.equal(secondDistribution);
+      expect(ngramsDistribution(thirdText)).to.deep.equal(thirdDistribution);
+    });
+  });
+
+  describe('Array[String] input', () => {
+    it('should return distributions of bigrams, startgrams, & endgrams', () => {
+      expect(ngramsDistribution([firstText])).to.deep.equal(firstDistribution);
+      expect(ngramsDistribution([secondText])).to.deep.equal(secondDistribution);
+      expect(ngramsDistribution([thirdText])).to.deep.equal(thirdDistribution);
+    });
+  });
+
+  describe('Array[Object, String, Object] input', () => {
+    it('should return compound distributions of bigrams, startgrams, & endgrams', () => {
+      expect(ngramsDistribution([
+        firstDistribution,
+        secondText,
+        thirdDistribution,
+      ])).to.deep.equal(compoundDistribution);
+    });
+  });
+
+  describe('Array[String, Object, String] input', () => {
+    it('should return compound distributions of bigrams, startgrams, & endgrams', () => {
+      expect(ngramsDistribution([
+        firstText,
+        secondDistribution,
+        thirdText,
+      ])).to.deep.equal(compoundDistribution);
     });
   });
 });
