@@ -129,7 +129,7 @@ startgram | endgram | bigrams
 ### ngramsDistribution(document)
 #### ngramsDistribution(Array(document || ngramsDistribution[, ...]))
 ##### Input
-Type | Description
+type | description
 ---- | -----------
 [String][mdn string] | `document` (corpus or text)
 [Array][mdn array][[Strings][mdn string]...] | combine multiple `document`
