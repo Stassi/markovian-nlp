@@ -1,12 +1,19 @@
 import {
   applySpec,
+  map,
   pipe,
   reduce,
 } from 'ramda';
+import applyToString from './applyToString';
 import bigrams from '../bigrams';
 import bigramsDistribution from './bigramsDistribution';
 import unigrams from '../unigrams';
 import unigramsDistribution from './unigramsDistribution';
+
+const applyToStrings = pipe(
+  applyToString,
+  map,
+);
 
 const toDistribution = pipe(
   applySpec({
@@ -54,4 +61,6 @@ const toDistribution = pipe(
   ),
 );
 
-export default toDistribution;
+const stringsToDistributions = applyToStrings(toDistribution);
+
+export default stringsToDistributions;
