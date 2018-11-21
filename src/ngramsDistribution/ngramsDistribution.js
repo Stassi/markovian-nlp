@@ -1,69 +1,21 @@
 import {
-  applySpec,
-  ifElse,
-  identity,
-  is,
+  map,
   of,
   pipe,
-  reduce,
 } from 'ramda';
-import bigrams from '../bigrams';
-import bigramsDistribution from './bigramsDistribution';
-import unigrams from '../unigrams';
-import unigramsDistribution from './unigramsDistribution';
+import applyToString from './applyToString';
+import toDistribution from './toDistribution';
 
-const arrayWrapString = ifElse(
-  is(String),
-  of,
-  identity,
-);
+const stringsToDistributions = applyToString(toDistribution);
+
+const mergeDistributions = () => {
+  // TODO: Merge (sum) all distributions
+};
 
 const ngramsDistribution = pipe(
-  arrayWrapString,
-  // TODO: Map strings to distributions, then merge (sum) all distributions
-  applySpec({
-    bigrams,
-    unigrams,
-  }),
-  ({
-    bigrams: bigramsData,
-    unigrams: {
-      end: endUnigrams,
-      start: startUnigrams,
-      ...props
-    },
-  }) => ({
-    ...props,
-    endCount: unigramsDistribution(endUnigrams),
-    followingCounts: bigramsDistribution(bigramsData),
-    startCount: unigramsDistribution(startUnigrams),
-  }),
-  ({
-    followingCounts,
-    endCount,
-    startCount,
-    ...props
-  }) => ({
-    ...props,
-    unigramCounts: unigram => ({
-      [unigram]: {
-        ...followingCounts(unigram),
-        _end: endCount(unigram),
-        _start: startCount(unigram),
-      },
-    }),
-  }),
-  ({
-    unigramCounts,
-    all: allUnigrams,
-  }) => reduce(
-    (acc, unigram) => ({
-      ...acc,
-      ...unigramCounts(unigram),
-    }),
-    {},
-    allUnigrams,
-  ),
+  applyToString(of),
+  map(stringsToDistributions),
+  mergeDistributions,
 );
 
 export default ngramsDistribution;
