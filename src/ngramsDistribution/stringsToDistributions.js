@@ -5,9 +5,8 @@ import {
   reduce,
 } from 'ramda';
 import applyToString from './applyToString';
-import bigrams from '../bigrams';
+import { bigrams, unigrams } from '../ngrams';
 import bigramsDistribution from './bigramsDistribution';
-import unigrams from '../unigrams';
 import unigramsDistribution from './unigramsDistribution';
 
 const applyToStrings = pipe(

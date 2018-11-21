@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import bigrams from '../src/bigrams';
+import { bigrams } from '../src/ngrams';
 
 describe('#bigrams', () => {
   const sentence = 'First the word, then the last. First, last. Sometimes the word.';
