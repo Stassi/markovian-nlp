@@ -1,11 +1,7 @@
 import nlp from 'compromise';
-import {
-  map,
-  omit,
-  pipe,
-} from 'ramda';
+import { map, pipe } from 'ramda';
+import omitSize from './omitSize';
 
-const omitSize = omit(['size']);
 const bigrams = pipe(
   x => nlp(x).ngrams({ max: 2 }).bigrams().data(),
   map(omitSize),
