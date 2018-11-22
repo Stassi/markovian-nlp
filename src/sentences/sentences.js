@@ -1,7 +1,7 @@
 import { map, pipe } from 'ramda';
-import { evolveSeeds } from './random';
+import { evolveSeeds } from '../random';
 import createSentence from './createSentence';
-import ngramsDistribution from './ngramsDistribution';
+import ngramsDistribution from '../ngramsDistribution';
 
 const sentences = pipe(
   ({

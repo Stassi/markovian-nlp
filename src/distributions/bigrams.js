@@ -27,7 +27,8 @@ const followingUnigramCounts = reduce(
   {},
 );
 
-const bigramsDistribution = bigrams => precedingUnigram => pipe(
+// TODO: Semantic disambiguation
+const bigrams = bigramsData => precedingUnigram => pipe(
   filter(
     propSatisfies(
       startsWith(`${precedingUnigram} `),
@@ -35,6 +36,6 @@ const bigramsDistribution = bigrams => precedingUnigram => pipe(
     ),
   ),
   followingUnigramCounts,
-)(bigrams);
+)(bigramsData);
 
-export default bigramsDistribution;
+export default bigrams;

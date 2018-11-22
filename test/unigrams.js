@@ -3,7 +3,7 @@ import unigrams, {
   all,
   end,
   start,
-} from '../src/unigrams';
+} from '../src/ngrams/unigrams';
 
 describe('unigrams', () => {
   const sentence = 'First word, then last.';
