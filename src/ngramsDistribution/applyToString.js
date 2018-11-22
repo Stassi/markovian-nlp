@@ -4,9 +4,9 @@ import {
   is,
 } from 'ramda';
 
-const applyToString = fn => ifElse(
+const applyToString = x => ifElse(
   is(String),
-  fn,
+  x,
   identity,
 );
 
