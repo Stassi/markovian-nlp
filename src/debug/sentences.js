@@ -3,23 +3,25 @@ import { pipe } from 'ramda';
 const defaults = ({
   count = 1,
   format = true,
+  iterationLimit = 999999999,
   words = 15,
   ...props
 }) => ({
   ...props,
   count,
   format,
+  iterationLimit,
   words,
 });
 
-const iterationsInit = ({ ...props }) => ({
-  ...props,
-  iterations: 0,
-  maxIterations: 999999999,
-});
+const generatedInit = ({ ...props }) => ({ ...props, generated: [] });
+
+// TODO: Init once per sentence (from count)
+const iterationsInit = ({ ...props }) => ({ ...props, iterations: 0 });
 
 const sentences = pipe(
   defaults,
+  generatedInit,
   iterationsInit,
   (x) => {
     // TODO: Implement
