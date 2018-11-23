@@ -1,6 +1,26 @@
-import { identity } from 'ramda';
+import { pipe } from 'ramda';
 
-// TODO: Implement
-const sentences = identity;
+const defaults = ({
+  count = 1,
+  format = true,
+  words = 15,
+  ...props
+}) => ({
+  ...props,
+  count,
+  format,
+  words,
+});
+
+const iterationsInit = ({ ...props }) => ({ ...props, iterations: 0 });
+
+const sentences = pipe(
+  defaults,
+  iterationsInit,
+  (x) => {
+    // TODO: Implement
+    return x;
+  },
+);
 
 export default sentences;
