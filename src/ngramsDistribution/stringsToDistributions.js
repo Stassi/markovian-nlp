@@ -1,17 +1,11 @@
 import {
   applySpec,
-  map,
   pipe,
   reduce,
 } from 'ramda';
-import applyToString from './applyToString';
+import { applyToStrings } from './applyToString';
 import { bigrams, unigrams } from '../distributions';
 import ngrams from '../ngrams';
-
-const applyToStrings = pipe(
-  applyToString,
-  map,
-);
 
 const toDistribution = pipe(
   applySpec(ngrams),

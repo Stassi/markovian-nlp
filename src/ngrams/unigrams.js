@@ -3,13 +3,12 @@ import {
   applySpec,
   filter,
   map,
-  omit,
   pipe,
   propEq,
 } from 'ramda';
+import omitSize from './omitSize';
 
 const sizeOne = propEq('size', 1);
-const omitSize = omit(['size']);
 
 const toUnigrams = x => pipe(
   x,

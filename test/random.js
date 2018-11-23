@@ -1,26 +1,19 @@
 import { expect } from 'chai';
-import random, {
-  evolveSeed,
+import evolveSeed from '../src/random/evolveSeed';
+import {
+  evolveSeedProp,
   evolveSeeds,
-  weightedRandom,
+  weighted,
 } from '../src/random';
 
 describe('random', () => {
-  describe('default object', () => {
-    it('should have methods as keys', () => {
-      expect(random).to.have.all.keys(
-        'evolveSeed',
-        'evolveSeeds',
-        'evolveSeedProp',
-        'weightedRandom',
-      );
-    });
-  });
+  const one = 1;
+  const evolvedOne = -1494798787674112;
 
   describe('#evolveSeed', () => {
     describe('seeded', () => {
       it('should return a deterministic number', () => {
-        expect(evolveSeed(1)).to.equal(-1494798787674112);
+        expect(evolveSeed(one)).to.equal(evolvedOne);
       });
     });
 
@@ -44,20 +37,30 @@ describe('random', () => {
 
     describe('seeded', () => {
       it('should return deterministic seeds', () => {
-        const twoDeterministicSeeds = { count: 2, seed: 1 };
-        expect(evolveSeeds(twoDeterministicSeeds)).to.include.members([1, -1494798787674112]);
+        const twoDeterministicSeeds = { count: 2, seed: one };
+        expect(evolveSeeds(twoDeterministicSeeds)).to.include.members([one, evolvedOne]);
       });
     });
   });
 
   describe('#evolveSeedProp', () => {
-    // TODO: Implement
-    it('should have tests');
+    describe('seeded', () => {
+      it('should return a deterministic number', () => {
+        expect(evolveSeedProp({ seed: one })).to.include({ seed: evolvedOne });
+      });
+    });
+
+    describe('unseeded', () => {
+      it('should return a nondeterministic number', () => {
+        const { seed } = evolveSeedProp({ seed: null });
+        expect(seed).to.be.a('number');
+      });
+    });
   });
 
-  describe('#weightedRandom', () => {
+  describe('#weighted', () => {
     const values = ['alpha', 'beta'];
-    const fiftyFifty = weightedRandom({
+    const fiftyFifty = weighted({
       values,
       weights: [50, 50],
     });

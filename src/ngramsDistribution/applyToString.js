@@ -2,12 +2,17 @@ import {
   identity,
   ifElse,
   is,
+  map,
+  pipe,
 } from 'ramda';
 
-const applyToString = fn => ifElse(
+export const applyToString = x => ifElse(
   is(String),
-  fn,
+  x,
   identity,
 );
 
-export default applyToString;
+export const applyToStrings = pipe(
+  applyToString,
+  map,
+);
