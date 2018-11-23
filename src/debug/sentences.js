@@ -12,7 +12,11 @@ const defaults = ({
   words,
 });
 
-const iterationsInit = ({ ...props }) => ({ ...props, iterations: 0 });
+const iterationsInit = ({ ...props }) => ({
+  ...props,
+  iterations: 0,
+  maxIterations: 999999999,
+});
 
 const sentences = pipe(
   defaults,
