@@ -10,8 +10,8 @@ import {
   sum,
   values,
 } from 'ramda';
-import { weightedRandom } from '../random';
 import extendSentence from './extendSentence';
+import { weighted as weightedRandom } from '../random';
 
 const propOrZero = propOr(0);
 

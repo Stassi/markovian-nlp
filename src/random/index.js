@@ -1,9 +1,9 @@
 import evolveSeedProp from './evolveSeedProp';
 import evolveSeeds from './evolveSeeds';
-import weightedRandom from './weightedRandom';
+import weighted from './weighted';
 
 export {
   evolveSeedProp,
   evolveSeeds,
-  weightedRandom,
+  weighted,
 };

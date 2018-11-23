@@ -3,7 +3,7 @@ import {
   reduce,
   toPairs,
 } from 'ramda';
-import { weightedRandom } from '../random';
+import { weighted as weightedRandom } from '../random';
 
 // TODO: Rename
 const followingUnigram = transformWeight => pipe(

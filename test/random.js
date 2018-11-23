@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import evolveSeed from '../src/random/evolveSeed';
 import {
   evolveSeeds,
-  weightedRandom,
+  weighted,
 } from '../src/random';
 
 describe('random', () => {
@@ -44,9 +44,9 @@ describe('random', () => {
     it('should have tests');
   });
 
-  describe('#weightedRandom', () => {
+  describe('#weighted', () => {
     const values = ['alpha', 'beta'];
-    const fiftyFifty = weightedRandom({
+    const fiftyFifty = weighted({
       values,
       weights: [50, 50],
     });
