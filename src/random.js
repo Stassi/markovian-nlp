@@ -61,12 +61,3 @@ export const evolveSeeds = ifElse(
 
 export const weightedRandom = ({ values, weights }) => seed =>
   Chance(seed).weighted(values, weights);
-
-const random = {
-  evolveSeed,
-  evolveSeeds,
-  evolveSeedProp,
-  weightedRandom,
-};
-
-export default random;

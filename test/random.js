@@ -1,22 +1,11 @@
 import { expect } from 'chai';
-import random, {
+import {
   evolveSeed,
   evolveSeeds,
   weightedRandom,
 } from '../src/random';
 
 describe('random', () => {
-  describe('default object', () => {
-    it('should have methods as keys', () => {
-      expect(random).to.have.all.keys(
-        'evolveSeed',
-        'evolveSeeds',
-        'evolveSeedProp',
-        'weightedRandom',
-      );
-    });
-  });
-
   describe('#evolveSeed', () => {
     describe('seeded', () => {
       it('should return a deterministic number', () => {
