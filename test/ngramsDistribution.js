@@ -25,12 +25,20 @@ describe('#ngramsDistribution', () => {
     });
   });
 
+  describe('Object input', () => {
+    it('should return its own input');
+  });
+
   describe('Array[String] input', () => {
     it('should return distributions of bigrams, startgrams, & endgrams', () => {
       expect(ngramsDistribution([firstText])).to.deep.equal(firstDistribution);
       expect(ngramsDistribution([secondText])).to.deep.equal(secondDistribution);
       expect(ngramsDistribution([thirdText])).to.deep.equal(thirdDistribution);
     });
+  });
+
+  describe('Array[Object] input', () => {
+    it('should return its own input');
   });
 
   describe('Array[Object, String, Object] input', () => {
