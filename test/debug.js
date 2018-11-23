@@ -67,6 +67,10 @@ describe('#sentences DEBUG', () => {
         expect(generated).to.equal(debug);
       });
     });
+
+    describe('low iteration limit', () => {
+      it('should throw an iteration limit error');
+    })
   });
 
   describe('unseeded', () => {
