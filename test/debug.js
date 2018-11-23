@@ -4,11 +4,11 @@ import lovelyQuote from './lovelyQuote';
 
 // TODO: Rename
 describe('#sentences DEBUG', () => {
-  const { compoundDistribution } = lovelyQuote;
+  const { compoundDistribution: corpus } = lovelyQuote;
 
   describe('seeded', () => {
     const { generated, seed } = sentences({
-      corpus: compoundDistribution,
+      corpus,
       seed: 1,
     });
 
@@ -22,7 +22,7 @@ describe('#sentences DEBUG', () => {
   });
 
   describe('unseeded', () => {
-    const { generated, seed } = sentences({ corpus: compoundDistribution });
+    const { generated, seed } = sentences({ corpus });
 
     it('NEEDS A NAME', () => {
       expect(generated).to.equal('debug');
