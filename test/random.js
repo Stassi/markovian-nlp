@@ -1,6 +1,6 @@
 import { expect } from 'chai';
+import evolveSeed from '../src/random/evolveSeed';
 import {
-  evolveSeed,
   evolveSeeds,
   weightedRandom,
 } from '../src/random';
