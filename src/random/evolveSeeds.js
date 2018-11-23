@@ -1,4 +1,3 @@
-import Chance from 'chance';
 import {
   dec,
   gte,
@@ -8,11 +7,7 @@ import {
   prop,
   repeat,
 } from 'ramda';
-
-export const evolveSeed = seed => Chance(seed).integer();
-
-export const evolveSeedProp = ({ seed, ...props }) =>
-  ({ ...props, seed: evolveSeed(seed) });
+import evolveSeedProp from './evolveSeedProp';
 
 const isZeroOrLess = gte(0);
 const countIsZeroOrLess = pipe(
@@ -53,11 +48,10 @@ const fillNondeterministic = pipe(
   repeat(undefined),
 );
 
-export const evolveSeeds = ifElse(
+const evolveSeeds = ifElse(
   deterministic,
   endOrExtendSeeds,
   fillNondeterministic,
 );
 
-export const weightedRandom = ({ values, weights }) => seed =>
-  Chance(seed).weighted(values, weights);
+export default evolveSeeds;
