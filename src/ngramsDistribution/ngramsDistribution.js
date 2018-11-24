@@ -1,10 +1,10 @@
-import { of, pipe } from 'ramda';
+import { pipe } from 'ramda';
 import additiveMerge from './additiveMerge';
-import { applyToString } from './applyToString';
+import ensureArrayWrapping from './ensureArrayWrapping';
 import stringsToDistributions from './stringsToDistributions';
 
 const ngramsDistribution = pipe(
-  applyToString(of),
+  ensureArrayWrapping,
   stringsToDistributions,
   additiveMerge,
 );

@@ -26,7 +26,11 @@ describe('#ngramsDistribution', () => {
   });
 
   describe('Object input', () => {
-    it('should return its own input');
+    it('should return its own input', () => {
+      expect(ngramsDistribution(firstDistribution)).to.deep.equal(firstDistribution);
+      expect(ngramsDistribution(secondDistribution)).to.deep.equal(secondDistribution);
+      expect(ngramsDistribution(thirdDistribution)).to.deep.equal(thirdDistribution);
+    });
   });
 
   describe('Array[String] input', () => {
@@ -38,7 +42,11 @@ describe('#ngramsDistribution', () => {
   });
 
   describe('Array[Object] input', () => {
-    it('should return its own input');
+    it('should return its own input', () => {
+      expect(ngramsDistribution([firstDistribution])).to.deep.equal(firstDistribution);
+      expect(ngramsDistribution([secondDistribution])).to.deep.equal(secondDistribution);
+      expect(ngramsDistribution([thirdDistribution])).to.deep.equal(thirdDistribution);
+    });
   });
 
   describe('Array[Object, String, Object] input', () => {
