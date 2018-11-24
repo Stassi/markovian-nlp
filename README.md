@@ -126,14 +126,15 @@ startgram | endgram | bigrams
 * [test with RunKit][runkit markovian-nlp]
 
 ## API
-### ngramsDistribution(document)
+### ngramsDistribution(document || ngramsDistribution)
 #### ngramsDistribution(Array(document || ngramsDistribution[, ...]))
 ##### Input
 type | description
 ---- | -----------
 [String][mdn string] | `document` (corpus or text)
+[Object][mdn object] | `ngramsDistribution` (equivalent to `identity`, i.e.: this method's output)
 [Array][mdn array][[Strings][mdn string]...] | combine multiple `document`
-[Array][mdn array][[Objects][mdn object]...] | combine multiple `ngramsDistribution` (i.e.: this method's output)
+[Array][mdn array][[Objects][mdn object]...] | combine multiple `ngramsDistribution`
 [Array][mdn array][[Strings][mdn string], [Objects][mdn object]...] | combine multiple `document` and `ngramsDistribution`
 
 ##### Return value
