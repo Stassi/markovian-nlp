@@ -3,7 +3,7 @@ import {
   pipe,
   reduce,
 } from 'ramda';
-import { applyToStrings } from './applyToString';
+import applyToStrings from './applyToString';
 import { bigrams, unigrams } from '../distributions';
 import ngrams from '../ngrams';
 
