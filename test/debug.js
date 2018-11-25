@@ -14,8 +14,8 @@ describe('#sentences DEBUG', () => {
 
     describe('returned values', () => {
       const {
-        iterations,
         generated,
+        iterations,
         seed: seedOut,
       } = sentences({ corpus, seed });
 
