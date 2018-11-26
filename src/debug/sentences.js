@@ -1,9 +1,9 @@
+import { pipe } from 'ramda';
 import {
-  equals,
-  length,
-  pipe,
-  until,
-} from 'ramda';
+  restore as restoreSeed,
+  save as saveSeed,
+} from './seed';
+import generateSentences from './generateSentences';
 
 const defaults = ({
   count = 1,
@@ -19,31 +19,12 @@ const defaults = ({
   words,
 });
 
-const generatedInit = ({ ...props }) => ({ ...props, generated: [] });
-
-// TODO: Rename, composition, complete implementation
-const debug = until(
-  ({ count, generated }) => equals(
-    count,
-    length(generated),
-  ),
-  ({ generated, ...props }) => ({
-    ...props,
-    generated: [
-      ...generated,
-      'DEBUG',
-    ]
-  })
-);
-
-// TODO: Init once per sentence (from count)
-const iterationsInit = ({ ...props }) => ({ ...props, iterations: 0 });
-
 const sentences = pipe(
   defaults,
-  generatedInit,
-  debug,
-  iterationsInit,
+  // TODO: Generate random seed if not a number before saving
+  saveSeed,
+  generateSentences,
+  restoreSeed,
   (x) => {
     // TODO: Implement
     return x;
