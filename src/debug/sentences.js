@@ -4,6 +4,7 @@ import {
   save as saveSeed,
 } from './seed';
 import generateSentences from './generateSentences';
+import numericizeSeed from './numericizeSeed';
 
 const defaults = ({
   count = 1,
@@ -21,7 +22,7 @@ const defaults = ({
 
 const sentences = pipe(
   defaults,
-  // TODO: Generate random seed if not a number before saving
+  numericizeSeed,
   saveSeed,
   generateSentences,
   restoreSeed,
