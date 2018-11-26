@@ -5,23 +5,10 @@ import {
   save as saveSeed,
 } from '../seed';
 import generateSentences from './generateSentences';
-
-const defaults = ({
-  count = 1,
-  format = true,
-  iterationLimit = 999999999,
-  words = 15,
-  ...props
-}) => ({
-  ...props,
-  count,
-  format,
-  iterationLimit,
-  words,
-});
+import setDefaults from './setDefaults';
 
 const sentences = pipe(
-  defaults,
+  setDefaults,
   numericizeSeed,
   saveSeed,
   generateSentences,
