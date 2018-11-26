@@ -77,6 +77,7 @@ describe('#sentences DEBUG', () => {
     const { generated, seed: seedOut } = sentences({ corpus });
 
     it('should generate nondeterministic text', () => {
+      // TODO: Consider testing type, possibly length
       expect(generated).to.equal(debug);
     });
 
