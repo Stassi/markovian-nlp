@@ -1,8 +1,8 @@
-import Chance from 'chance';
+import { number as randomNumber } from '../random';
 
 const evolve = ({ seed, ...props }) => ({
   ...props,
-  seed: Chance(seed).integer(),
+  seed: randomNumber(seed),
 });
 
 export default evolve;
