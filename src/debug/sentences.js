@@ -1,10 +1,10 @@
 import { pipe } from 'ramda';
 import {
+  numericize as numericizeSeed,
   restore as restoreSeed,
   save as saveSeed,
-} from './seed';
+} from '../seed';
 import generateSentences from './generateSentences';
-import numericizeSeed from './numericizeSeed';
 
 const defaults = ({
   count = 1,
