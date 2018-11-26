@@ -1,4 +1,9 @@
-import { pipe } from 'ramda';
+import {
+  equals,
+  length,
+  pipe,
+  until,
+} from 'ramda';
 
 const defaults = ({
   count = 1,
@@ -16,12 +21,28 @@ const defaults = ({
 
 const generatedInit = ({ ...props }) => ({ ...props, generated: [] });
 
+// TODO: Rename, composition, complete implementation
+const debug = until(
+  ({ count, generated }) => equals(
+    count,
+    length(generated),
+  ),
+  ({ generated, ...props }) => ({
+    ...props,
+    generated: [
+      ...generated,
+      'DEBUG',
+    ]
+  })
+);
+
 // TODO: Init once per sentence (from count)
 const iterationsInit = ({ ...props }) => ({ ...props, iterations: 0 });
 
 const sentences = pipe(
   defaults,
   generatedInit,
+  debug,
   iterationsInit,
   (x) => {
     // TODO: Implement
