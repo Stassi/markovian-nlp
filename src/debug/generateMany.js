@@ -4,7 +4,7 @@ import {
   pipe,
   until,
 } from 'ramda';
-import generateSentence from './generateSentence';
+import generateOne from './generateOne';
 
 const generatedInit = ({ ...props }) => ({ ...props, generated: [] });
 
@@ -19,15 +19,15 @@ const appendGeneratedSentence = ({ generated, ...props }) => ({
   ...props,
   generated: [
     ...generated,
-    generateSentence(props),
+    generateOne(props),
   ],
 });
 
 const appendUntilGeneratedLimit = untilCountEqualsGeneratedLength(appendGeneratedSentence);
 
-const generateSentences = pipe(
+const generateMany = pipe(
   generatedInit,
   appendUntilGeneratedLimit,
 );
 
-export default generateSentences;
+export default generateMany;

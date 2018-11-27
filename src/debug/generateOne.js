@@ -1,4 +1,4 @@
-const generateSentence = ({ ...props }) => {
+const generateOne = ({ ...props }) => {
   // TODO: Implement
   console.log(props);
   return 'DEBUG';
@@ -7,4 +7,4 @@ const generateSentence = ({ ...props }) => {
 // TODO: Init once per sentence (from count)
 // const iterationsInit = ({ ...props }) => ({ ...props, iterations: 0 });
 
-export default generateSentence;
+export default generateOne;
