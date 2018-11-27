@@ -7,6 +7,7 @@ const debug = '__DEBUG';
 
 // TODO: Rename
 describe('#sentences DEBUG', () => {
+  // TODO: Test corpus String
   const { compoundDistribution: corpus } = lovelyQuote;
 
   describe('seeded', () => {
