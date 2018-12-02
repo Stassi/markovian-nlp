@@ -21,6 +21,7 @@ describe('#sentences DEBUG', () => {
       } = sentences({ corpus, seed });
 
       it('should include the iteration count', () => {
+        // TODO: { iterations } should be an Array of Numbers
         expect(iterations).to.equal(debug);
       });
 
