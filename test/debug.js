@@ -16,8 +16,13 @@ describe('#sentences DEBUG', () => {
     describe('returned values', () => {
       const {
         generated,
+        iterations,
         seed: seedOut,
       } = sentences({ corpus, seed });
+
+      it('should include the iteration count', () => {
+        expect(iterations).to.equal(debug);
+      });
 
       it('should include deterministic generated text', () => {
         expect(generated).to.equal(debug);
