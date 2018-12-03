@@ -4,6 +4,12 @@ import sentences from '../src/debug';
 
 // TODO: Replace with expected values once known
 const debug = '__DEBUG';
+const debugNumber = 999999999999;
+const debugNumbers = [
+  debugNumber,
+  debugNumber,
+  debugNumber,
+];
 
 // TODO: Rename
 describe('#sentences DEBUG', () => {
@@ -21,8 +27,7 @@ describe('#sentences DEBUG', () => {
       } = sentences({ corpus, seed });
 
       it('should include the iteration count', () => {
-        // TODO: { iterations } should be an Array of Numbers
-        expect(iterations).to.equal(debug);
+        expect(iterations).to.have.ordered.members(debugNumbers);
       });
 
       it('should include deterministic generated text', () => {
@@ -76,7 +81,15 @@ describe('#sentences DEBUG', () => {
   });
 
   describe('unseeded', () => {
-    const { generated, seed: seedOut } = sentences({ corpus });
+    const {
+      generated,
+      iterations: [iteration],
+      seed: seedOut,
+    } = sentences({ corpus });
+
+    it('should include numeric iterations', () => {
+      expect(iteration).to.be.a('number');
+    });
 
     it('should generate nondeterministic text', () => {
       // TODO: Consider testing type, possibly length

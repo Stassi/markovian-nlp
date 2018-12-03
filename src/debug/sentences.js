@@ -6,6 +6,7 @@ import {
 } from '../seed';
 import generateMany from './generateMany';
 import setDefaults from './setDefaults';
+import setIterations from './setIterations';
 
 const sentences = pipe(
   setDefaults,
@@ -13,6 +14,7 @@ const sentences = pipe(
   saveSeed,
   generateMany,
   restoreSeed,
+  setIterations,
   (x) => {
     // TODO: Implement
     return x;
