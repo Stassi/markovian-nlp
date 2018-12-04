@@ -1,26 +1,15 @@
-import { pick, pipe } from 'ramda';
+// TODO: Implement, rename
+const debug = () => 'DEBUG DEBUG DEBUG';
 
-const relevantKeys = pick([
-  'corpus',
-  'iterationLimit',
-  'seed',
-  'words',
-]);
-
-const initializeProps = ({ ...props }) => ({
+const generateOne = ({
+  generated,
+  ...props
+}) => ({
   ...props,
-  iterations: 0,
-  sentence: [],
+  generated: [
+    ...generated,
+    debug(),
+  ],
 });
-
-const generateOne = pipe(
-  relevantKeys,
-  initializeProps,
-  ({ ...props }) => {
-    // TODO: Implement
-    console.log(props);
-    return 'DEBUG';
-  },
-);
 
 export default generateOne;
