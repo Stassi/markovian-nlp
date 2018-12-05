@@ -8,6 +8,7 @@ import endOrExtendSentence from './endOrExtendSentence';
 import findStartgram from './findStartgram';
 import unigramDistribution from './unigramDistribution';
 
+// TODO: Resolve scope collision with startgram parameter of same name
 const unseededStartgram = ({ distribution, ...props }) => ({
   ...props,
   distribution,
