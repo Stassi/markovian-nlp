@@ -1,28 +1,28 @@
-import findStartgram from './findStartgram';
+import { pipe } from 'ramda';
+import generateStartgram from './startgram';
 
 // TODO: Implement, rename
-const debug = ({
-  corpus,
-  seed,
-  unigrams = [],
-  ...props
-}) => {
-  // TODO: Implement filterEndgrams[whenEndgram] at start of unigram loop
-  // TODO: Loop via untilUnigramsLengthEqualsWordCount
-  // TODO: ifElse (startgram || bigram)
-  // TODO:   || nextGram(previousGram ? bigram : startgram)
-  // TODO: Conditional format, then join
-  const res = {
-    ...props,
-    corpus,
-    seed,
-    unigrams,
-    // TODO: Piped partial application
-    debug: findStartgram(corpus)(seed),
-  };
-  console.log(res);
-  return res;
-};
+const debug = pipe(
+  generateStartgram,
+  ({
+    startgram,
+    unigrams = [],
+    ...props
+  }) => {
+    // TODO: Implement filterEndgrams[whenEndgram] at start of unigram loop
+    // TODO: Loop via untilUnigramsLengthEqualsWordCount
+    // TODO: ifElse (startgram || bigram)
+    // TODO:   || nextGram(previousGram ? bigram : startgram)
+    // TODO: Conditional format, then join
+    const res = {
+      ...props,
+      startgram,
+      unigrams,
+    };
+    console.log(res);
+    return res;
+  },
+);
 
 const generateOne = ({
   generated,
