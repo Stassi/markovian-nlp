@@ -24,7 +24,11 @@ describe('#sentences DEBUG', () => {
         generated,
         iterations,
         seed: seedOut,
-      } = sentences({ corpus, seed });
+      } = sentences({
+        corpus,
+        seed,
+        words: 4,
+      });
 
       it('should include the iteration count', () => {
         expect(iterations).to.have.ordered.members(debugNumbers);
