@@ -8,9 +8,12 @@ import {
   when
 } from 'ramda';
 
-const endgramRequired = ({ unigrams, words }) => equals(
-  length(unigrams),
+const endgramRequired = ({
+  words,
+  unigrams = [],
+}) => equals(
   dec(words),
+  length(unigrams),
 );
 const whenEndgramRequired = when(endgramRequired);
 
