@@ -1,3 +1,4 @@
+// TODO: Remove non-default parameters (i.e.: { generated })
 const setDefaults = ({
   count = 1,
   format = true,
