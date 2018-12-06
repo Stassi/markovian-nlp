@@ -1,6 +1,8 @@
 import {
   filter,
   lt,
+  map,
+  omit,
   pipe,
   prop,
   propSatisfies,
@@ -40,6 +42,16 @@ const applyCorpusProp = ({ corpus, ...props }) => ({
   unseededStartgram: findStartgram(corpus),
 });
 
+const omitStart = omit(['_start']);
+const mapOmitStart = map(omitStart);
+const removeStartgramWeights = ({
+  corpus,
+  ...props
+}) => ({
+  ...props,
+  corpus: mapOmitStart(corpus),
+});
+
 const applySeedProp = ({
   seed,
   unseededStartgram,
@@ -55,8 +67,10 @@ const toUnigramsHead = ({ startgram, ...props }) => ({
   unigrams: [startgram]
 });
 
+// TODO: Extract submodules, SoC
 const startgram = pipe(
   applyCorpusProp,
+  removeStartgramWeights,
   applySeedProp,
   evolveSeedProp,
   toUnigramsHead,
