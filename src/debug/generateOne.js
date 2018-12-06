@@ -1,23 +1,20 @@
 import { pipe } from 'ramda';
-import generateStartgram from './startgram';
+import filterEndgrams from './filterEndgramsWhenRequired';
+import startgram from './startgram';
 
-// TODO: Implement, rename
+// TODO: Rename
 const debug = pipe(
-  generateStartgram,
+  filterEndgrams,
+  startgram,
   ({
-    startgram,
-    unigrams = [],
     ...props
   }) => {
-    // TODO: Implement filterEndgrams[whenEndgram] at start of unigram loop
     // TODO: Loop via untilUnigramsLengthEqualsWordCount
     // TODO: ifElse (startgram || bigram)
     // TODO:   || nextGram(previousGram ? bigram : startgram)
     // TODO: Conditional format, then join
     const res = {
       ...props,
-      startgram,
-      unigrams,
     };
     console.log(res);
     return res;
