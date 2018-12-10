@@ -3,16 +3,16 @@ import {
   isEmpty,
   propSatisfies,
 } from 'ramda';
-import bigram from './bigram';
-import startgram from './startgram';
+import generateBigram from './bigram';
+import generateStartgram from './startgram';
 
 const propIsEmpty = propSatisfies(isEmpty);
 const startgramRequired = propIsEmpty('unigrams');
 
 const startgramOrBigram = ifElse(
   startgramRequired,
-  startgram,
-  bigram,
+  generateStartgram,
+  generateBigram,
 );
 
 export default startgramOrBigram;
