@@ -3,8 +3,18 @@ import filterEndgrams from './filterEndgramsWhenRequired';
 import generateUnigram from './startgramOrBigram';
 import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 
+// TODO: Consider extraction
+const setDefaultUnigrams = ({
+  unigrams = [],
+  ...props
+}) => ({
+  ...props,
+  unigrams,
+});
+
 // TODO: Rename
 const debugTwo = pipe(
+  setDefaultUnigrams,
   filterEndgrams,
   generateUnigram,
   ({
