@@ -1,6 +1,6 @@
 import { pipe } from 'ramda';
 import filterEndgrams from './filterEndgramsWhenRequired';
-import generateUnigram from './startgramOrBigram';
+import generateUnigram from './unigram';
 import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 
 // TODO: Consider extraction

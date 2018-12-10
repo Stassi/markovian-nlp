@@ -9,10 +9,10 @@ import generateStartgram from './startgram';
 const propIsEmpty = propSatisfies(isEmpty);
 const startgramRequired = propIsEmpty('unigrams');
 
-const startgramOrBigram = ifElse(
+const unigram = ifElse(
   startgramRequired,
   generateStartgram,
   generateBigram,
 );
 
-export default startgramOrBigram;
+export default unigram;
