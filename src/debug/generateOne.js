@@ -1,17 +1,15 @@
 import { pipe } from 'ramda';
 import filterEndgrams from './filterEndgramsWhenRequired';
-import startgram from './startgram';
+import generateUnigram from './startgramOrBigram';
+import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 
 // TODO: Rename
-const debug = pipe(
+const debugTwo = pipe(
   filterEndgrams,
-  startgram,
+  generateUnigram,
   ({
     ...props
   }) => {
-    // TODO: Loop via untilUnigramsLengthEqualsWordCount
-    // TODO: ifElse (startgram || bigram)
-    // TODO:   || nextGram(previousGram ? bigram : startgram)
     // TODO: Conditional format, then join
     const res = {
       ...props,
@@ -20,6 +18,9 @@ const debug = pipe(
     return res;
   },
 );
+
+// TODO: Rename
+const debug = untilUnigramsEqualWordCount(debugTwo);
 
 const generateOne = ({
   generated,
