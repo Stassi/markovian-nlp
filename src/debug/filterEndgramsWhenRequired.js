@@ -8,6 +8,7 @@ import {
   when
 } from 'ramda';
 
+// TODO: Reduce duplication with unigramsEqualWordCount
 const endgramRequired = ({
   words,
   unigrams = [],
