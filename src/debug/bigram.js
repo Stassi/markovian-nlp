@@ -6,43 +6,13 @@ import {
   reduce,
   toPairs,
 } from 'ramda';
-import { weighted as weightedRandom } from '../random';
+import {
+  evolveSeedProp,
+  weighted as weightedRandom,
+} from '../random';
 
-// TODO: Rename
-const findBigram = pipe(
-  prop('unigrams'),
-  last,
-  prop,
-);
-
-const corpusProp = prop('corpus');
-const omitEnd = omit(['_end']);
-// TODO: Rename
-const getDistribution = x => pipe(
-  corpusProp,
-  x,
-  omitEnd,
-);
-
-// TODO: Rename
-const bigramDistribution = pipe(
-  findBigram,
-  getDistribution,
-);
-
-// TODO: Rename, merge with unseeded (eliminate distribution prop)
-const debugThree = ({
-  ...props,
-}) => {
-  const res = {
-    ...props,
-    distribution: bigramDistribution(props)(props),
-  };
-  return res;
-};
-
-// TODO: Rename
-const getUnseeded = pipe(
+// TODO: Extract
+const toUnseeded = pipe(
   toPairs,
   reduce(
     ({ values, weights }, [value, weight]) => ({
@@ -57,39 +27,64 @@ const getUnseeded = pipe(
   weightedRandom,
 );
 
-// TODO: Rename
-const debugTwo = ({
-  distribution,
-  ...props
-}) => {
-  const res = {
-    ...props,
-    unseeded: getUnseeded(distribution),
-  };
-  // TODO: Select most recent unigram as corpus index
-  console.log(res);
-  return res;
-};
+// TODO: Extract
+const toDistribution = pipe(
+  last,
+  prop,
+  x => pipe(
+    x,
+    omit(['_end']),
+  ),
+);
 
-// TODO: Rename
-const debug = ({
+const unigramsAndCorpusToDistribution = ({
+  corpus,
   unigrams,
   ...props
-}) => {
-  const res = {
-    ...props,
-    unigrams: [
-      ...unigrams,
-      'DEBUG',
-    ],
-  };
-  return res;
-};
+}) => ({
+  ...props,
+  corpus,
+  unigrams,
+  distribution: toDistribution(unigrams)(corpus),
+});
 
+const distributionToUnseeded = ({
+  distribution,
+  ...props
+}) => ({
+  ...props,
+  unseeded: toUnseeded(distribution),
+});
+
+const applySeed = ({
+  seed,
+  unseeded,
+  ...props
+}) => ({
+  ...props,
+  seed,
+  bigram: unseeded(seed),
+});
+
+const appendToUnigrams = ({
+  bigram,
+  unigrams,
+  ...props
+}) => ({
+  ...props,
+  unigrams: [
+    ...unigrams,
+    bigram,
+  ],
+});
+
+// TODO: Extract submodules, SoC, move startgram-duplicates upstream
 const bigram = pipe(
-  debugThree,
-  debugTwo,
-  debug,
+  unigramsAndCorpusToDistribution,
+  distributionToUnseeded,
+  applySeed,
+  evolveSeedProp,
+  appendToUnigrams,
 );
 
 export default bigram;

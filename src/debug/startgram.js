@@ -37,9 +37,11 @@ const findStartgram = pipe(
   weightedRandom,
 );
 
+// TODO: Rename as toUnseeded, reduce duplication with bigrams
 const applyCorpusProp = ({ corpus, ...props }) => ({
   ...props,
   corpus,
+  // TODO: Rename as { unseeded }
   unseededStartgram: findStartgram(corpus),
 });
 
@@ -68,7 +70,7 @@ const toUnigramsHead = ({ startgram, ...props }) => ({
   unigrams: [startgram]
 });
 
-// TODO: Extract submodules, SoC
+// TODO: Extract submodules, SoC, move bigram-duplicates upstream
 const startgram = pipe(
   applyCorpusProp,
   removeStartgramWeights,
