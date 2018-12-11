@@ -1,46 +1,52 @@
 import { pipe } from 'ramda';
-import filterEndgrams from './filterEndgramsWhenRequired';
 import generateUnigram from './unigram';
 import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 
-// TODO: Consider extraction
-const setDefaultUnigrams = ({
-  unigrams = [],
-  ...props
-}) => ({
-  ...props,
-  unigrams,
-});
+const setDefaultUnigrams = ({ unigrams = [], ...props }) => ({ ...props, unigrams });
+const generateUnigramsUntilWordLimit = untilUnigramsEqualWordCount(generateUnigram);
 
 // TODO: Rename
-const debugTwo = pipe(
+const debug = pipe(
   setDefaultUnigrams,
-  filterEndgrams,
-  generateUnigram,
-  ({
-    ...props
-  }) => {
-    // TODO: Conditional format, then join
+  generateUnigramsUntilWordLimit,
+  ({ unigrams, ...props }) => {
     const res = {
-      ...props,
+      props,
+      // TODO: Conditional formatting
+      generated: null,
+      // TODO: Implement iteration counter and enforce limit
+      // TODO:   i.e.: loop via untilEndgramDetected(generate && inc(iterations)
+      iterations: null,
     };
-    console.log(res);
     return res;
-  },
+  }
 );
 
-// TODO: Rename
-const debug = untilUnigramsEqualWordCount(debugTwo);
+const toSentence = ({ ...props }) => ({ ...props, sentence: debug(props) });
 
-const generateOne = ({
-  generated,
+const appendToGeneratedAndIterations = ({
+  generated: previousGenerated,
+  iterations: previousIterations,
+  sentence: {
+    generated,
+    iterations,
+  },
   ...props
 }) => ({
   ...props,
   generated: [
-    ...generated,
-    debug(props),
+    ...previousGenerated,
+    generated,
+  ],
+  iterations: [
+    ...previousIterations,
+    iterations,
   ],
 });
+
+const generateOne = pipe(
+  toSentence,
+  appendToGeneratedAndIterations,
+);
 
 export default generateOne;
