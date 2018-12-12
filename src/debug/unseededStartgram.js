@@ -9,7 +9,6 @@ import {
 } from 'ramda';
 import { weighted as weightedRandom } from '../random';
 
-// TODO: Reduce startgram/endgram predicate duplication
 const greaterThanZero = lt(0);
 const propGreaterThanZero = propSatisfies(greaterThanZero);
 const isStartgram = propGreaterThanZero('_start');
