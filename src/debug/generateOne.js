@@ -41,7 +41,7 @@ const debug = pipe(
       iterations: null,
     };
     return res;
-  }
+  },
 );
 
 const toSentence = ({ ...props }) => ({ ...props, sentence: debug(props) });
