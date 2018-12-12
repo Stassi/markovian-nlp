@@ -1,8 +1,8 @@
 import { pipe } from 'ramda';
 import generateUnigram from './unigram';
-import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
-import unseededStartgram from './unseededStartgram';
 import unseededBigram from './unseededBigram';
+import unseededStartgram from './unseededStartgram';
+import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 
 const toUnseededStartgram = ({
   corpus,
