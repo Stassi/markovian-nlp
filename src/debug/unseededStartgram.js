@@ -14,6 +14,7 @@ const propGreaterThanZero = propSatisfies(greaterThanZero);
 const isStartgram = propGreaterThanZero('_start');
 const filterStartgram = filter(isStartgram);
 
+// TODO: Reduce duplication with unseededBigram
 const unseededStartgram = pipe(
   filterStartgram,
   toPairs,

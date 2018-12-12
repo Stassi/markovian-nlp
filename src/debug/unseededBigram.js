@@ -1,5 +1,4 @@
 import {
-  identity,
   omit,
   pipe,
   reduce,
@@ -7,11 +6,11 @@ import {
 } from 'ramda';
 import { weighted as weightedRandom } from '../random';
 
-// TODO: Implement
 const onlyBigramWeights = omit(['_end', '_start']);
 
-// TODO: Rename, implement
-const bigramDistributionToUnseeded = pipe(
+// TODO: Reduce duplication with unseededStartgram
+const weightsToUnseeded = pipe(
+  onlyBigramWeights,
   toPairs,
   reduce(
     ({ values, weights }, [value, weight]) => ({
@@ -26,7 +25,7 @@ const bigramDistributionToUnseeded = pipe(
   weightedRandom,
 );
 
-// TODO: Rename, implement
-const unseededBigram = corpus => lastUnigram => seed => identity;
+const unseededBigram = corpus => lastUnigram =>
+  weightsToUnseeded(corpus[lastUnigram]);
 
 export default unseededBigram;
