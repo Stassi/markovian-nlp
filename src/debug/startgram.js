@@ -8,6 +8,7 @@ const applySeedProp = ({
 }) => ({
   ...props,
   seed,
+  unseededStartgram,
   startgram: unseededStartgram(seed),
 });
 

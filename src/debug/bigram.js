@@ -14,6 +14,7 @@ const toBigram = ({
 }) => ({
   ...props,
   seed,
+  unseededBigram,
   bigram: unseededBigram(lastUnigram)(seed),
 });
 
