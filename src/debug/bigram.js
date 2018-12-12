@@ -1,7 +1,7 @@
 import { last, pipe } from 'ramda';
 import { evolveSeedProp } from '../random';
 
-const getLastUnigram = ({ unigrams, ...props }) => ({
+const toLastUnigram = ({ unigrams, ...props }) => ({
   ...props,
   unigrams,
   lastUnigram: last(unigrams),
@@ -32,14 +32,10 @@ const appendToUnigrams = ({
 });
 
 const bigram = pipe(
-  getLastUnigram,
+  toLastUnigram,
   toBigram,
   evolveSeedProp,
   appendToUnigrams,
-  ({ ...props }) => {
-    const res = { ...props };
-    return res;
-  },
 );
 
 export default bigram;
