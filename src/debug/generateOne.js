@@ -2,6 +2,7 @@ import { pipe } from 'ramda';
 import generateUnigram from './unigram';
 import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 
+// TODO: Allow looping by restoring startgrams
 const setDefaultUnigrams = ({ unigrams = [], ...props }) => ({ ...props, unigrams });
 const generateUnigramsUntilWordLimit = untilUnigramsEqualWordCount(generateUnigram);
 
