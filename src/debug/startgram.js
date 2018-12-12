@@ -11,7 +11,6 @@ import unseeded from './unseededStartgram';
 const applyCorpusProp = ({ corpus, ...props }) => ({
   ...props,
   corpus,
-  // TODO: Rename as { unseeded }
   unseededStartgram: unseeded(corpus),
 });
 
