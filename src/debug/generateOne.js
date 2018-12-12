@@ -6,7 +6,7 @@ import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 
 const toUnseededStartgram = ({
   corpus,
-  ...props,
+  ...props
 }) => ({
   ...props,
   corpus,
@@ -15,7 +15,7 @@ const toUnseededStartgram = ({
 
 const toUnseededBigram = ({
   corpus,
-  ...props,
+  ...props
 }) => ({
   ...props,
   corpus,
