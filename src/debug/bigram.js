@@ -3,6 +3,7 @@ import { evolveSeedProp } from '../random';
 
 const getLastUnigram = ({ unigrams, ...props }) => ({
   ...props,
+  unigrams,
   lastUnigram: last(unigrams),
 });
 
@@ -35,6 +36,10 @@ const bigram = pipe(
   toBigram,
   evolveSeedProp,
   appendToUnigrams,
+  ({ ...props }) => {
+    const res = { ...props };
+    return res;
+  },
 );
 
 export default bigram;
