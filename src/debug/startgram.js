@@ -4,7 +4,7 @@ import {
   pipe,
 } from 'ramda';
 import { evolveSeedProp } from '../random';
-import findStartgram from './findStartgram';
+import unseeded from './unseededStartgram';
 
 // TODO: Rename as toUnseeded, reduce duplication with bigrams
 // TODO: Store unseededStartgram/toUnseeded upstream for repeated use
@@ -12,7 +12,7 @@ const applyCorpusProp = ({ corpus, ...props }) => ({
   ...props,
   corpus,
   // TODO: Rename as { unseeded }
-  unseededStartgram: findStartgram(corpus),
+  unseededStartgram: unseeded(corpus),
 });
 
 // TODO: Remove mapOmitStart

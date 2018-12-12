@@ -15,8 +15,7 @@ const propGreaterThanZero = propSatisfies(greaterThanZero);
 const isStartgram = propGreaterThanZero('_start');
 const filterStartgram = filter(isStartgram);
 
-// TODO: Rename to unseededStartgram
-const findStartgram = pipe(
+const unseededStartgram = pipe(
   filterStartgram,
   toPairs,
   reduce(
@@ -33,4 +32,4 @@ const findStartgram = pipe(
   weightedRandom,
 );
 
-export default findStartgram;
+export default unseededStartgram;
