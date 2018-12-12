@@ -7,6 +7,7 @@ import {
 // TODO: Reduce duplication with endgramRequired
 const unigramsEqualWordCount = ({
   words,
+  // TODO: Remove default param, set upstream
   unigrams = [],
 }) => equals(
   words,

@@ -38,6 +38,7 @@ const findStartgram = pipe(
 );
 
 // TODO: Rename as toUnseeded, reduce duplication with bigrams
+// TODO: Store unseededStartgram/toUnseeded upstream for repeated use
 const applyCorpusProp = ({ corpus, ...props }) => ({
   ...props,
   corpus,
@@ -45,6 +46,7 @@ const applyCorpusProp = ({ corpus, ...props }) => ({
   unseededStartgram: findStartgram(corpus),
 });
 
+// TODO: Remove mapOmitStart
 const omitStart = omit(['_start']);
 const mapOmitStart = map(omitStart);
 const removeStartgramWeights = ({
