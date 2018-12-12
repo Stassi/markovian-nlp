@@ -1,13 +1,33 @@
 import { pipe } from 'ramda';
 import generateUnigram from './unigram';
 import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
+import unseededStartgram from './unseededStartgram';
+import unseededBigram from './unseededBigram';
 
-// TODO: Allow looping by restoring startgrams
+const toUnseededStartgram = ({
+  corpus,
+  ...props,
+}) => ({
+  ...props,
+  corpus,
+  unseededStartgram: unseededStartgram(corpus),
+});
+
+const toUnseededBigram = ({
+  corpus,
+  ...props,
+}) => ({
+  ...props,
+  unseededBigram: unseededBigram(corpus),
+});
+
 const setDefaultUnigrams = ({ unigrams = [], ...props }) => ({ ...props, unigrams });
 const generateUnigramsUntilWordLimit = untilUnigramsEqualWordCount(generateUnigram);
 
 // TODO: Rename
 const debug = pipe(
+  toUnseededStartgram,
+  toUnseededBigram,
   setDefaultUnigrams,
   generateUnigramsUntilWordLimit,
   ({ unigrams, ...props }) => {

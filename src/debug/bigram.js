@@ -1,69 +1,20 @@
-import {
-  last,
-  omit,
-  pipe,
-  prop,
-  reduce,
-  toPairs,
-} from 'ramda';
-import {
-  evolveSeedProp,
-  weighted as weightedRandom,
-} from '../random';
+import { last, pipe } from 'ramda';
+import { evolveSeedProp } from '../random';
 
-// TODO: Extract
-const toUnseeded = pipe(
-  toPairs,
-  reduce(
-    ({ values, weights }, [value, weight]) => ({
-      values: [...values, value],
-      weights: [...weights, weight],
-    }),
-    {
-      values: [],
-      weights: [],
-    },
-  ),
-  weightedRandom,
-);
-
-// TODO: Extract
-const toDistribution = pipe(
-  last,
-  prop,
-  x => pipe(
-    x,
-    omit(['_end']),
-  ),
-);
-
-const unigramsAndCorpusToDistribution = ({
-  corpus,
-  unigrams,
-  ...props
-}) => ({
+const getLastUnigram = ({ unigrams, ...props }) => ({
   ...props,
-  corpus,
-  unigrams,
-  distribution: toDistribution(unigrams)(corpus),
+  lastUnigram: last(unigrams),
 });
 
-const distributionToUnseeded = ({
-  distribution,
-  ...props
-}) => ({
-  ...props,
-  unseeded: toUnseeded(distribution),
-});
-
-const applySeed = ({
+const toBigram = ({
+  lastUnigram,
   seed,
-  unseeded,
+  unseededBigram,
   ...props
 }) => ({
   ...props,
   seed,
-  bigram: unseeded(seed),
+  bigram: unseededBigram(lastUnigram)(seed),
 });
 
 const appendToUnigrams = ({
@@ -78,11 +29,9 @@ const appendToUnigrams = ({
   ],
 });
 
-// TODO: Extract submodules, SoC, move startgram-duplicates upstream
 const bigram = pipe(
-  unigramsAndCorpusToDistribution,
-  distributionToUnseeded,
-  applySeed,
+  getLastUnigram,
+  toBigram,
   evolveSeedProp,
   appendToUnigrams,
 );
