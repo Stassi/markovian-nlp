@@ -18,6 +18,7 @@ const toUnseededBigram = ({
   ...props,
 }) => ({
   ...props,
+  corpus,
   unseededBigram: unseededBigram(corpus),
 });
 
