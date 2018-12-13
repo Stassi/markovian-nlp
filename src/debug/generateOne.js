@@ -1,5 +1,7 @@
-import { pipe } from 'ramda';
+import { pipe, until } from 'ramda';
 import generateUnigram from './unigram';
+import isEndgram from './isEndgram';
+import toLastUnigram from './toLastUnigram';
 import unseededBigram from './unseededBigram';
 import unseededStartgram from './unseededStartgram';
 import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
@@ -22,15 +24,57 @@ const toUnseededBigram = ({
   unseededBigram: unseededBigram(corpus),
 });
 
-const setDefaultUnigrams = ({ unigrams = [], ...props }) => ({ ...props, unigrams });
+const toIsEndgram = ({
+  corpus,
+  ...props
+}) => ({
+  ...props,
+  corpus,
+  isEndgram: isEndgram(corpus),
+});
+
+const setDefaultUnigrams = ({
+  unigrams = [],
+  ...props
+}) => ({
+  ...props,
+  unigrams,
+});
+
+// TODO: Rename
+const debugPredicate = pipe(
+  toLastUnigram,
+  ({
+    isEndgram,
+    lastUnigram,
+    ...props
+  }) => isEndgram(lastUnigram),
+);
+
 const generateUnigramsUntilWordLimit = untilUnigramsEqualWordCount(generateUnigram);
+
+// TODO: Rename
+const debugAction = pipe(
+  generateUnigramsUntilWordLimit,
+  ({ ...props }) => {
+    const res = { ...props };
+    return res;
+  },
+);
+
+// TODO: Rename
+const debugLoop = until(
+  debugPredicate,
+  debugAction,
+);
 
 // TODO: Rename
 const debug = pipe(
   toUnseededStartgram,
   toUnseededBigram,
+  toIsEndgram,
   setDefaultUnigrams,
-  generateUnigramsUntilWordLimit,
+  debugLoop,
   ({ unigrams, ...props }) => {
     const res = {
       props,
