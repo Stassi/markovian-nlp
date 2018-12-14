@@ -41,16 +41,16 @@ const setDefaultUnigrams = ({
   unigrams,
 });
 
-// TODO: Rename
-const debugPredicate = pipe(
+const lastUnigramIsEndgram = pipe(
   toLastUnigram,
   ({
-    isEndgram,
-    lastUnigram,
-    ...props
-  }) => isEndgram(lastUnigram),
+     isEndgram,
+     lastUnigram,
+     ...props
+   }) => isEndgram(lastUnigram),
 );
 
+const untilLastUnigramIsEndgram = until(lastUnigramIsEndgram);
 const generateUnigramsUntilWordLimit = untilUnigramsEqualWordCount(generateUnigram);
 
 // TODO: Rename
@@ -63,10 +63,7 @@ const debugAction = pipe(
 );
 
 // TODO: Rename
-const debugLoop = until(
-  debugPredicate,
-  debugAction,
-);
+const debugLoop = untilLastUnigramIsEndgram(debugAction);
 
 // TODO: Rename
 const debug = pipe(
