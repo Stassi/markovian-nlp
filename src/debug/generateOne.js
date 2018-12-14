@@ -1,4 +1,9 @@
-import { pipe, until } from 'ramda';
+import {
+  inc,
+  pipe,
+  until,
+} from 'ramda';
+import { evolveSeedProp } from '../random';
 import generateUnigram from './unigram';
 import isEndgram from './isEndgram';
 import toLastUnigram from './toLastUnigram';
@@ -54,9 +59,19 @@ const untilLastUnigramIsEndgram = until(lastUnigramIsEndgram);
 
 const generateUnigramsUntilWordLimit = untilUnigramsEqualWordCount(generateUnigram);
 
+const incrementIterations = ({
+  iterations = 0,
+  ...props
+}) => ({
+  ...props,
+  iterations: inc(iterations),
+});
+
 // TODO: Rename
 const debugAction = pipe(
   generateUnigramsUntilWordLimit,
+  incrementIterations,
+  evolveSeedProp,
   ({ ...props }) => {
     const res = { ...props };
     return res;
