@@ -51,6 +51,7 @@ const lastUnigramIsEndgram = pipe(
 );
 
 const untilLastUnigramIsEndgram = until(lastUnigramIsEndgram);
+
 const generateUnigramsUntilWordLimit = untilUnigramsEqualWordCount(generateUnigram);
 
 // TODO: Rename
