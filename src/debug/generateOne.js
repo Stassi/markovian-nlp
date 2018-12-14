@@ -82,7 +82,6 @@ const debug = pipe(
       generated: null,
       // TODO: Implement iteration counter and enforce limit
       // TODO:   i.e.: loop via untilEndgramDetected(generate && inc(iterations)
-      // TODO: Implement endgram detection predicate
       iterations: null,
     };
     return res;
