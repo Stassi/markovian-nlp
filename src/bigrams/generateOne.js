@@ -1,6 +1,7 @@
 import { pipe } from 'ramda';
 import { evolveSeedProp } from '../random';
-import { toLastUnigram } from '../unigrams';
+// TODO: Prefer named import
+import toLastUnigram from '../unigrams/toLastUnigram';
 
 const toBigram = ({
   lastUnigram,
