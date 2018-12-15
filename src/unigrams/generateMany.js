@@ -7,12 +7,10 @@ import {
   unless,
   until,
 } from 'ramda';
+import generateUnigram from './generateOne';
+import toLastUnigram from './toLastUnigram';
+import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 import { evolveSeedProp } from '../random';
-import {
-  toLastUnigram,
-  untilUnigramsEqualWordCount,
-  generateOne as generateUnigram,
-} from '../unigrams';
 
 const lastUnigramIsEndgram = pipe(
   toLastUnigram,
@@ -52,6 +50,6 @@ const unigramsPropsIsNotEmpty = pipe(
   not,
 );
 const untilUnigramsPropIsNotEmpty = until(unigramsPropsIsNotEmpty);
-const unigrams = untilUnigramsPropIsNotEmpty(generateAndIterateUnigramsAndEvolveSeed);
+const generateMany = untilUnigramsPropIsNotEmpty(generateAndIterateUnigramsAndEvolveSeed);
 
-export default unigrams;
+export default generateMany;

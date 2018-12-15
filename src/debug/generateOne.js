@@ -1,5 +1,5 @@
 import { pipe } from 'ramda';
-import generateUnigrams from './unigrams';
+import { generateMany as generateUnigrams }from '../unigrams';
 import isEndgram from './isEndgram';
 import { unseeded as unseededBigram } from '../bigrams';
 import { unseeded as unseededStartgram } from '../startgrams';

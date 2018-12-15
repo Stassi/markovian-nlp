@@ -1,9 +1,3 @@
-import generateOne from './generateOne';
-import toLastUnigram from './toLastUnigram';
-import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
+import generateMany from './generateMany';
 
-export {
-  generateOne,
-  toLastUnigram,
-  untilUnigramsEqualWordCount,
-};
+export { generateMany };
