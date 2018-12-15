@@ -1,3 +1,7 @@
+import generateOne from './generateOne';
 import toLastUnigram from './toLastUnigram';
 
-export { toLastUnigram };
+export {
+  generateOne,
+  toLastUnigram,
+};

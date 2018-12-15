@@ -11,10 +11,10 @@ const propIsEmpty = propSatisfies(isEmpty);
 const startgramRequired = propIsEmpty('unigrams');
 
 // TODO: Reduce duplication among bigrams & startgrams (i.e. evolveSeedProp)
-const unigram = ifElse(
+const generateOne = ifElse(
   startgramRequired,
   generateStartgram,
   generateBigram,
 );
 
-export default unigram;
+export default generateOne;

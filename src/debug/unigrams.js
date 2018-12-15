@@ -8,8 +8,10 @@ import {
   until,
 } from 'ramda';
 import { evolveSeedProp } from '../random';
-import generateUnigram from './unigram';
-import toLastUnigram from '../unigrams/toLastUnigram';
+import {
+  toLastUnigram,
+  generateOne as generateUnigram,
+} from '../unigrams';
 import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 
 const lastUnigramIsEndgram = pipe(
