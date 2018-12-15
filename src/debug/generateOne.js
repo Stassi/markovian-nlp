@@ -1,6 +1,6 @@
 import { pipe } from 'ramda';
 import isEndgram from './isEndgram';
-import generateUnigramsUntilEndgramDetected from './generateUnigramsUntilEndgramDetected';
+import generateUnigrams from './generateUnigrams';
 import unseededBigram from './unseededBigram';
 import unseededStartgram from './unseededStartgram';
 
@@ -45,7 +45,7 @@ const debug = pipe(
   toUnseededBigram,
   toIsEndgram,
   setDefaultUnigrams,
-  generateUnigramsUntilEndgramDetected,
+  generateUnigrams,
   ({ iterations, unigrams, ...props }) => {
     // TODO: Conditional formatting
     const res = {

@@ -1,13 +1,16 @@
 import {
   inc,
+  isEmpty,
+  not,
   pipe,
+  propSatisfies,
   unless,
   until,
 } from 'ramda';
+import { evolveSeedProp } from '../random';
+import generateUnigram from './unigram';
 import toLastUnigram from './toLastUnigram';
 import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
-import generateUnigram from './unigram';
-import evolveSeedProp from '../random/evolveSeedProp';
 
 const lastUnigramIsEndgram = pipe(
   toLastUnigram,
@@ -17,8 +20,6 @@ const lastUnigramIsEndgram = pipe(
      ...props
    }) => isEndgram(lastUnigram),
 );
-
-const untilLastUnigramIsEndgram = until(lastUnigramIsEndgram);
 const unlessLastUnigramIsEndgram = unless(lastUnigramIsEndgram);
 
 const generateUnigramsUntilWordLimit = untilUnigramsEqualWordCount(generateUnigram);
@@ -34,15 +35,20 @@ const incrementIterations = ({
   iterations: inc(iterations),
 });
 
-const generateUnigrams = pipe(
+const generateAndIterateUnigramsAndEvolveSeed = pipe(
   generateUnigramsUntilWordLimit,
   emptyUnigramsUnlessLastIsEndgram,
   incrementIterations,
   evolveSeedProp,
 );
 
-// TODO: Enforce iteration limit
-// TODO: Consider changing predicate to unigrams.length > 0
-const generateUnigramsUntilEndgramDetected = untilLastUnigramIsEndgram(generateUnigrams);
+const propIsEmpty = propSatisfies(isEmpty);
+const unigramsPropIsEmpty = propIsEmpty('unigrams');
+const unigramsPropsIsNotEmpty = pipe(
+  unigramsPropIsEmpty,
+  not,
+);
+const untilUnigramsPropIsNotEmpty = until(unigramsPropsIsNotEmpty);
+const generateUnigrams = untilUnigramsPropIsNotEmpty(generateAndIterateUnigramsAndEvolveSeed);
 
-export default generateUnigramsUntilEndgramDetected;
+export default generateUnigrams;
