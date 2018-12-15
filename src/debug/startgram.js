@@ -1,6 +1,7 @@
 import { pipe } from 'ramda';
 import { evolveSeedProp } from '../random';
 
+// TODO: Rename
 const applySeedProp = ({
   seed,
   unseededStartgram,
