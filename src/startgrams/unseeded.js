@@ -14,8 +14,8 @@ const propGreaterThanZero = propSatisfies(greaterThanZero);
 const isStartgram = propGreaterThanZero('_start');
 const filterStartgram = filter(isStartgram);
 
-// TODO: Reduce duplication with unseededBigram
-const unseededStartgram = pipe(
+// TODO: Reduce duplication with unseeded
+const unseeded = pipe(
   filterStartgram,
   toPairs,
   reduce(
@@ -32,4 +32,4 @@ const unseededStartgram = pipe(
   weightedRandom,
 );
 
-export default unseededStartgram;
+export default unseeded;
