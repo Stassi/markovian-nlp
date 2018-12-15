@@ -1,6 +1,6 @@
 import { pipe } from 'ramda';
 import { evolveSeedProp } from '../random';
-import toLastUnigram from './toLastUnigram';
+import { toLastUnigram } from '../unigrams';
 
 const toBigram = ({
   lastUnigram,
@@ -26,11 +26,11 @@ const appendToUnigrams = ({
   ],
 });
 
-const bigram = pipe(
+const generateOne = pipe(
   toLastUnigram,
   toBigram,
   evolveSeedProp,
   appendToUnigrams,
 );
 
-export default bigram;
+export default generateOne;

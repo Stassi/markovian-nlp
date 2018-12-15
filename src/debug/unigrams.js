@@ -9,7 +9,7 @@ import {
 } from 'ramda';
 import { evolveSeedProp } from '../random';
 import generateUnigram from './unigram';
-import toLastUnigram from './toLastUnigram';
+import toLastUnigram from '../unigrams/toLastUnigram';
 import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 
 const lastUnigramIsEndgram = pipe(

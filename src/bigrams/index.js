@@ -1,3 +1,4 @@
+import generateOne from './generateOne';
 import unseeded from './unseeded';
 
-export { unseeded };
+export { generateOne, unseeded };

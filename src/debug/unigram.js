@@ -3,8 +3,8 @@ import {
   isEmpty,
   propSatisfies,
 } from 'ramda';
-import generateBigram from './bigram';
-import generateStartgram from './startgram';
+import { generateOne as generateBigram } from '../bigrams';
+import { generateOne as generateStartgram } from '../startgrams';
 
 // TODO: Reduce predicate duplication with unigrams module
 const propIsEmpty = propSatisfies(isEmpty);

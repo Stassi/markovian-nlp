@@ -20,10 +20,10 @@ const toUnigramsHead = ({
   unigrams: [startgram]
 });
 
-const startgram = pipe(
+const generateOne = pipe(
   toStartgram,
   evolveSeedProp,
   toUnigramsHead,
 );
 
-export default startgram;
+export default generateOne;
