@@ -10,9 +10,9 @@ import {
 import { evolveSeedProp } from '../random';
 import {
   toLastUnigram,
+  untilUnigramsEqualWordCount,
   generateOne as generateUnigram,
 } from '../unigrams';
-import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 
 const lastUnigramIsEndgram = pipe(
   toLastUnigram,
