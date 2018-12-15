@@ -1,8 +1,7 @@
 import { pipe } from 'ramda';
 import { evolveSeedProp } from '../random';
 
-// TODO: Rename
-const applySeedProp = ({
+const toStartgram = ({
   seed,
   unseededStartgram,
   ...props
@@ -22,7 +21,7 @@ const toUnigramsHead = ({
 });
 
 const startgram = pipe(
-  applySeedProp,
+  toStartgram,
   evolveSeedProp,
   toUnigramsHead,
 );
