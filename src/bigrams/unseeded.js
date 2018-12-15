@@ -8,7 +8,7 @@ import { weighted as weightedRandom } from '../random';
 
 const onlyBigramWeights = omit(['_end', '_start']);
 
-// TODO: Reduce duplication with unseeded
+// TODO: Reduce duplication with unseeded startgrams
 const weightsToUnseeded = pipe(
   onlyBigramWeights,
   toPairs,
