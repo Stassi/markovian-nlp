@@ -1,6 +1,6 @@
 import { pipe } from 'ramda';
 import isEndgram from './isEndgram';
-import generateUnigrams from './generateUnigrams';
+import generateUnigrams from './unigrams';
 import unseededBigram from './unseededBigram';
 import unseededStartgram from './unseededStartgram';
 
@@ -39,6 +39,7 @@ const setDefaultUnigrams = ({
   unigrams,
 });
 
+// TODO: Consider merging with unigrams module
 // TODO: Rename
 const debug = pipe(
   toUnseededStartgram,

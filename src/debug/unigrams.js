@@ -42,6 +42,7 @@ const generateAndIterateUnigramsAndEvolveSeed = pipe(
   evolveSeedProp,
 );
 
+// TODO: Reduce predicate duplication with unigram module
 const propIsEmpty = propSatisfies(isEmpty);
 const unigramsPropIsEmpty = propIsEmpty('unigrams');
 const unigramsPropsIsNotEmpty = pipe(
@@ -49,6 +50,6 @@ const unigramsPropsIsNotEmpty = pipe(
   not,
 );
 const untilUnigramsPropIsNotEmpty = until(unigramsPropsIsNotEmpty);
-const generateUnigrams = untilUnigramsPropIsNotEmpty(generateAndIterateUnigramsAndEvolveSeed);
+const unigrams = untilUnigramsPropIsNotEmpty(generateAndIterateUnigramsAndEvolveSeed);
 
-export default generateUnigrams;
+export default unigrams;

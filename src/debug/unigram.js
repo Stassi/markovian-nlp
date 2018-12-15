@@ -6,6 +6,7 @@ import {
 import generateBigram from './bigram';
 import generateStartgram from './startgram';
 
+// TODO: Reduce predicate duplication with unigrams module
 const propIsEmpty = propSatisfies(isEmpty);
 const startgramRequired = propIsEmpty('unigrams');
 
