@@ -1,8 +1,10 @@
 import { pipe } from 'ramda';
-import { generateMany as generateUnigrams }from '../unigrams';
-import isEndgram from './isEndgram';
 import { unseeded as unseededBigram } from '../bigrams';
 import { unseeded as unseededStartgram } from '../startgrams';
+import {
+  isEndgram,
+  generateMany as generateUnigrams,
+} from '../unigrams';
 
 const toUnseededStartgram = ({
   corpus,
