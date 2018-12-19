@@ -33,6 +33,14 @@ const toIsEndgram = ({
   isEndgram: isEndgram(corpus),
 });
 
+const setDefaultIterations = ({
+  iterations = 0,
+  ...props
+}) => ({
+  ...props,
+  iterations,
+});
+
 const setDefaultUnigrams = ({
   unigrams = [],
   ...props
@@ -47,6 +55,7 @@ const debug = pipe(
   toUnseededStartgram,
   toUnseededBigram,
   toIsEndgram,
+  setDefaultIterations,
   setDefaultUnigrams,
   generateUnigrams,
   ({ iterations, unigrams, ...props }) => {
