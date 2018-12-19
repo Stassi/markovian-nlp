@@ -58,13 +58,10 @@ const debug = pipe(
   setDefaultIterations,
   setDefaultUnigrams,
   generateUnigrams,
-  ({ iterations, unigrams, ...props }) => {
-    // TODO: Conditional formatting
-    const res = {
-      ...props,
-      generated: null,
-      iterations: null,
-    };
+  ({ ...props }) => {
+    // TODO: Format when unigrams.length > 0
+    // TODO: Return (un)formatted sentence and iterations
+    const res = { ...props };
     return res;
   },
 );
