@@ -1,7 +1,9 @@
 import {
+  equals,
   inc,
   isEmpty,
   not,
+  or,
   pipe,
   propSatisfies,
   unless,
@@ -28,7 +30,7 @@ const emptyUnigrams = ({ ...props }) => ({ ...props, unigrams: [] });
 const emptyUnigramsUnlessLastIsEndgram = unlessLastUnigramIsEndgram(emptyUnigrams);
 
 const incrementIterations = ({
-  iterations = 0,
+  iterations,
   ...props
 }) => ({
   ...props,
@@ -49,7 +51,20 @@ const unigramsPropsIsNotEmpty = pipe(
   unigramsPropIsEmpty,
   not,
 );
-const untilUnigramsPropIsNotEmpty = until(unigramsPropsIsNotEmpty);
-const generateMany = untilUnigramsPropIsNotEmpty(generateAndIterateUnigramsAndEvolveSeed);
+
+const iterationLimitReached = ({
+  iterations,
+  iterationLimit,
+}) => equals(
+  iterations,
+  iterationLimit,
+);
+
+const unigramsPropsIsNotEmptyOrIterationLimitReached = or(
+  unigramsPropsIsNotEmpty,
+  iterationLimitReached,
+);
+const untilUnigramsPropsIsNotEmptyOrIterationLimitReached = until(unigramsPropsIsNotEmptyOrIterationLimitReached);
+const generateMany = untilUnigramsPropsIsNotEmptyOrIterationLimitReached(generateAndIterateUnigramsAndEvolveSeed);
 
 export default generateMany;
