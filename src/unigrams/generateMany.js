@@ -19,7 +19,6 @@ const lastUnigramIsEndgram = pipe(
   ({
      isEndgram,
      lastUnigram,
-     ...props
    }) => isEndgram(lastUnigram),
 );
 const unlessLastUnigramIsEndgram = unless(lastUnigramIsEndgram);
