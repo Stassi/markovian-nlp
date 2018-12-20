@@ -1,16 +1,14 @@
 import {
   equals,
   inc,
-  isEmpty,
-  not,
   or,
   pipe,
-  propSatisfies,
   unless,
   until,
 } from 'ramda';
 import generateUnigram from './generateOne';
 import toLastUnigram from './toLastUnigram';
+import unigramsPropIsNotEmpty from './propIsNotEmpty';
 import untilUnigramsEqualWordCount from './untilUnigramsEqualWordCount';
 import { evolveSeedProp } from '../random';
 
@@ -43,14 +41,6 @@ const generateAndIterateUnigramsAndEvolveSeed = pipe(
   evolveSeedProp,
 );
 
-// TODO: Reduce predicate duplication with unigram module
-const propIsEmpty = propSatisfies(isEmpty);
-const unigramsPropIsEmpty = propIsEmpty('unigrams');
-const unigramsPropsIsNotEmpty = pipe(
-  unigramsPropIsEmpty,
-  not,
-);
-
 const iterationLimitReached = ({
   iterations,
   iterationLimit,
@@ -60,7 +50,7 @@ const iterationLimitReached = ({
 );
 
 const unigramsPropsIsNotEmptyOrIterationLimitReached = or(
-  unigramsPropsIsNotEmpty,
+  unigramsPropIsNotEmpty,
   iterationLimitReached,
 );
 const untilUnigramsPropsIsNotEmptyOrIterationLimitReached = until(unigramsPropsIsNotEmptyOrIterationLimitReached);
