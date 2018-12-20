@@ -1,4 +1,9 @@
 import generateMany from './generateMany';
 import isEndgram from './isEndgram';
+import propIsEmpty from './propIsEmpty';
 
-export { generateMany, isEndgram };
+export {
+  generateMany,
+  isEndgram,
+  propIsEmpty,
+};

@@ -5,6 +5,7 @@ import {
   isEndgram,
   generateMany as generateUnigrams,
 } from '../unigrams';
+import formatUnigramsUnlessFormattingDisabledOrUnigramsPropIsEmpty from './formatUnigramsUnlessFormattingDisabledOrUnigramsPropIsEmpty';
 
 const toUnseededStartgram = ({
   corpus,
@@ -58,8 +59,8 @@ const debug = pipe(
   setDefaultIterations,
   setDefaultUnigrams,
   generateUnigrams,
+  formatUnigramsUnlessFormattingDisabledOrUnigramsPropIsEmpty,
   ({ ...props }) => {
-    // TODO: Format when unigrams.length > 0
     // TODO: Return (un)formatted sentence and iterations
     const res = { ...props };
     return res;
