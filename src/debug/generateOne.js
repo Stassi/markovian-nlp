@@ -3,9 +3,9 @@ import { unseeded as unseededBigram } from '../bigrams';
 import { unseeded as unseededStartgram } from '../startgrams';
 import {
   isEndgram,
+  format as formatUnigrams,
   generateMany as generateUnigrams,
 } from '../unigrams';
-import formatUnigramsUnlessFormattingDisabledOrUnigramsPropIsEmpty from './formatUnigramsUnlessFormattingDisabledOrUnigramsPropIsEmpty';
 
 const toUnseededStartgram = ({
   corpus,
@@ -59,7 +59,7 @@ const debug = pipe(
   setDefaultIterations,
   setDefaultUnigrams,
   generateUnigrams,
-  formatUnigramsUnlessFormattingDisabledOrUnigramsPropIsEmpty,
+  formatUnigrams,
   ({ ...props }) => {
     // TODO: Return (un)formatted sentence and iterations
     const res = { ...props };

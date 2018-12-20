@@ -7,7 +7,7 @@ import {
   unless,
   whereEq,
 } from 'ramda';
-import { propIsEmpty as unigramsPropIsEmpty } from '../unigrams';
+import unigramsPropIsEmpty from './propIsEmpty';
 
 const capitalizeFirstLetter = pipe(
   splitAt(1),
@@ -58,7 +58,6 @@ const formattingDisabledOrUnigramsPropIsEmpty = or(
   unigramsPropIsEmpty,
 );
 const unlessFormattingDisabledOrUnigramsPropIsEmpty = unless(formattingDisabledOrUnigramsPropIsEmpty);
-const formatUnigramsUnlessFormattingDisabledOrUnigramsPropIsEmpty = unlessFormattingDisabledOrUnigramsPropIsEmpty(formatUnigrams);
+const format = unlessFormattingDisabledOrUnigramsPropIsEmpty(formatUnigrams);
 
-// TODO: Extract to unigrams
-export default formatUnigramsUnlessFormattingDisabledOrUnigramsPropIsEmpty;
+export default format;
