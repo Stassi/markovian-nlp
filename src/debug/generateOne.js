@@ -1,4 +1,4 @@
-import { pipe } from 'ramda';
+import { pick, pipe } from 'ramda';
 import { unseeded as unseededBigram } from '../bigrams';
 import { unseeded as unseededStartgram } from '../startgrams';
 import {
@@ -6,6 +6,7 @@ import {
   format as formatUnigrams,
   generateMany as generateUnigrams,
 } from '../unigrams';
+import { evolveSeedProp } from '../random';
 
 const toUnseededStartgram = ({
   corpus,
@@ -50,9 +51,9 @@ const setDefaultUnigrams = ({
   unigrams,
 });
 
-// TODO: Consider merging with unigrams module
-// TODO: Rename
-const debug = pipe(
+const pickIterationsAndUnigrams = pick(['iterations', 'unigrams']);
+
+const sentence = pipe(
   toUnseededStartgram,
   toUnseededBigram,
   toIsEndgram,
@@ -60,38 +61,48 @@ const debug = pipe(
   setDefaultUnigrams,
   generateUnigrams,
   formatUnigrams,
-  ({ ...props }) => {
-    // TODO: Return (un)formatted sentence and iterations
-    const res = { ...props };
-    return res;
-  },
+  pickIterationsAndUnigrams,
 );
 
-const toSentence = ({ ...props }) => ({ ...props, sentence: debug(props) });
+const toSentence = ({
+  count,
+  generated,
+  iterations,
+  savedSeed,
+  ...props
+}) => ({
+  ...props,
+  count,
+  generated,
+  iterations,
+  savedSeed,
+  sentence: sentence(props),
+});
 
 const appendToGeneratedAndIterations = ({
-  generated: previousGenerated,
-  iterations: previousIterations,
+  generated,
+  iterations,
   sentence: {
-    generated,
-    iterations,
+    unigrams,
+    iterations: sentenceIterations,
   },
   ...props
 }) => ({
   ...props,
   generated: [
-    ...previousGenerated,
-    generated,
+    ...generated,
+    unigrams,
   ],
   iterations: [
-    ...previousIterations,
-    iterations,
+    ...iterations,
+    sentenceIterations,
   ],
 });
 
 const generateOne = pipe(
   toSentence,
   appendToGeneratedAndIterations,
+  evolveSeedProp,
 );
 
 export default generateOne;
