@@ -29,6 +29,11 @@ const appendToUnigrams = ({
 
 const generateOne = pipe(
   toLastUnigram,
+  ({ ...props }) => {
+    const res = { ...props };
+    // TODO: Investigate (lastUnigram === null)
+    return res;
+  },
   toBigram,
   evolveSeedProp,
   appendToUnigrams,
