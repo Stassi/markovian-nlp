@@ -1,4 +1,6 @@
 import {
+  ifElse,
+  isEmpty,
   omit,
   pipe,
   reduce,
@@ -9,20 +11,27 @@ import { weighted as weightedRandom } from '../random';
 const onlyBigramWeights = omit(['_end', '_start']);
 
 // TODO: Reduce duplication with unseeded startgrams
+// TODO: Extract/simplify
 const weightsToUnseeded = pipe(
   onlyBigramWeights,
-  toPairs,
-  reduce(
-    ({ values, weights }, [value, weight]) => ({
-      values: [...values, value],
-      weights: [...weights, weight],
-    }),
-    {
-      values: [],
-      weights: [],
-    },
+  ifElse(
+    isEmpty,
+    () => () => null,
+    pipe(
+      toPairs,
+      reduce(
+        ({ values, weights }, [value, weight]) => ({
+          values: [...values, value],
+          weights: [...weights, weight],
+        }),
+        {
+          values: [],
+          weights: [],
+        },
+      ),
+      weightedRandom,
+    ),
   ),
-  weightedRandom,
 );
 
 const unseeded = corpus => lastUnigram =>
