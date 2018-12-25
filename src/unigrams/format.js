@@ -1,13 +1,21 @@
 import {
+  either,
+  ifElse,
   join,
-  or,
   pipe,
   splitAt,
   toUpper,
-  unless,
   whereEq,
 } from 'ramda';
 import unigramsPropIsEmpty from './propIsEmpty';
+
+const formattingDisabled = whereEq({ format: false });
+const eitherFormattingDisabledOrUnigramsPropIsEmpty = either(
+  formattingDisabled,
+  unigramsPropIsEmpty,
+);
+
+const nullifyUnigrams = ({ ...props }) => ({ ...props, unigrams: null });
 
 const capitalizeFirstLetter = pipe(
   splitAt(1),
@@ -52,12 +60,10 @@ const formatUnigrams = pipe(
   punctuateUnigrams,
 );
 
-const formattingDisabled = whereEq({ format: false });
-const formattingDisabledOrUnigramsPropIsEmpty = or(
-  formattingDisabled,
-  unigramsPropIsEmpty,
+const format = ifElse(
+  eitherFormattingDisabledOrUnigramsPropIsEmpty,
+  nullifyUnigrams,
+  formatUnigrams,
 );
-const unlessFormattingDisabledOrUnigramsPropIsEmpty = unless(formattingDisabledOrUnigramsPropIsEmpty);
-const format = unlessFormattingDisabledOrUnigramsPropIsEmpty(formatUnigrams);
 
 export default format;
