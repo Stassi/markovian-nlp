@@ -1,7 +1,7 @@
 import {
+  either,
   equals,
   inc,
-  or,
   pipe,
   unless,
   until,
@@ -49,11 +49,11 @@ const iterationLimitReached = ({
   iterationLimit,
 );
 
-const unigramsPropsIsNotEmptyOrIterationLimitReached = or(
+const eitherUnigramsPropIsNotEmptyOrIterationLimitReached = either(
   unigramsPropIsNotEmpty,
   iterationLimitReached,
 );
-const untilUnigramsPropsIsNotEmptyOrIterationLimitReached = until(unigramsPropsIsNotEmptyOrIterationLimitReached);
-const generateMany = untilUnigramsPropsIsNotEmptyOrIterationLimitReached(generateAndIterateUnigramsAndEvolveSeed);
+const untilEitherUnigramsPropIsNotEmptyOrIterationLimitReached = until(eitherUnigramsPropIsNotEmptyOrIterationLimitReached);
+const generateMany = untilEitherUnigramsPropIsNotEmptyOrIterationLimitReached(generateAndIterateUnigramsAndEvolveSeed);
 
 export default generateMany;
