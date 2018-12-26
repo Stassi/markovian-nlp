@@ -4,12 +4,6 @@ import sentences from '../src/debug';
 
 // TODO: Replace with expected values once known
 const debug = '__DEBUG';
-const debugNumber = 999999999999;
-const debugNumbers = [
-  debugNumber,
-  debugNumber,
-  debugNumber,
-];
 
 // TODO: Rename
 describe('#sentences DEBUG', () => {
