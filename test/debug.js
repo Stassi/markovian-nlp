@@ -56,7 +56,18 @@ describe('#sentences DEBUG', () => {
         const { generated } = sentences(options);
 
         it('should generate 10 formatted sentences', () => {
-          expect(generated).to.equal(debug);
+          expect(generated).to.have.ordered.members([
+            "What a lovely day.",
+            "Oh what a day.",
+            "Oh what a day.",
+            "Oh what a day.",
+            "Oh what a day.",
+            "Oh what a day.",
+            "Oh what a day.",
+            "Oh what a day.",
+            "Oh what a day.",
+            "Oh what a day.",
+          ]);
         });
       });
 
@@ -85,8 +96,7 @@ describe('#sentences DEBUG', () => {
     });
 
     it('should generate nondeterministic text', () => {
-      // TODO: Consider testing type, possibly length
-      expect(generated).to.equal(debug);
+      expect(generated).to.be.a('string');
     });
 
     it('should return a numeric seed', () => {
