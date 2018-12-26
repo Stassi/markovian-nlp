@@ -14,30 +14,6 @@ describe('#sentences DEBUG', () => {
   describe('seeded', () => {
     const seed = 1;
 
-    describe('returned values', () => {
-      const {
-        generated: [generated],
-        iterations: [iterations],
-        seed: seedOut,
-      } = sentences({
-        corpus,
-        seed,
-        words,
-      });
-
-      it('should include the iteration count', () => {
-        expect(iterations).to.equal(1);
-      });
-
-      it('should include deterministic generated text', () => {
-        expect(generated).to.equal('What a lovely day.');
-      });
-
-      it('should include the provided seed', () => {
-        expect(seedOut).to.equal(seed);
-      });
-    });
-
     describe('count: 10', () => {
       const options = {
         corpus,
@@ -45,24 +21,44 @@ describe('#sentences DEBUG', () => {
         words,
         count: 10,
       };
+      const {
+        generated,
+        iterations,
+        seed: seedOut,
+      } = sentences(options);
 
-      describe('formatted', () => {
-        const { generated } = sentences(options);
+      it('should generate 10 formatted sentences', () => {
+        expect(generated).to.have.ordered.members([
+          "What a lovely day.",
+          "Oh what a day.",
+          "Oh what a day.",
+          "Oh what a day.",
+          "Oh what a day.",
+          "Oh what a day.",
+          "Oh what a day.",
+          "Oh what a day.",
+          "Oh what a day.",
+          "Oh what a day.",
+        ]);
+      });
 
-        it('should generate 10 formatted sentences', () => {
-          expect(generated).to.have.ordered.members([
-            "What a lovely day.",
-            "Oh what a day.",
-            "Oh what a day.",
-            "Oh what a day.",
-            "Oh what a day.",
-            "Oh what a day.",
-            "Oh what a day.",
-            "Oh what a day.",
-            "Oh what a day.",
-            "Oh what a day.",
-          ]);
-        });
+      it('should include 10 separate iteration counts', () => {
+        expect(iterations).to.have.ordered.members([
+          1,
+          4,
+          2,
+          3,
+          1,
+          1,
+          3,
+          1,
+          2,
+          4,
+        ]);
+      });
+
+      it('should include the provided seed', () => {
+        expect(seedOut).to.equal(seed);
       });
 
       describe('unformatted', () => {
