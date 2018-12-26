@@ -2,7 +2,7 @@ const setDefaults = ({
   count = 1,
   format = true,
   generated = [],
-  iterationLimit = 999999999,
+  iterationLimit = 999,
   iterations = [],
   words = 15,
   ...props
