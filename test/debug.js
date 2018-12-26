@@ -66,18 +66,6 @@ describe('#sentences DEBUG', () => {
         });
       });
     });
-
-    describe('words: 10', () => {
-      const { generated } = sentences({
-        corpus,
-        seed,
-        words: 10,
-      });
-
-      it('should generate a 10-word sentence', () => {
-        expect(generated).to.equal(debug);
-      });
-    });
   });
 
   describe('unseeded', () => {
