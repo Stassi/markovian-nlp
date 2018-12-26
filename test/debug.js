@@ -21,8 +21,8 @@ describe('#sentences DEBUG', () => {
 
     describe('returned values', () => {
       const {
-        generated,
-        iterations,
+        generated: [generated],
+        iterations: [iterations],
         seed: seedOut,
       } = sentences({
         corpus,
@@ -31,11 +31,11 @@ describe('#sentences DEBUG', () => {
       });
 
       it('should include the iteration count', () => {
-        expect(iterations).to.have.ordered.members(debugNumbers);
+        expect(iterations).to.equal(1);
       });
 
       it('should include deterministic generated text', () => {
-        expect(generated).to.equal(debug);
+        expect(generated).to.equal('What a lovely day.');
       });
 
       it('should include the provided seed', () => {
@@ -86,13 +86,13 @@ describe('#sentences DEBUG', () => {
 
   describe('unseeded', () => {
     const {
-      generated,
-      iterations: [iteration],
+      generated: [generated],
+      iterations: [iterations],
       seed: seedOut,
     } = sentences({ corpus });
 
     it('should include numeric iterations', () => {
-      expect(iteration).to.be.a('number');
+      expect(iterations).to.be.a('number');
     });
 
     it('should generate nondeterministic text', () => {
