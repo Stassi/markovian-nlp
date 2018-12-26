@@ -8,6 +8,14 @@ import {
 } from '../unigrams';
 import { evolveSeedProp } from '../random';
 
+const pickCorpusFormatIterationLimitSeedAndWords = pick([
+  'corpus',
+  'format',
+  'iterationLimit',
+  'seed',
+  'words',
+]);
+
 const toUnseededStartgram = ({
   corpus,
   ...props
@@ -54,6 +62,7 @@ const setDefaultUnigrams = ({
 const pickIterationsAndUnigrams = pick(['iterations', 'unigrams']);
 
 const sentence = pipe(
+  pickCorpusFormatIterationLimitSeedAndWords,
   toUnseededStartgram,
   toUnseededBigram,
   toIsEndgram,
@@ -64,18 +73,8 @@ const sentence = pipe(
   pickIterationsAndUnigrams,
 );
 
-const toSentence = ({
-  count,
-  generated,
-  iterations,
-  savedSeed,
-  ...props
-}) => ({
+const toSentence = ({ ...props }) => ({
   ...props,
-  count,
-  generated,
-  iterations,
-  savedSeed,
   sentence: sentence(props),
 });
 
