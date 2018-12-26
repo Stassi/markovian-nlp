@@ -15,6 +15,7 @@ const debugNumbers = [
 describe('#sentences DEBUG', () => {
   // TODO: Test corpus String
   const { compoundDistribution: corpus } = lovelyQuote;
+  const words = 4;
 
   describe('seeded', () => {
     const seed = 1;
@@ -27,7 +28,7 @@ describe('#sentences DEBUG', () => {
       } = sentences({
         corpus,
         seed,
-        words: 4,
+        words,
       });
 
       it('should include the iteration count', () => {
@@ -47,6 +48,7 @@ describe('#sentences DEBUG', () => {
       const options = {
         corpus,
         seed,
+        words,
         count: 10,
       };
 
@@ -73,7 +75,10 @@ describe('#sentences DEBUG', () => {
       generated: [generated],
       iterations: [iterations],
       seed: seedOut,
-    } = sentences({ corpus });
+    } = sentences({
+      corpus,
+      words,
+    });
 
     it('should include numeric iterations', () => {
       expect(iterations).to.be.a('number');
