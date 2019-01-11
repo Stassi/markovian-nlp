@@ -38,5 +38,35 @@ describe('#sentences DEBUG', () => {
         expect(seedOut).to.equal(seed);
       });
     });
+
+    describe('count: 2', () => {
+      const options = {
+        corpus,
+        length,
+        seed,
+        count: 2,
+      };
+      const [
+        // TODO: Test object literal as unused variable
+        {},
+        {
+          iterations,
+          sentence,
+          seed: seedOut,
+        },
+      ] = sentences(options);
+
+      it('should generate a deterministic sentence', () => {
+        expect(sentence).to.equal('__DEBUG__');
+      });
+
+      it('should include the iteration count', () => {
+        expect(iterations).to.equal('__DEBUG__');
+      });
+
+      it('should include the provided seed', () => {
+        expect(seedOut).to.equal('__DEBUG__');
+      });
+    });
   });
 });
