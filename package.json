@@ -25,8 +25,8 @@
     "test": "cross-env NODE_ENV=test mocha"
   },
   "dependencies": {
-    "chance": "^1.0.18",
     "compromise": "^11.13.2",
+    "implausible": "^2.4.0",
     "ramda": "^0.26.1"
   },
   "devDependencies": {

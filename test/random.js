@@ -8,7 +8,7 @@ import {
 
 describe('random', () => {
   const one = 1;
-  const evolvedOne = -1494798787674112;
+  const evolvedOne = 0.1776348083296759;
 
   describe('#evolveSeed', () => {
     describe('seeded', () => {
