@@ -1,4 +1,5 @@
 # markovian-nlp
+[![build status][shields travis]][travis markovian-nlp]
 [![npm dependencies][shields dependencies]][markovian-nlp package]
 [![npm dev dependencies][shields dev dependencies]][markovian-nlp package]
 [![license][shields license]][markovian-nlp license]
@@ -216,6 +217,9 @@ unigram | 1-gram sequence
 [shields minzip]: https://img.shields.io/bundlephobia/minzip/markovian-nlp.svg
 [shields node]: https://img.shields.io/node/v/markovian-nlp.svg
 [shields npm]: https://img.shields.io/npm/v/markovian-nlp.svg
+[shields travis]: https://img.shields.io/travis/com/Stassi/markovian-nlp.svg
+[travis markovian-nlp]: https://travis-ci.com/Stassi/markovian-nlp
+    (travis: markovian-nlp)
 [wikipedia bigram]: https://en.wikipedia.org/wiki/Bigram
     (Wikipedia: Bigram)
 [wikipedia computational linguistics]: https://en.wikipedia.org/wiki/Computational_linguistics
