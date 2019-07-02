@@ -57,6 +57,8 @@
     "defaults",
     "node 6",
     "node 8",
-    "node 10"
+    "node 10",
+    "node 11",
+    "node 12"
   ]
 }
