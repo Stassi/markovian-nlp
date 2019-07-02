@@ -1,0 +1,19 @@
+language: node_js
+cache: npm
+node_js:
+  - 6
+  - 8
+  - 10
+  - 11
+  - 12
+  - node
+
+before_deploy: npm run prepublishOnly
+deploy:
+  provider: npm
+  email: andreas@stassi.net
+  api_key:
+    secure: MV0nVykbd1zL+gOVpnWYB61m3sg+zQHzG9aQog5BPjviCog6uh8avQVlZkbgnR7WtYq5o7hMPSWuERLe3LsQrEjihdcCA8DN3tAtUtQnqH6S8GAI7eUs2EoXoS+/5R/zDJpefVUg3MtUA6qoID4gLcYclodgkHJfV4w/jDM4KNONUl5KkuV67x2/Ec25UuuD4mf06OUYrUDPuioV5G7Pa4fLiOKl5BYFamj3oVfBH2Niv5FfAogb10T7qzG4yYJ1tC8Bgu1HAlvr4XDghFR07Zjo71GfgUp+Rz/mOjdmGAwdWeIxdy2HVPBfNFlX3V0GNJpmgaH1t78gFCFIXtkAo1jG8D6IMlWJqJZDqPC1+xz8YjqqgSxeN2cryZ9+irZkK51DfrY088g85JRUL5D/Fs+Vil/uNOL1KonbffjbVIjqX7FepAR4tdlW6grHi/kms2EzesgpFNyEwkbFLf4MZPnEjDf72FwmPPKhO59Vy4BQP/uyWzteGkCiJ77DSnRaB7djg9bX/Uoti50lAaqwe7UfhZdoTsgVk3TOwhZNUieIZFUCB4wzSmZPVqv99xTIj3d4zN8K6e3cJ3gd0kLrHkJ9zC79WnjCClRLsiOAOlYeY1aen3ZNUBGEVXitiEv7LzekHqUZCoD4fGOoGQtAstaqxTh8tGDOX5/La4ydJ8k=
+  skip_cleanup: true
+  on:
+    node: 12
