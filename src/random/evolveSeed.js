@@ -1,5 +1,5 @@
-import Chance from 'chance';
+import { prng } from 'implausible';
 
-const evolveSeed = seed => Chance(seed).integer();
+const evolveSeed = seed => prng({ seed });
 
 export default evolveSeed;

@@ -53,7 +53,7 @@ const endOfSentence = sentence => pipe(
 const endOrExtendSentence = x => ifElse(
   // TODO: Inline, partial application
   ({ followingUnigramDistribution, seed, sentence }) =>
-    endOfSentence(sentence)(followingUnigramDistribution)(seed),
+    endOfSentence(sentence)(followingUnigramDistribution)(seed) === 'true',
   pipe(
     prop('sentence'),
     join(' '),

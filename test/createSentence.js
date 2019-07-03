@@ -23,8 +23,8 @@ describe('#createSentence', () => {
 
     // TODO: Prefer singular description
     it('should return known two word sentences', () => {
-      expect(createSentence({ distribution: secondNgramHeavy, seed: 1 })).to.equal('alpha delta');
-      expect(createSentence({ distribution: secondNgramHeavy, seed: 2 })).to.equal('alpha beta');
+      expect(createSentence({ distribution: secondNgramHeavy, seed: 1 })).to.equal('alpha beta');
+      expect(createSentence({ distribution: secondNgramHeavy, seed: 2 })).to.equal('alpha delta');
     });
   });
 
