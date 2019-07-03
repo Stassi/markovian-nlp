@@ -50,7 +50,7 @@
     "rollup-plugin-terser": "^5.1.0"
   },
   "engines": {
-    "node": "6.17.1 - 10.16.0",
+    "node": "6.17.1 - 10.16",
     "npm": ">=3.10.10"
   },
   "browserslist": [
