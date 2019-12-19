@@ -25,7 +25,8 @@
     "test": "cross-env NODE_ENV=test mocha"
   },
   "dependencies": {
-    "compromise": "^11.14.3",
+    "compromise": "^12.2.1",
+    "compromise-ngrams": "0.0.3",
     "implausible": "^3.0.0",
     "ramda": "^0.26.1"
   },
