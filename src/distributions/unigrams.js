@@ -4,7 +4,7 @@ import {
   propOr,
 } from 'ramda';
 
-const unigrams = unigrams => unigram => propOr(
+const unigrams = (unigrams) => (unigram) => propOr(
   0,
   'count',
   {

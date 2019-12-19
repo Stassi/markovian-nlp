@@ -14,13 +14,13 @@ const sentences = pipe(
   }),
   ({ distribution, ...props }) => ({
     ...props,
-    sentence: seed => createSentence({ seed, distribution }),
+    sentence: (seed) => createSentence({ seed, distribution }),
   }),
   ({
-     seed,
-     count = 1,
-     ...props
-   }) => ({
+    seed,
+    count = 1,
+    ...props
+  }) => ({
     ...props,
     seeds: evolveSeeds({ count, seed }),
   }),

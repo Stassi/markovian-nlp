@@ -6,7 +6,7 @@ import {
 import { weighted as weightedRandom } from '../random';
 
 // TODO: Rename
-const followingUnigram = transformWeight => pipe(
+const followingUnigram = (transformWeight) => pipe(
   toPairs,
   reduce(
     ({ values, weights }, [value, weight]) => ({

@@ -1,5 +1,5 @@
 import { prng } from 'implausible';
 
-const evolveSeed = seed => prng({ seed });
+const evolveSeed = (seed) => prng({ seed });
 
 export default evolveSeed;

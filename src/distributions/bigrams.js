@@ -9,7 +9,7 @@ import {
 } from 'ramda';
 
 const followingUnigram = pipe(
-  dropWhile(x => x !== ' '),
+  dropWhile((x) => x !== ' '),
   trim,
 );
 
@@ -28,7 +28,7 @@ const followingUnigramCounts = reduce(
 );
 
 // TODO: Semantic disambiguation
-const bigrams = bigramsData => precedingUnigram => pipe(
+const bigrams = (bigramsData) => (precedingUnigram) => pipe(
   filter(
     propSatisfies(
       startsWith(`${precedingUnigram} `),
