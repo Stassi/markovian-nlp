@@ -1,4 +1,4 @@
-import unigramsAndBigrams from './unigramsAndBigrams'
+import unigramsAndBigrams from './unigramsAndBigrams';
 
 const { bigrams } = unigramsAndBigrams;
 
