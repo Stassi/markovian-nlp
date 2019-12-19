@@ -1,24 +1,11 @@
-import nlp from 'compromise';
-import {
-  applySpec,
-  filter,
-  map,
-  pipe,
-  propEq,
-} from 'ramda';
-import omitSize from './omitSize';
+import { applySpec } from 'ramda';
+import unigramsAndBigrams from './unigramsAndBigrams'
 
-const sizeOne = propEq('size', 1);
-
-const toUnigrams = (x) => pipe(
-  x,
-  filter(sizeOne),
-  map(omitSize),
-);
-
-export const all = (x) => nlp(x).ngrams({ max: 1 }).unigrams().out('array');
-export const end = toUnigrams((x) => nlp(x).endGrams().data());
-export const start = toUnigrams((x) => nlp(x).startGrams().data());
+export const {
+  endgrams: end,
+  startgrams: start,
+  unigrams: all
+} = unigramsAndBigrams;
 
 const unigrams = applySpec({
   all,
