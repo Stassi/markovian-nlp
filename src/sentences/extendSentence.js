@@ -19,7 +19,7 @@ const extendSentence = pipe(
     followingUnigramDistribution,
     seed,
     ...props
-   }) => ({
+  }) => ({
     ...props,
     seed,
     // TODO: Partial application

@@ -28,7 +28,7 @@ const toDistribution = pipe(
     ...props
   }) => ({
     ...props,
-    unigramCounts: unigram => ({
+    unigramCounts: (unigram) => ({
       [unigram]: {
         ...followingCounts(unigram),
         _end: endCount(unigram),

@@ -29,7 +29,7 @@ const extendSeeds = ({
 
 const decrementCount = ({ count, ...props }) => ({ ...props, count: dec(count) });
 
-const endOrExtendSeeds = x => ifElse(
+const endOrExtendSeeds = (x) => ifElse(
   countIsZeroOrLess,
   seedsProp,
   pipe(

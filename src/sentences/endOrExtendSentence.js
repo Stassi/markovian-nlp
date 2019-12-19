@@ -25,13 +25,13 @@ const continueWeight = pipe(
   sum,
 );
 
-const isEndgram = endWeight => endWeight > 0;
+const isEndgram = (endWeight) => endWeight > 0;
 
 // TODO: Parameterize
 const sentenceLengthLimit = 20;
 
 // TODO: Reorganize
-const endOfSentence = sentence => pipe(
+const endOfSentence = (sentence) => pipe(
   applySpec({
     continueWeight,
     endWeight,
@@ -43,17 +43,16 @@ const endOfSentence = sentence => pipe(
     identity,
   ),
   ({ continueWeight, endWeight }) => ([endWeight, continueWeight]),
-  weights => ({
+  (weights) => ({
     weights,
     values: [true, false],
   }),
   weightedRandom,
 );
 
-const endOrExtendSentence = x => ifElse(
+const endOrExtendSentence = (x) => ifElse(
   // TODO: Inline, partial application
-  ({ followingUnigramDistribution, seed, sentence }) =>
-    endOfSentence(sentence)(followingUnigramDistribution)(seed) === 'true',
+  ({ followingUnigramDistribution, seed, sentence }) => endOfSentence(sentence)(followingUnigramDistribution)(seed) === 'true',
   pipe(
     prop('sentence'),
     join(' '),

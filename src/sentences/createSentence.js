@@ -28,8 +28,7 @@ const startgram = ({
 const omitStart = omit(['_start']);
 const mapOmitStart = map(omitStart);
 
-const stripStartgramsDistribution = ({ distribution, ...props }) =>
-  ({ ...props, distribution: mapOmitStart(distribution) });
+const stripStartgramsDistribution = ({ distribution, ...props }) => ({ ...props, distribution: mapOmitStart(distribution) });
 
 const findUnigramDistribution = ({ distribution, ...props }) => ({
   ...props,
@@ -47,8 +46,7 @@ const followingUnigramDistribution = ({
   followingUnigramDistribution: findUnigramDistribution(startgram),
 });
 
-const startSentence = ({ startgram, ...props }) =>
-  ({ ...props, sentence: [startgram] });
+const startSentence = ({ startgram, ...props }) => ({ ...props, sentence: [startgram] });
 
 const createSentence = pipe(
   unseededStartgram,
