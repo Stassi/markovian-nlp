@@ -27,7 +27,7 @@
   "dependencies": {
     "compromise": "^12.2.1",
     "compromise-ngrams": "0.0.3",
-    "implausible": "^3.0.0",
+    "implausible": "^3.0.1",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
