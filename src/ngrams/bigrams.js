@@ -1,10 +1,5 @@
-import nlp from 'compromise';
-import { map, pipe } from 'ramda';
-import omitSize from './omitSize';
+import unigramsAndBigrams from './unigramsAndBigrams'
 
-const bigrams = pipe(
-  (x) => nlp(x).ngrams({ max: 2 }).bigrams().data(),
-  map(omitSize),
-);
+const { bigrams } = unigramsAndBigrams;
 
 export default bigrams;

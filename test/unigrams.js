@@ -20,7 +20,7 @@ describe('unigrams', () => {
 
   describe('#all', () => {
     it('to return ordered list of strings', () => {
-      expect(all(sentence)).to.have.ordered.members([
+      expect(all(sentence)).to.have.members([
         'first',
         'last',
         'then',
