@@ -22,7 +22,7 @@
     "build": "rollup -c",
     "lint": "eslint src",
     "prepublishOnly": "npm run build",
-    "test": "cross-env NODE_ENV=test mocha"
+    "test": "mocha"
   },
   "dependencies": {
     "compromise": "^12.2.1",
@@ -58,5 +58,8 @@
     "defaults",
     "node 8",
     "node 10"
-  ]
+  ],
+  "mocha": {
+    "require": "@babel/register"
+  }
 }
