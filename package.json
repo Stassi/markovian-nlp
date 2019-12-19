@@ -18,6 +18,7 @@
   "main": "./lib/markovian.umd.js",
   "module": "./lib/markovian.esm.js",
   "repository": "github:Stassi/markovian-nlp",
+  "sideEffects": false,
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint src",
