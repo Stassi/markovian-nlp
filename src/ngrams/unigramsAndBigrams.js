@@ -7,25 +7,25 @@ const [
   bigrams,
   endgrams,
   startgrams,
-  unigrams
+  unigrams,
 ] = [
   'bigrams',
   'endgrams',
   'startgrams',
-  'unigrams'
-].map(methodName => document => nlp(document)[methodName](
-  methodName === 'bigrams' ? {} : { max: 1 }
+  'unigrams',
+].map((methodName) => (document) => nlp(document)[methodName](
+  methodName === 'bigrams' ? {} : { max: 1 },
 ).map(
   methodName === 'unigrams'
     ? ({ normal }) => normal
-    : ({ count, normal }) => ({ count, normal })
+    : ({ count, normal }) => ({ count, normal }),
 ));
 
 const unigramsAndBigrams = {
   bigrams,
   endgrams,
   startgrams,
-  unigrams
+  unigrams,
 };
 
 export default unigramsAndBigrams;
