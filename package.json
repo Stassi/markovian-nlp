@@ -12,6 +12,9 @@
   ],
   "license": "MIT",
   "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
+  "contributors": [
+    "Kevin Willis (https://github.com/ManmadePlatypus)"
+  ],
   "files": [
     "/lib"
   ],
