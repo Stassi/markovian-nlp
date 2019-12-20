@@ -1,6 +1,6 @@
 {
   "name": "markovian-nlp",
-  "version": "7.0.2",
+  "version": "7.0.3",
   "description": "NLP tools generate Markov sentences & models.",
   "keywords": [
     "computational linguistics",
@@ -12,6 +12,9 @@
   ],
   "license": "MIT",
   "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
+  "contributors": [
+    "Kevin Willis (https://github.com/ManmadePlatypus)"
+  ],
   "files": [
     "/lib"
   ],
